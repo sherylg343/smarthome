@@ -6,6 +6,7 @@
     --clr-indigo: #6D5ACF;
     --clr-yellow: #FFFD01;
     --clr-teal: #b6fbff;
+    --clr-royal-blue: #02066F;
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
 }
@@ -66,14 +67,103 @@ h1, h4 {
 h1 {
     font-size: calc(4vw + 2rem);
 }
-#subhead {
-    margin-right: -15px;
-    margin-left: -15px;
-}
+
 h4 {
     font-size: calc(1.5vw + 1rem);
 }
 
 body {
     background: linear-gradient(to left, #83a4d4, #b6fbff);
+}
+
+.control-box {
+    color: var(--clr-white);
+    font-family: var(--ff-body);
+    font-weight: 500;
+    border: 5px solid var(--clr-royal-blue);
+    border-radius: 10%;
+    margin-top: 3rem;
+}
+
+.room-name {
+    font-size: 2rem;
+    padding-top: 4vh;
+    padding-bottom: 1.5vh;
+    text-align: center;
+}
+
+.box-type1 {
+    color: var(--clr-royal-blue);
+    font-size: 1.3rem;
+}
+
+#spinnerX {
+    width: 5rem;
+}
+
+/*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 2px solid #999999; 
+    border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; 
+    width: 200%; 
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; 
+    float: left; 
+    width: 50%; 
+    height: 30px; 
+    padding: 0; 
+    line-height: 30px;
+    font-size: 14px; 
+    color: white; 
+    font-family: Trebuchet, Arial, sans-serif; 
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: var(--clr-indigo); color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; 
+    width: 14px; 
+    margin: 8px;
+    background: #FFFFFF;
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; 
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
 }
