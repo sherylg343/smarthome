@@ -6,15 +6,60 @@
     --clr-indigo: #6D5ACF;
     --clr-yellow: #FFFD01;
     --clr-teal: #b6fbff;
+    --clr-duskyblue: #475F94;
     --clr-royal-blue: #02066F;
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
+    --box-border: 5px solid var(--clr-royal-blue);
 }
 
 * {
     box-sizing: border-box;
 }
 
+/*-Colors--*/
+body {
+    background: linear-gradient(to left, #83a4d4, #b6fbff);
+}
+
+/*--Special Padding/Margins/Text/Borders--*/
+.bdr-l {
+    border-left: var(--box-border);
+}
+
+.bdr-r {
+    border-right: var(--box-border);
+}
+
+.bdr-t {
+    border-top: var(--box-border);
+}
+
+.bdr-b {
+    border-bottom: var(--box-border);
+}
+
+/*--Headings--*/
+header {
+    bottom: -13rem;
+}
+
+h1, h4 {
+    font-family: var(--ff-head);
+    font-weight: 900;
+    color: var(--clr-indigo);
+    text-align: center;
+}
+
+h1 {
+    font-size: calc(4vw + 2rem);
+}
+
+h4 {
+    font-size: calc(1.5vw + 1rem);
+}
+
+/*---Navbar---*/
 .navbar {
     width: 100%;
     background-color: var(--clr-white);
@@ -52,59 +97,35 @@
     padding-right: 5vw;
 }
 
-
-header {
-    bottom: -13rem;
-}
-
-h1, h4 {
-    font-family: var(--ff-head);
-    font-weight: 900;
-    color: var(--clr-indigo);
-    text-align: center;
-}
-
-h1 {
-    font-size: calc(4vw + 2rem);
-}
-
-h4 {
-    font-size: calc(1.5vw + 1rem);
-}
-
-body {
-    background: linear-gradient(to left, #83a4d4, #b6fbff);
-}
-
+/*--Control-Box--*/
 .control-box {
-    color: var(--clr-white);
+    color: var(--clr-duskyblue);
     font-family: var(--ff-body);
+    font-size: 1.1rem;
     font-weight: 500;
-    border: 5px solid var(--clr-royal-blue);
-    border-radius: 10%;
     margin-top: 3rem;
 }
 
 .room-name {
+    color: var(--clr-white);
     font-size: 2rem;
     padding-top: 4vh;
     padding-bottom: 1.5vh;
     text-align: center;
 }
 
-.box-type1 {
-    color: var(--clr-royal-blue);
-    font-size: 1.3rem;
-}
-
-#spinnerX {
-    width: 5rem;
+.function-name {
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
-    position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    position: relative; 
+    width: 90px;
+    -webkit-user-select:none; 
+    -moz-user-select:none; 
+    -ms-user-select: none;
 }
 .onoffswitch-checkbox {
     position: absolute;
@@ -166,4 +187,40 @@ body {
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
+}
+
+/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
+.temp form div{
+    overflow: hidden;
+    margin: 0 0 5px;
+}
+
+.temp label {
+    display: block;
+    float: left;
+    margin-left: 1rem;
+}
+
+.temp input[type=text] {
+    float: left;
+    text-align: center;
+    background: var(--clr-teal);
+    border: none;
+    width: 75px;
+}
+
+.tempbtn {
+    cursor: pointer;
+    float: left;
+    text-align: center;
+}
+
+#control-box i {
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--clr-indigo);
+}
+
+.fa-caret-square-down {
+    padding-left: 10px;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/63283f810c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
@@ -52,17 +53,17 @@
 
 <!--Controls-->
     <section>
-        <div class="container fluid control-box">
+        <div class="container fluid" id="control-box">
             <div class="row no-gutters justify-content-center">
-                <div class="col-6 text-align-center">
+                <div class="col-6 text-align-center bdr-t bdr-l bdr-r">
                     <div class="room-name">Whole House</div>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center">
-                <div class="col-2">
-                    <p class="box-type1 text-align-center">Lighting</p>
+                <div class="col-4 bdr-l">
+                    <p class="text-align-center function-name">Lighting</p>
                 </div>
-                <div class="col-3 pl-5">
+                <div class="col-2 pl-2 bdr-r">
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
                         <label class="onoffswitch-label" for="myonoffswitch">
@@ -73,10 +74,10 @@
                 </div>
             </div>
              <div class="row no-gutters justify-content-center">
-                <div class="col-4">
-                    <p class="box-type1 text-align-center">Heating Cooling System</p>
+                <div class="col-4 bdr-l">
+                    <p class="text-align-center function-name">Heating Cooling System</p>
                 </div>
-                <div class="col-3 pl-5">
+                <div class="col-2 pl-2 bdr-r">
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
                         <label class="onoffswitch-label" for="myonoffswitch">
@@ -86,21 +87,24 @@
                     </div>
                 </div>
             </div>
-             <div class="row no-gutters justify-content-center">
-                <div class="col-2">
-                    <p class="box-type1">Target Temperature</p>
-                </div>
-                <div class="col-3 pl-5">
+             <div class="row no-gutters justify-content-center p-b-5">
+                <div class="col-4 bdr-l p-l-2">
+                    <form class="temp">
+                        <label for="target" class="function-name">Target Temperature</label>
+                        <input type="text" id="target" name="target-temp" value="70">
+                    </form>
+                </div>  
+                 <div class="col-2 bdr-r">
                     <p>
-                        <input type="text" id="spinnerX" value="70" />
-                    <p>
+                        <i class="fas fa-caret-square-up tempbtn" id="inc"></i><i class="fas fa-caret-square-down tempbtn" id="dec"></i>
+                    </p>
                 </div>
              </div>
              <div class="row no-gutters justify-content-center">
-                <div class="col-2">
-                    <p class="box-type1 text-align-center">Ceiling Fans</p>
+                <div class="col-4 bdr-l bdr-b">
+                    <p class="text-align-center function-name">Ceiling Fans</p>
                 </div>
-                <div class="col-3 pl-5">
+                <div class="col-2 pl-2 bdr-r bdr-b">
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
                         <label class="onoffswitch-label" for="myonoffswitch">
