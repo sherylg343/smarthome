@@ -54,7 +54,8 @@
 <!--Controls-->
     <section>
         <div class="container fluid" id="control-box">
-            <div class="row no-gutters justify-content-center">
+            <div class="col-4 bdr-l">
+                    <div class="row no-gutters justify-content-center">
                 <div class="col-6 text-align-center bdr-t bdr-l bdr-r">
                     <div class="room-name">Whole House</div>
                 </div>
@@ -63,10 +64,79 @@
                 <div class="col-4 bdr-l">
                     <p class="text-align-center function-name">Lighting</p>
                 </div>
+                <div class="col-2 bdr-r">
+                    <img src="assets/images/light-icon.png" alt="Lightbulb Icon" class="light-icon">
+                </div>
+                <div class="col-3 pl-2 bdr-l">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch1">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3 bdr-r slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="brightness1"><br>
+                    <label for="brightness1" class="bright-label">Brightness</label>
+                </div>
+            </div>
+             <div class="row no-gutters justify-content-center">
+                <div class="col-4 bdr-l">
+                    <p class="text-align-center function-name">Heating Cooling System</p>
+                </div>
                 <div class="col-2 pl-2 bdr-r">
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch2">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+             <div class="row no-gutters justify-content-center p-b-5">
+                <div class="col-4 bdr-l p-l-2">
+                    <form class="temp">
+                        <label for="target1" class="function-name">Target Temperature</label>
+                        <input type="text" id="target1" name="target-temp" value="70">
+                    </form>
+                </div>  
+                 <div class="col-2 bdr-r">
+                    <p>
+                        <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
+                    </p>
+                </div>
+             </div>
+             <div class="row no-gutters justify-content-center">
+                <div class="col-4 bdr-l bdr-b">
+                    <p class="text-align-center function-name">Ceiling Fans</p>
+                </div>
+                <div class="col-2 pl-2 bdr-r bdr-b">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch3" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch3">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+             <div class="col-4 bdr-l">
+                    <div class="row no-gutters justify-content-center">
+                <div class="col-6 text-align-center bdr-t bdr-l bdr-r">
+                    <div class="room-name">Kitchen</div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <p class="text-align-center function-name">Lighting</p>
+                </div>
+             </div>
+             <div class="row no-gutters justify-content-center">
+                <div class="col-2 pl-2 bdr-r">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch1">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
                         </label>
@@ -79,8 +149,8 @@
                 </div>
                 <div class="col-2 pl-2 bdr-r">
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch2">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
                         </label>
@@ -90,29 +160,17 @@
              <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-4 bdr-l p-l-2">
                     <form class="temp">
-                        <label for="target" class="function-name">Target Temperature</label>
-                        <input type="text" id="target" name="target-temp" value="70">
+                        <label for="target1" class="function-name">Target Temperature</label>
+                        <input type="text" id="target1" name="target-temp" value="70">
                     </form>
                 </div>  
                  <div class="col-2 bdr-r">
                     <p>
-                        <i class="fas fa-caret-square-up tempbtn" id="inc"></i><i class="fas fa-caret-square-down tempbtn" id="dec"></i>
+                        <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
                     </p>
                 </div>
              </div>
-             <div class="row no-gutters justify-content-center">
-                <div class="col-4 bdr-l bdr-b">
-                    <p class="text-align-center function-name">Ceiling Fans</p>
-                </div>
-                <div class="col-2 pl-2 bdr-r bdr-b">
-                    <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+        </div>
     </section>
 </body>
+</html>

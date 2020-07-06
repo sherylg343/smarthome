@@ -1,27 +1,20 @@
-//jquery code from jQuery User Interface (https://jqueryui.com/spinner/)
-$( function() {
-    var spinner = $( "#spinner" ).spinner();
- 
-    $( "#disable" ).on( "click", function() {
-      if ( spinner.spinner( "option", "disabled" ) ) {
-        spinner.spinner( "enable" );
-      } else {
-        spinner.spinner( "disable" );
-      }
-    });
-    $( "#destroy" ).on( "click", function() {
-      if ( spinner.spinner( "instance" ) ) {
-        spinner.spinner( "destroy" );
-      } else {
-        spinner.spinner();
-      }
-    });
-    $( "#getvalue" ).on( "click", function() {
-      alert( spinner.spinner( "value" ) );
-    });
-    $( "#setvalue" ).on( "click", function() {
-      spinner.spinner( "value", 70 );
-    });
- 
-    $( "button" ).button();
-  } );
+//code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
+$(".tempbutton").on("click", function() {
+
+  var $button = $(this);
+  var oldValue = $tempbutton.parent().find("input").val();
+
+  if ($tempbutton.text() == "+") {
+	  var newVal = parseFloat(oldValue) + 1;
+	} else {
+   // Don't allow decrementing below zero
+    if (oldValue > 0) {
+      var newVal = parseFloat(oldValue) - 1;
+    } else {
+      newVal = 0;
+    }
+  }
+
+  $tempbutton.parent().find("input").val(newVal);
+
+});
