@@ -39,6 +39,20 @@ body {
     border-bottom: var(--box-border);
 }
 
+.room-name {
+    color: var(--clr-white);
+    font-size: 2rem;
+    padding-top: 4vh;
+    padding-bottom: 1.5vh;
+    text-align: center;
+}
+
+.function-name {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
 /*--Headings--*/
 header {
     bottom: -13rem;
@@ -105,19 +119,6 @@ h4 {
     font-size: 1.1rem;
     font-weight: 500;
     margin-top: 3rem;
-}
-
-.room-name {
-    color: var(--clr-white);
-    font-size: 2rem;
-    padding-top: 4vh;
-    padding-bottom: 1.5vh;
-    text-align: center;
-}
-
-.function-name {
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
@@ -263,28 +264,38 @@ h4 {
 }
 
 .room-icon {
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     margin-left: 1rem;
     margin-top: 1.5rem;
     border: 2px solid var(--clr-teal);
     background-color: var(--clr-teal);
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
-#light-icon {
+#light-icon1, #light-icon2 {
     display: block;
     margin-left: 33%;
-    width: 40px;
-    height: 40px;
-    border: 3px solid black;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
     border-radius: 50%;
     background-color: var(--clr-yellow);
     opacity: 0.6;
-
 }
 
 
-.hcmode {
+#fan-icon1 {
+    display: block;
+    margin-left: 33%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+
+.hcmode, .fan {
     text-align: center;
 }
