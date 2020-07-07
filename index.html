@@ -255,7 +255,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 bdr-l bdr-r pb-2">
                     <form class="temp">
-                        <label for="actual-kitchen" class="function-name">Actual Temp.</label>
+                        <label for="actual-gr" class="function-name">Actual Temp.</label>
                         <input type="text" id="actual-gr" name="actual-temp" value="70">
                     </form>
                 </div>
@@ -265,6 +265,139 @@
                     <form class="temp">
                         <label for="target3" class="function-name">Target Temp.</label>
                         <input type="text" id="target3" name="target-temp" value="70">
+                        <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
+                    </form>
+                </div>  
+            </div>
+            <div class="row no-gutters justify-content-center my-auto">
+                <div class="col-6 bdr-l pb-2">
+                    <p class="text-align-center function-name">Ceiling Fan</p>
+                </div>
+                <div class="col-4 bdr-r pb-2">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch8" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch8">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-5 bdr-l pb-2 light-icon">
+                    <img src="assets/images/fan-icon.png" alt="Ceiling Fan Icon" id="fan-icon1">
+                </div>
+                <div class="col-5 bdr-r pb-2 slidecontainer">
+                    <input type="range" min="1" max="4" value="2" class="slider" id="speed1"><br>
+                    <label for="speed1" class="speed-label">Speed</label>
+                </div>
+            </div> 
+            <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
+                <div class="col-10 bdr-l bdr-r bdr-b pb-3">
+                    <label for="fan-direction1">Fan Direction:</label>
+                    <select id="fan-direction1" name="direction1">
+                        <option value="clockwise" selected>Clockwise</option>
+                        <option value="counterclockwise">Counterclockwise</option>
+                    </select>
+                </div>
+            </div>
+    <!--Master Bedroom-->  
+            <div class="row no-gutters justify-content-center">
+                <div class="col-7 bdr-t bdr-l">
+                    <p class="room-name">Master Bedroom</p>
+                </div>
+                <div class="col-3 bdr-t bdr-r">
+                    <p>
+                        <img src="assets/images/masterbr-icon.png" alt="Master Bedroom Icon" class="room-icon" >
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center my-auto">
+                <div class="col-6 bdr-l">
+                    <p class="text-align-center function-name">Light-overhead</p>
+                </div>
+                <div class="col-4 bdr-r">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch9" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch9">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-5 bdr-l light-icon">
+                    <img src="assets/images/light-icon2.png" alt="Lightbulb Icon" id="light-icon3">
+                </div>
+                <div class="col-5 bdr-r slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="brightness3"><br>
+                    <label for="brightness3" class="bright-label">Brightness</label>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center my-auto">
+                <div class="col-6 bdr-l">
+                    <p class="text-align-center function-name">Light-lamp</p>
+                </div>
+                <div class="col-4 bdr-r">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch10" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch10">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-5 bdr-l light-icon">
+                    <img src="assets/images/light-icon2.png" alt="Lightbulb Icon" id="light-icon4">
+                </div>
+                <div class="col-5 bdr-r slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="brightness4"><br>
+                    <label for="brightness4" class="bright-label">Brightness</label>
+                </div>
+            </div>
+             <div class="row no-gutters justify-content-center">
+                <div class="col-6 bdr-l">
+                    <p class="text-align-center function-name">Heating Cooling System</p>
+                </div>
+                <div class="col-4 bdr-r pb-2">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch11" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch11">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center p-b-5 hcmode">
+                <div class="col-10 bdr-l bdr-r pb-2">
+                    <label for="hvac-mode3">Mode:</label>
+                    <select id="hvac-mode3" name="mode3">
+                        <option value="fully-auto">Fully Auto</option>
+                        <option value="auto-heating">Auto Heating</option>
+                        <option value="auto-cooling" selected>Auto Cooling</option>
+                        <option value="manual-heating">Manual Heating</option>
+                        <option value="manual-cooling">Manual Cooling</option>
+                        <option value="service-mode">Service Mode</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center p-b-5">
+                <div class="col-10 bdr-l bdr-r pb-2">
+                    <form class="temp">
+                        <label for="actual-master" class="function-name">Actual Temp.</label>
+                        <input type="text" id="actual-master" name="actual-temp" value="70">
+                    </form>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center p-b-5">
+                <div class="col-10 bdr-l bdr-r pb-2">
+                    <form class="temp">
+                        <label for="target4" class="function-name">Target Temp.</label>
+                        <input type="text" id="target4" name="target-temp" value="70">
                         <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
                     </form>
                 </div>  
