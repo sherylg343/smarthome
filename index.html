@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/63283f810c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <meta name="Amenity Smart Home Control"
         content="Demo Smart Home Manager">
@@ -58,7 +63,7 @@
                 </div>
                 <div class="col-3 text-align-center bdr-t bdr-r">
                     <p>
-                        <img src="assets/images/home-icon2.png" alt="House Icon" class="room-icon" >
+                        <img src="assets/images/house-icon3.png" alt="House Icon" class="room-icon" >
                     </p>
                 </div>
             </div>
@@ -128,7 +133,7 @@
                 <div class="col-6 bdr-l">
                     <p class="text-align-center function-name">Light-overhead</p>
                 </div>
-                <div class="col-4 bdr-r">
+                <div class="col-4 bdr-r pb-2">
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4" tabindex="0" checked>
                         <label class="onoffswitch-label" for="myonoffswitch4">
@@ -191,7 +196,7 @@
                     </form>
                 </div>  
              </div>
-    <!--Great Room-->  
+<!--Great Room-->  
             <div class="row no-gutters justify-content-center">
                 <div class="col-7 bdr-t bdr-l">
                     <p class="room-name">Great Room</p>
@@ -408,8 +413,8 @@
                 </div>
                 <div class="col-4 bdr-r pb-2">
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch8" tabindex="0" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch8">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch12" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch12">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
                         </label>
@@ -418,20 +423,117 @@
             </div>
             <div class="row no-gutters justify-content-center">
                 <div class="col-5 bdr-l pb-2 light-icon">
-                    <img src="assets/images/fan-icon.png" alt="Ceiling Fan Icon" id="fan-icon1">
+                    <img src="assets/images/fan-icon.png" alt="Ceiling Fan Icon" id="fan-icon2">
                 </div>
                 <div class="col-5 bdr-r pb-2 slidecontainer">
-                    <input type="range" min="1" max="4" value="2" class="slider" id="speed1"><br>
+                    <input type="range" min="1" max="4" value="2" class="slider" id="speed2"><br>
                     <label for="speed1" class="speed-label">Speed</label>
                 </div>
             </div> 
             <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
                 <div class="col-10 bdr-l bdr-r bdr-b pb-3">
                     <label for="fan-direction1">Fan Direction:</label>
-                    <select id="fan-direction1" name="direction1">
+                    <select id="fan-direction2" name="direction1">
                         <option value="clockwise" selected>Clockwise</option>
                         <option value="counterclockwise">Counterclockwise</option>
                     </select>
+                </div>
+            </div>
+    <!--Garage-->  
+            <div class="row no-gutters justify-content-center">
+                <div class="col-7 bdr-t bdr-l">
+                    <p class="room-name">Garage</p>
+                </div>
+                <div class="col-3 bdr-t bdr-r">
+                    <p>
+                        <img src="assets/images/garage-icon.png" alt="Garage Icon" class="room-icon" >
+                    </p>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center my-auto">
+                <div class="col-6 bdr-l">
+                    <p class="text-align-center function-name">Light-overhead</p>
+                </div>
+                <div class="col-4 bdr-r">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch13" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch13">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-5 bdr-l light-icon">
+                    <img src="assets/images/light-icon2.png" alt="Lightbulb Icon" id="light-icon5">
+                </div>
+                <div class="col-5 bdr-r slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="brightness5"><br>
+                    <label for="brightness5" class="bright-label">Brightness</label>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center my-auto">
+                <div class="col-6 bdr-l">
+                    <p class="text-align-center function-name">Light-outdoor</p>
+                </div>
+                <div class="col-4 bdr-r">
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch14" tabindex="0" checked>
+                        <label class="onoffswitch-label" for="myonoffswitch14">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-5 bdr-l bdr-b pb-2 mb-3 light-icon">
+                    <img src="assets/images/light-icon2.png" alt="Lightbulb Icon" id="light-icon6">
+                </div>
+                <div class="col-5 bdr-r bdr-b pb-2 mb-3 slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="brightness6"><br>
+                    <label for="brightness6" class="bright-label">Brightness</label>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--Scheduler-->
+    <section>
+        <div class="container fluid" id="scheduler">
+<!--Schedule Menus-->  
+            <div class="row no-gutters">
+                <h4 class="col-12 mb-3">Scheduler</h4>
+            </div>    
+            <div class="row no-gutters justify-content-center"> 
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <label class="control-label">Start Date/Time</label>
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                    </div>
+                </div>
+                <div class='col-md-5'>
+                    <div class="form-group">
+                        <label class="control-label">End Date/Time</label>
+                            <div class='input-group date' id='datetimepicker2'>
+                                <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row no-gutters justify-content-center"> 
+                <div class="col-md-5 justify-contents-center">
+                    <input type="submit" class="btn btn-primary" value="Submit">
                 </div>
             </div>
         </div>

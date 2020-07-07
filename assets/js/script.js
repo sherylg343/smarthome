@@ -29,3 +29,9 @@ output.innerHTML = slider.value; // Display the default slider value
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
+
+//code from solodev: "Adding a DateTime Picker to your Forms", by Matthieu McClintock, (https://www.solodev.com/blog/web-design/adding-a-datetime-picker-to-your-forms.stml)
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+ });

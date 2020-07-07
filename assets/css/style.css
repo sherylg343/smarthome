@@ -20,6 +20,9 @@
 /*-Colors--*/
 body {
     background: linear-gradient(to left, #83a4d4, #b6fbff);
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+    font-weight: 600;
 }
 
 /*--Special Padding/Margins/Text/Borders--*/
@@ -42,14 +45,21 @@ body {
 .room-name {
     color: var(--clr-white);
     font-size: 2rem;
-    padding-top: 4vh;
+    padding-top: 3vh;
     padding-bottom: 1.5vh;
     text-align: center;
+    font-weight: 600;
 }
 
 .function-name {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+label {
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+    font-weight: 600;
 }
 
 
@@ -273,7 +283,8 @@ h4 {
     border-radius: 20%;
 }
 
-#light-icon1, #light-icon2, #light-icon3, #light-icon4 {
+#light-icon1, #light-icon2, #light-icon3, #light-icon4, 
+#light-icon5, #light-icon6 {
     display: block;
     margin-left: 33%;
     width: 2.5rem;
@@ -285,7 +296,7 @@ h4 {
 }
 
 
-#fan-icon1 {
+#fan-icon1, #fan-icon2 {
     display: block;
     margin-left: 33%;
     width: 3rem;
