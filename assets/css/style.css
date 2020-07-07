@@ -116,8 +116,8 @@ h4 {
 }
 
 .function-name {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
@@ -199,7 +199,6 @@ h4 {
 .temp label {
     display: block;
     float: left;
-    margin-left: 1rem;
 }
 
 .temp input[type=text] {
@@ -230,8 +229,8 @@ h4 {
 .slider {
   -webkit-appearance: none;
   width: 80%;
-  height: 15px;
-  border-radius: 5px;  
+  height: 12px;
+  border-radius: 4px;  
   background: var(--clr-teal);
   outline: none;
   opacity: 0.7;
@@ -242,16 +241,16 @@ h4 {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%; 
   background: var(--clr-indigo);
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--clr-indigo);
   cursor: pointer;
@@ -260,26 +259,29 @@ h4 {
 .slidecontainer label {
     display: block;
     float: left;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
-#kitchen-icon {
-    width: 60px;
-    height: 60px;
-    background-position: top right;
-    border: 2px solid var(--clr-yellow);
-    background-color: var(--clr-yellow);
+.room-icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    border: 2px solid var(--clr-teal);
+    background-color: var(--clr-teal);
     border-radius: 50%;
-    margin-left: 4rem;
 }
 
 #light-icon {
     display: block;
-    margin-left: 25%;
-    width: 50px;
-    height: 50px;
+    margin-left: 33%;
+    width: 40px;
+    height: 40px;
     border: 3px solid black;
     border-radius: 50%;
+    background-color: var(--clr-yellow);
+    opacity: 0.6;
+
 }
 
 
