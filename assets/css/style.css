@@ -257,14 +257,31 @@ h4 {
   cursor: pointer;
 }
 
-.light-icon img {
+.slidecontainer label {
+    display: block;
+    float: left;
+    margin-left: 2rem;
+}
+
+#kitchen-icon {
+    width: 60px;
+    height: 60px;
+    background-position: top right;
+    border: 2px solid var(--clr-yellow);
+    background-color: var(--clr-yellow);
+    border-radius: 50%;
+    margin-left: 4rem;
+}
+
+#light-icon {
     display: block;
     margin-left: 25%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border: 3px solid black;
     border-radius: 50%;
 }
+
 
 .hcmode {
     text-align: center;
