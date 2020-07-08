@@ -56,6 +56,12 @@ body {
     padding-right: 1rem;
 }
 
+#scheduler .function-name {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: left;
+}
+
 label {
     font-family: var(--ff-body);
     color: var(--clr-royal-blue);
@@ -68,9 +74,9 @@ label {
 
 
 /*--Headings--*/
-header {
+/*header {
     bottom: -13rem;
-}
+}*/
 
 h1, h3, h4, h5 {
     font-family: var(--ff-head);
@@ -264,7 +270,6 @@ h5 {
 .navbar {
     width: 100%;
     background-color: var(--clr-white);
-    color: var(--blue);
     font-size: 1.5rem;
     font-weight: 500;
     font-family: var(--ff-head);
@@ -293,10 +298,33 @@ h5 {
     margin-left: 0.5rem;
 }
 
-#link1 {
-    padding-left: 20vw;
-    padding-right: 5vw;
+#link1, #link2 {
+    color: var(--clr-indigo);
 }
+
+@media (min-width: 768px) {
+    #link1 {
+        padding-left: 20vw;
+        padding-right: 5vw;
+    }
+}
+
+@media (min-width: 768px) {
+    ul.navbar-nav {
+        font-family: var(--ff-head);
+        font-weight: 600;
+        transform: scale(1);
+        transition: transform 300ms ease-in-out;
+    }
+}
+
+@media (min-width: 768px) {
+    ul.navbar-nav a:hover {
+        color: var(--clr-royal-blue) !important;
+        transform: scale(1.2);
+    }
+}
+
 
 /*--Sections--*/
 .control-box {
