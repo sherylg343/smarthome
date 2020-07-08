@@ -89,12 +89,24 @@ h3 {
 
 h4 {
     font-size: calc(1.5vw + 1rem);
-    padding-bottom: 2rem;
 }
 
 h5 {
     font-size: calc(0.75vw + 1rem);
     color: var(--clr-duskyblue);
+}
+
+#footer-head {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.footer-sub {
+    font-family: var(--ff-head);
+    font-weight: 500;
+    font-size: calc(.75vw + .5rem);
+    color: var(--clr-duskyblue);
+    margin-top: 0px;
 }
 
 /*--Images, Icons, Buttons--*>
@@ -214,14 +226,24 @@ h5 {
     border-radius: 20%;
 }
 
+#inline-list {
+    padding: 0px;
+}
+
+#inline-list li {
+    list-style: none;
+     display: inline;
+}
+
 .social-links {
     padding-bottom: 15px;
 }
 
 .social-links li a i {
-    width: 32px;
-    height: 32px;
+    width: 1.5rem;
+    height: 1.5rem;
     padding: 12px 0;
+    margin-top: 0;
     border-radius: 50%;
     font-size: 13px;
     line-height: 7px;
@@ -320,7 +342,8 @@ footer {
     text-align: center;
 }
 
-#control-box i {
+#control-box i, 
+#scheduler i {
     font-size: 25px;
     line-height: 30px;
     color: var(--clr-indigo);

@@ -22,11 +22,11 @@
 <body>
 
  <!--Nav-->
-    <nav class="navbar navbar-stick navbar-expand-sm">
+    <nav class="navbar navbar-stick navbar-expand-sm navbar-light">
         <a class="navbar-brand" href="index.html">
-        <img src="assets/images/amenity_logo2.png" alt="Amentiy" id="navlogo">
+            <img src="assets/images/amenity_logo2.png" alt="Amentiy" id="navlogo">
         </a>
-        <button class="navbar-toggler float-sm-right" type="button" data-toggle="collapse" 
+        <button class="navbar-toggler float-xs-right" type="button" data-toggle="collapse" 
         data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" 
         aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
             <h1 class="col-12">Demo</h1>
         </div>
         <div class="row no-gutters">
-            <h4 class="col-12">Our Smart Home Control Panel</h4>
+            <h4 class="col-12 pb-2">Our Smart Home Control Panel</h4>
         </div>
     </header>
 
@@ -405,7 +405,7 @@
                     <form class="temp">
                         <label for="target4" class="function-name">Target Temp.</label>
                         <input type="text" id="target4" name="target-temp" value="70">
-                        <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
+                            <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
                     </form>
                 </div>  
             </div>
@@ -610,7 +610,7 @@
                     <form class="temp">
                         <label for="target5" class="function-name">Target Temp.</label>
                         <input type="text" id="target5" name="target-temp" value="70">
-                        <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
+                            <i class="fas fa-caret-square-up tempbtn inc"></i><i class="fas fa-caret-square-down tempbtn dec"></i>
                     </form>
                 </div>  
             </div>
@@ -660,21 +660,21 @@
     </section>
     <footer>
         <div class="row no-gutters footer-specs">
-            <div class="col-12 mt-4">
-                <h3>Thanks for trying Amenity's Smart House Manager Demo!</h3>
-                <h5>For more information, click on the links below.</h5>
+            <div class="col-12" id="footer-head">
+                <h4>Thanks for trying Amenity's Smart House Manager Demo!</h4>
+                <p class="mb-0">For more information, click on the links below.</p>
             </div>
         </div>
         <div class="row no-gutters footer-specs">
-            <div class="col-7 mt-2">
-                <h5 class="uppercase general-sub ">Our Website</h5>
-                <p>
+            <div class="col-7">
+                <p class="footer-sub mb-0">Our Website</p>
+                <p class="mb-0">
                     <a target="_blank" href="https://www.amenitysh.com">www.amenitysh.com</a>
                 </p>
             </div>
-            <div class="col-3 mt-2">
-                <h5 class="uppercase general-sub ">Our Social</h5>
-                <ul class="list-inline social-links ">
+            <div class="col-3">
+                <p class="footer-sub mb-0">Our Social</p>
+                <ul class="social-links" id="inline-list">
                     <li><a target="_blank" href="https://twitter.com/explore "><i class="fa fa-twitter "></i></a></li>
                     <li><a target="_blank" href="https://www.linkedin.com/"><i class="fa fa-linkedin "></i></a></li>
                 </ul>
