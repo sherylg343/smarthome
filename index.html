@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/63283f810c.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <meta name="Amenity Smart Home Control"
         content="Demo Smart Home Manager">
@@ -506,29 +508,42 @@
                 <h4 class="col-12 mb-3">Scheduler</h4>
             </div>    
             <div class="row no-gutters justify-content-center"> 
-                <div class='col-md-5'>
+                <div class="col-10">
                     <div class="form-group">
                         <label class="control-label">Start Date/Time</label>
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                            </div>
-                    </div>
-                </div>
-                <div class='col-md-5'>
-                    <div class="form-group">
-                        <label class="control-label">End Date/Time</label>
-                            <div class='input-group date' id='datetimepicker2'>
-                                <input type='text' class="form-control" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" id="startdate">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
                             </div>
                     </div>
                 </div>
             </div>
+             <div class="row no-gutters justify-content-center"> 
+                <div class="col-10">
+                    <div class="form-group">
+                        <label class="control-label">End Date/Time</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" id="enddate">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center"> 
+                <div class="col-10">
+                    <label for="device-select">Device:</label>
+                    <select id="device-select" name="device">
+                        <option value="light-overhead" selected>Light-overhead</option>
+                        <option value="light-lamp">Light-lamp</option>
+                        <option value="light-outside">Light-outside</option>
+                        <option value="heating-coooling">Heating Cooling System</option>
+                        <option value="ceiling-fan">Ceiling Fan</option>
+                    </select>
+                </div>
 
 
             <div class="row no-gutters justify-content-center"> 
@@ -539,4 +554,18 @@
         </div>
     </section>
 </body>
+<script>
+ $(function() {
+    $('#startdate').datetimepicker({
+        format: 'DD/MM/YYYY',
+        icons: {
+            previous: "fas fa-chevron-left",
+            next: "fas fa-chevron-right",
+        },
+    });
+    $('.input-group-append').click(function(){
+        $('.form-control').trigger('focus');
+    });  
+ });
+</script>
 </html>

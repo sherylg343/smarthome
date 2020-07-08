@@ -310,3 +310,8 @@ h4 {
 .hcmode, .fan {
     text-align: center;
 }
+
+/*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
+.input-group-append {
+    cursor: pointer;
+}
