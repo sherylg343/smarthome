@@ -62,13 +62,17 @@ label {
     font-weight: 600;
 }
 
+.hcmode, .fan {
+    text-align: center;
+}
+
 
 /*--Headings--*/
 header {
     bottom: -13rem;
 }
 
-h1, h4 {
+h1, h3, h4, h5 {
     font-family: var(--ff-head);
     font-weight: 900;
     color: var(--clr-indigo);
@@ -79,57 +83,21 @@ h1 {
     font-size: calc(4vw + 2rem);
 }
 
+h3 {
+    font-size: calc(2vw + 1rem);
+}
+
 h4 {
     font-size: calc(1.5vw + 1rem);
     padding-bottom: 2rem;
 }
 
-/*---Navbar---*/
-.navbar {
-    width: 100%;
-    background-color: var(--clr-white);
-    color: var(--blue);
-    font-size: 1.5rem;
-    font-weight: 500;
-    font-family: var(--ff-head);
-    border-bottom: 5px solid var(--clr-yellow);
-}
-
-.navbar-stick {
-    display: flex;
-    top: 0px;
-    left: 0px; 
-    position: sticky;
-    z-index: 999999;
-}
-
-@media (min-width: 768px){ 
-    .navbar-nav .mr-auto {
-    flex: 1;
-    margin: auto  !important;
-    display: flex;
-    }   
-}
-
-#navlogo {
-    display: block;
-    width: calc(8vw + 3rem);
-    margin-left: 0.5rem;
-}
-
-#link1 {
-    padding-left: 20vw;
-    padding-right: 5vw;
-}
-
-/*--Control-Box--*/
-.control-box {
+h5 {
+    font-size: calc(0.75vw + 1rem);
     color: var(--clr-duskyblue);
-    font-family: var(--ff-body);
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-top: 3rem;
 }
+
+/*--Images, Icons, Buttons--*>
 
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
@@ -199,6 +167,132 @@ h4 {
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
+}
+
+.room-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    border: 2px solid var(--clr-teal);
+    background-color: var(--clr-teal);
+    border-radius: 20%;
+}
+
+#light-icon1, #light-icon2, #light-icon3, #light-icon4, 
+#light-icon5, #light-icon6, #light-icon7 {
+    display: block;
+    margin-left: 33%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: var(--clr-yellow);
+    opacity: 0.6;
+}
+
+
+#fan-icon1, #fan-icon2, #fan-icon3 {
+    display: block;
+    margin-left: 33%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+
+#btn-submit {
+    width: 5rem;
+    height: 2rem;
+    background-color: var(--clr-indigo);
+    color: #FFFFFF;
+    font-family: var(--ff-head);
+    font-weight: 600;
+    border: 2px solid var(--clr-indigo);
+    border-radius: 20%;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: var(--clr-royal-blue);
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background: var(--clr-teal);
+}
+
+/*---Navbar---*/
+.navbar {
+    width: 100%;
+    background-color: var(--clr-white);
+    color: var(--blue);
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: var(--ff-head);
+    border-bottom: 5px solid var(--clr-yellow);
+}
+
+.navbar-stick {
+    display: flex;
+    top: 0px;
+    left: 0px; 
+    position: sticky;
+    z-index: 999999;
+}
+
+@media (min-width: 768px){ 
+    .navbar-nav .mr-auto {
+    flex: 1;
+    margin: auto  !important;
+    display: flex;
+    }   
+}
+
+#navlogo {
+    display: block;
+    width: calc(8vw + 3rem);
+    margin-left: 0.5rem;
+}
+
+#link1 {
+    padding-left: 20vw;
+    padding-right: 5vw;
+}
+
+/*--Sections--*/
+.control-box {
+    color: var(--clr-duskyblue);
+    font-family: var(--ff-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 3rem;
+}
+
+footer {
+    background-color: #FFFFFF;
+    border-top: 5px solid var(--clr-yellow);
+}
+
+.footer-specs {
+    margin: .5rem;
+    text-align: center;
 }
 
 /*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
@@ -271,44 +365,6 @@ h4 {
     display: block;
     float: left;
     margin-left: 1rem;
-}
-
-.room-icon {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
-    border: 2px solid var(--clr-teal);
-    background-color: var(--clr-teal);
-    border-radius: 20%;
-}
-
-#light-icon1, #light-icon2, #light-icon3, #light-icon4, 
-#light-icon5, #light-icon6 {
-    display: block;
-    margin-left: 33%;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: var(--clr-yellow);
-    opacity: 0.6;
-}
-
-
-#fan-icon1, #fan-icon2 {
-    display: block;
-    margin-left: 33%;
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid #999999;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    opacity: 0.6;
-}
-
-.hcmode, .fan {
-    text-align: center;
 }
 
 /*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
