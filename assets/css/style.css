@@ -6,6 +6,7 @@
     --clr-indigo: #6D5ACF;
     --clr-yellow: #FFFD01;
     --clr-teal: #b6fbff;
+    --clr-darkteal: #66b2b2;
     --clr-duskyblue: #475F94;
     --clr-royal-blue: #02066F;
     --ff-head: 'Noto Sans JP', 'Sans';
@@ -23,6 +24,7 @@ body {
     font-family: var(--ff-body);
     color: var(--clr-royal-blue);
     font-weight: 600;
+    font-size: 1rem;
 }
 
 /*--Special Padding/Margins/Text/Borders--*/
@@ -54,6 +56,13 @@ body {
 .function-name {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+   .function-name {
+    padding-left: 2.5rem;
+    font-size: 1.4rem;
+    } 
 }
 
 #scheduler .function-name {
@@ -115,8 +124,122 @@ h5 {
     margin-top: 0px;
 }
 
-/*--Images, Icons, Buttons--*>
+/*--Images, Icons, Buttons, Inputs--*/
+.room-icon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    border: 2px solid var(--clr-teal);
+    background-color: var(--clr-teal);
+    border-radius: 20%;
+}
 
+#light-icon1, #light-icon2, #light-icon3, #light-icon4, 
+#light-icon5, #light-icon6, #light-icon7 {
+    display: block;
+    margin-left: 33%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: var(--clr-yellow);
+    opacity: 0.6;
+}
+
+
+#fan-icon1, #fan-icon2, #fan-icon3 {
+    display: block;
+    margin-left: 33%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+
+#control-box i, 
+#scheduler i {
+    font-size: 25px;
+    line-height: 30px;
+    color: var(--clr-indigo);
+}
+
+.fa-caret-square-up, .fa-caret-square-down {
+    padding-left: 10px;
+}
+
+select {
+    text-align: center;
+    background: var(--clr-teal);
+    border: none;
+    width: 150px;
+    font-family: var(--ff-body);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--clr-royal-blue);
+}
+
+#btn-submit {
+    width: 5rem;
+    height: 2rem;
+    background-color: var(--clr-indigo);
+    color: #FFFFFF;
+    font-family: var(--ff-head);
+    font-weight: 600;
+    border: 2px solid var(--clr-indigo);
+    border-radius: 20%;
+}
+
+@media (min-width: 768px) {
+    #btn-submit {
+        width: 7rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+#btn-submit:hover {
+    background: var(--clr-darkteal);
+}
+
+
+#inline-list {
+    padding: 0px;
+}
+
+#inline-list li {
+    list-style: none;
+     display: inline;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 12px 0;
+    margin-top: 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: var(--clr-royal-blue);
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background: var(--clr-teal);
+}
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
     position: relative; 
@@ -187,83 +310,32 @@ h5 {
     right: 0px; 
 }
 
-.room-icon {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
-    border: 2px solid var(--clr-teal);
-    background-color: var(--clr-teal);
-    border-radius: 20%;
+/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
+.temp form div{
+    overflow: hidden;
+    margin: 0 0 5px;
 }
 
-#light-icon1, #light-icon2, #light-icon3, #light-icon4, 
-#light-icon5, #light-icon6, #light-icon7 {
+.temp label {
     display: block;
-    margin-left: 33%;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: var(--clr-yellow);
-    opacity: 0.6;
+    float: left;
 }
 
-
-#fan-icon1, #fan-icon2, #fan-icon3 {
-    display: block;
-    margin-left: 33%;
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid #999999;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    opacity: 0.6;
-}
-
-#btn-submit {
-    width: 5rem;
-    height: 2rem;
-    background-color: var(--clr-indigo);
-    color: #FFFFFF;
-    font-family: var(--ff-head);
-    font-weight: 600;
-    border: 2px solid var(--clr-indigo);
-    border-radius: 20%;
-}
-
-#inline-list {
-    padding: 0px;
-}
-
-#inline-list li {
-    list-style: none;
-     display: inline;
-}
-
-.social-links {
-    padding-bottom: 15px;
-}
-
-.social-links li a i {
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: 12px 0;
-    margin-top: 0;
-    border-radius: 50%;
-    font-size: 13px;
-    line-height: 7px;
+.temp input[type=text] {
+    float: left;
     text-align: center;
-    color: #fafafa;
-    background: var(--clr-royal-blue);
-    transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    -webkit-transition: all 0.35s ease-in-out;
-    -o-transition: all 0.35s ease-in-out;
+    background: var(--clr-teal);
+    border: none;
+    width: 75px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--clr-royal-blue);
 }
 
-.social-links li a i:hover {
-    background: var(--clr-teal);
+.tempbtn {
+    cursor: pointer;
+    float: left;
+    text-align: center;
 }
 
 /*---Navbar---*/
@@ -320,7 +392,7 @@ h5 {
 
 @media (min-width: 768px) {
     ul.navbar-nav a:hover {
-        color: var(--clr-royal-blue) !important;
+        color: var(--clr-darkteal) !important;
         transform: scale(1.2);
     }
 }
@@ -343,42 +415,6 @@ footer {
 .footer-specs {
     margin: .5rem;
     text-align: center;
-}
-
-/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
-.temp form div{
-    overflow: hidden;
-    margin: 0 0 5px;
-}
-
-.temp label {
-    display: block;
-    float: left;
-}
-
-.temp input[type=text] {
-    float: left;
-    text-align: center;
-    background: var(--clr-teal);
-    border: none;
-    width: 75px;
-}
-
-.tempbtn {
-    cursor: pointer;
-    float: left;
-    text-align: center;
-}
-
-#control-box i, 
-#scheduler i {
-    font-size: 25px;
-    line-height: 30px;
-    color: var(--clr-indigo);
-}
-
-.fa-caret-square-up, .fa-caret-square-down {
-    padding-left: 10px;
 }
 
 /*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
