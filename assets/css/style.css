@@ -78,7 +78,7 @@ label {
 }
 
 .hcmode, .fan {
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -196,9 +196,9 @@ select {
 
 @media (min-width: 768px) {
     #btn-submit {
-        width: 7rem;
-        height: 3.5rem;
-        font-size: 1.5rem;
+        width: 6rem;
+        height: 3rem;
+        font-size: 1.25rem;
     }
 }
 
