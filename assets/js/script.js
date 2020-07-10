@@ -32,6 +32,12 @@ setInterval(checkDate, 60000);
 
 checkDate();
 
+//jquery timepicker for Scheduler
+$(function() {
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+});
+
 /*code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
 $(".tempbutton").on("click", function() {
 
