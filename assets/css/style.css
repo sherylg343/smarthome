@@ -108,15 +108,14 @@ h4 {
 
 h5 {
     font-size: calc(0.75vw + 1rem);
-    color: var(--clr-duskyblue);
 }
 
-#footer-head {
+#closing-head {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
 
-.footer-sub {
+.closing-sub {
     font-family: var(--ff-head);
     font-weight: 500;
     font-size: calc(.75vw + .5rem);
@@ -407,14 +406,28 @@ select {
     margin-top: 3rem;
 }
 
+#closing {
+    background-color: var(--clr-teal);
+}
+
+.closing-specs {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    text-align: center;
+}
+
 footer {
     background-color: #FFFFFF;
     border-top: 5px solid var(--clr-yellow);
+    margin: 0px;
 }
 
-.footer-specs {
-    margin: .5rem;
-    text-align: center;
+.footer-stick {
+    display: flex;
+    bottom: 0px;
+    left: 0px; 
+    position: sticky;
+    z-index: 999999;
 }
 
 /*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/

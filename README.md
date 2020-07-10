@@ -84,7 +84,9 @@ mockups were designed for the 3 primary screen sizes using Balsamiq software
 [Desktop](..smarthome/master/README-assets/#.pdf)
 </div>
 
-
+During creation of the website, the following changes were made to improve the design 
+originally created with the WireFrames.
+1.
 
 
 
