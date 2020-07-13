@@ -32,10 +32,19 @@ setInterval(checkDate, 60000);
 
 checkDate();
 
-//jquery timepicker for Scheduler
+//jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
+//and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/)
 $(function() {
     $('#datetimepicker1').datetimepicker();
-    $('#datetimepicker2').datetimepicker();
+    $('#datetimepicker2').datetimepicker({
+        useCurrent: false
+    });
+    $("#datetimepicker1").on("change.datetimepicker", function (e) {
+        $('#datetimepicker2').datetimepicker('minDate', e.date);
+    });
+    $("#datetimepicker2").on("change.datetimepicker", function (e) {
+        $('#datetimepicker1').datetimepicker('maxDate', e.date);
+    });
 });
 
 /*code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
