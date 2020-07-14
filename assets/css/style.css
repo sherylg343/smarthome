@@ -12,6 +12,8 @@
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
     --box-border: 5px solid var(--clr-royal-blue);
+    --light-opacity: 0.5;
+    --light-clr: rgb(219,219,219);
 }
 
 * {
@@ -144,8 +146,8 @@ h5 {
     height: 2.5rem;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: var(--clr-yellow);
-    opacity: 0.6;
+    background-color: var(--light-clr);
+    opacity: var(--light-opacity);
 }
 
 
@@ -335,6 +337,9 @@ select {
     cursor: pointer;
     float: left;
     text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--clr-indigo);
 }
 
 /*---Navbar---*/

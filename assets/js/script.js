@@ -66,20 +66,33 @@ $(".tempbutton").on("click", function() {
 
   $tempbutton.parent().find("input").val(newVal);
 
-});
+});*/
 
 
-//progress bar based on only 1
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
+//progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)
+//Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
+const slider = document.querySelectorAll('.slidecontainer input');
+//const bulb = document.querySelectorAll('.light-icon');
+//output.innerHTML = slider.value; // Display the default slider value
+
+//function sliderUpdate() {
+////    console.log(name);
+//}
+
+
+
+//slider.forEach(input => input.addEventListener('change', sliderUpdate));
+//slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
+
 
 //Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
+//slider.oninput = function() {
+//  output.innerHTML = this.value;
+//}
 
-//code from solodev: "Adding a DateTime Picker to your Forms", by Matthieu McClintock, (https://www.solodev.com/blog/web-design/adding-a-datetime-picker-to-your-forms.stml)
+
+
+/*code from solodev: "Adding a DateTime Picker to your Forms", by Matthieu McClintock, (https://www.solodev.com/blog/web-design/adding-a-datetime-picker-to-your-forms.stml)
   $(function() {
     $('#startdate').datetimepicker ({
         format: 'DD/MM/YYYY',
