@@ -12,8 +12,13 @@
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
     --box-border: 5px solid var(--clr-royal-blue);
-    --light-opacity: 0.5;
-    --light-clr: rgb(219,219,219);
+    --opacity1: 0.5;
+    --opacity2: 0.5;
+    --opacity3: 0.5;
+    --opacity4: 0.5;
+    --opacity5: 0.5;
+    --opacity6: 0.5;
+    --opacity7: 0.5;
 }
 
 * {
@@ -146,10 +151,36 @@ h5 {
     height: 2.5rem;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: var(--light-clr);
-    opacity: var(--light-opacity);
+    background-color: var(--clr-yellow);
 }
 
+#light-icon1 {
+    opacity: var(--opacity1);
+}
+
+#light-icon2 {
+    opacity: var(--opacity2);
+}
+
+#light-icon3 {
+    opacity: var(--opacity3);
+}
+
+#light-icon4 {
+    opacity: var(--opacity4);
+}
+
+#light-icon5 {
+    opacity: var(--opacity5);
+}
+
+#light-icon6 {
+    opacity: var(--opacity6);
+}
+
+#light-icon7 {
+    opacity: var(--opacity7);
+}
 
 #fan-icon1, #fan-icon2, #fan-icon3 {
     display: block;

@@ -69,20 +69,17 @@ $(".tempbutton").on("click", function() {
 });*/
 
 
-//progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)
+//progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
 //Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
 const slider = document.querySelectorAll('.slidecontainer input');
-//const bulb = document.querySelectorAll('.light-icon');
-//output.innerHTML = slider.value; // Display the default slider value
 
-//function sliderUpdate() {
-////    console.log(name);
-//}
+function sliderUpdate() {
+   opacity = this.value / 10;
+   document.documentElement.style.setProperty(`--${this.name}`, opacity);
+}
 
-
-
-//slider.forEach(input => input.addEventListener('change', sliderUpdate));
-//slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
+slider.forEach(input => input.addEventListener('change', sliderUpdate));
+slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
 
 
 //Update the current slider value (each time you drag the slider handle)
