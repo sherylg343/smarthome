@@ -19,6 +19,10 @@
     --opacity5: 0.5;
     --opacity6: 0.5;
     --opacity7: 0.5;
+    --fananimation1: rotate 2s linear infinite;
+    --fananimation2: rotate 1.5s linear infinite;
+    --fananimation3: rotate 1s linear infinite;
+    --fananimation4: rotate 0.5s linear infinite;
 }
 
 * {
@@ -190,7 +194,24 @@ h5 {
     border: 2px solid #999999;
     border-radius: 50%;
     background-color: #FFFFFF;
-    opacity: 0.6;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.clockwise {
+    animation-direction: forward;
+}
+
+.counterclockwise {
+    animation-direction: reverse;
 }
 
 #control-box i, 
@@ -497,7 +518,7 @@ footer {
   cursor: pointer;
 }
 
-.slidecontainer label {
+.slidecontainer1 label, .slidecontainer2 label {
     display: block;
     float: left;
     margin-left: 1rem;

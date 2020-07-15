@@ -71,7 +71,7 @@ $(".tempbutton").on("click", function() {
 
 //progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
 //Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
-const slider = document.querySelectorAll('.slidecontainer input');
+const slider = document.querySelectorAll('.slidecontainer1 input');
 
 function sliderUpdate() {
    opacity = this.value / 10;
@@ -81,38 +81,16 @@ function sliderUpdate() {
 slider.forEach(input => input.addEventListener('change', sliderUpdate));
 slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
 
-
-//Update the current slider value (each time you drag the slider handle)
-//slider.oninput = function() {
-//  output.innerHTML = this.value;
-//}
+//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/)
+const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
 
+//need to access next sibling option value to add .clockwise or .counterclockwise
+//not working yet
+function speedControl() {
+    document.documentElement.style.setProperty(`--fananimation${this.value}`);
+}
+ 
 
-/*code from solodev: "Adding a DateTime Picker to your Forms", by Matthieu McClintock, (https://www.solodev.com/blog/web-design/adding-a-datetime-picker-to-your-forms.stml)
-  $(function() {
-    $('#startdate').datetimepicker ({
-        format: 'DD/MM/YYYY',
-        icons: {
-            previous: "fas fa-chevron-left",
-            next: "fas fa-chevron-right",
-        },
-    });
-    $('.input-group-append').click(function(){
-        $(".input-group-text").trigger('focus');
-    });  
- });
-
- $(function() {
-    $('#enddate').datetimepicker ({
-        format: 'DD/MM/YYYY',
-        icons: {
-            previous: "fas fa-chevron-left",
-            next: "fas fa-chevron-right",
-        },
-    });
-    $(".input-group-append").click(function(){
-        $(".input-group-text").trigger('focus');
-    });  
- });
- */
+speedSlide.forEach(input => input.addEventListener('change', speedControl));
+speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
