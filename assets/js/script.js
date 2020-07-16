@@ -81,16 +81,41 @@ function sliderUpdate() {
 slider.forEach(input => input.addEventListener('change', sliderUpdate));
 slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
 
-//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/)
+//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),
+//from "An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/), and
+//from "Finding the next and previous sibling elements that match a selector with vanilla JS" in GoMakeThings on 9/6/18 (https://gomakethings.com/finding-the-next-and-previous-sibling-elements-that-match-a-selector-with-vanilla-js/)
 const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
-
-//need to access next sibling option value to add .clockwise or .counterclockwise
-//not working yet
 function speedControl() {
-    document.documentElement.style.setProperty(`--fananimation${this.value}`);
+    const fanSelector = '.fan-direction';
+    const getNextSibling = function (this, fanSelector) {
+
+	// Get the next sibling element
+	let sibling = this.nextElementSibling;
+
+	// If there's no selector, return the first sibling
+	if (!fanSelector) return sibling;
+
+	// If the sibling matches our selector, use it
+	// If not, jump to the next sibling and continue the loop
+	while (sibling) {
+		if (sibling.matches(fanSelector)) return sibling;
+		sibling = sibling.nextElementSibling;
+	}
+    let direction = sibling.value;
+    const animDirection = (direction = "clockwise") ? "normal" : "reverse";
+
+    const speed = ( {
+        4: 0.5,
+        3: 1,
+        2: 1.5,
+        1: 2,
+    }) [this.value] || 0;
+
+    document.documentElement.setProperty(animation-direction, animDirection);
+    document.documentElement.style.setProperty(`--${this.name}`, speed + "s");
+    };
 }
- 
 
 speedSlide.forEach(input => input.addEventListener('change', speedControl));
 speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));

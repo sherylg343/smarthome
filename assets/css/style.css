@@ -19,10 +19,9 @@
     --opacity5: 0.5;
     --opacity6: 0.5;
     --opacity7: 0.5;
-    --fananimation1: rotate 2s linear infinite;
-    --fananimation2: rotate 1.5s linear infinite;
-    --fananimation3: rotate 1s linear infinite;
-    --fananimation4: rotate 0.5s linear infinite;
+    --fanspeed1: 1s;;
+    --fanspeed2: 1s;
+    --fanspeed3: 1s;
 }
 
 * {
@@ -194,8 +193,21 @@ h5 {
     border: 2px solid #999999;
     border-radius: 50%;
     background-color: #FFFFFF;
+    animation: rotate linear; 
+    animation-iteration-count: infinite;
 }
 
+#fan-icon1 {
+    animation-duration: var(--fanspeed1);
+}
+
+#fan-icon2 {
+    animation-duration: var(--fanspeed2);
+}
+
+#fan-icon3 {
+    animation-duration: var(--fanspeed3);
+}
 
 @keyframes rotate {
     from {
