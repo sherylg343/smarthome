@@ -47,26 +47,30 @@ $(function() {
     });
 });
 
-/*code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
-$(".tempbutton").on("click", function() {
+//code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
+$(".tempbutton").click(function(){
 
-  var $button = $(this);
-  var oldValue = $tempbutton.parent().find("input").val();
+    var targetButton = $(this);
+    console.log(this);
+    var oldValue = $tempbutton.parent().find("input").val();
+    console.log(oldValue);
 
-  if ($tempbutton.text() == "+") {
+    if ($(targetButton).hasclass("inc")) {
+//    if ($tempbutton.text() == "+") {
 	  var newVal = parseFloat(oldValue) + 1;
 	} else {
    // Don't allow decrementing below zero
-    if (oldValue > 0) {
+    if (oldValue > 0 && $(targetButton).hasclass("dec")){
       var newVal = parseFloat(oldValue) - 1;
+
     } else {
-      newVal = 0;
+      newVal = oldValue;
    }
   }
 
   $tempbutton.parent().find("input").val(newVal);
 
-});*/
+});
 
 
 //progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
@@ -83,27 +87,9 @@ slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
 
 //rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),
 //from "An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/), and
-//from "Finding the next and previous sibling elements that match a selector with vanilla JS" in GoMakeThings on 9/6/18 (https://gomakethings.com/finding-the-next-and-previous-sibling-elements-that-match-a-selector-with-vanilla-js/)
 const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
 function speedControl() {
-    const fanSelector = '.fan-direction';
-    const getNextSibling = function (this, fanSelector) {
-
-	// Get the next sibling element
-	let sibling = this.nextElementSibling;
-
-	// If there's no selector, return the first sibling
-	if (!fanSelector) return sibling;
-
-	// If the sibling matches our selector, use it
-	// If not, jump to the next sibling and continue the loop
-	while (sibling) {
-		if (sibling.matches(fanSelector)) return sibling;
-		sibling = sibling.nextElementSibling;
-	}
-    let direction = sibling.value;
-    const animDirection = (direction = "clockwise") ? "normal" : "reverse";
 
     const speed = ( {
         4: 0.5,
@@ -111,11 +97,21 @@ function speedControl() {
         2: 1.5,
         1: 2,
     }) [this.value] || 0;
-
-    document.documentElement.setProperty(animation-direction, animDirection);
-    document.documentElement.style.setProperty(`--${this.name}`, speed + "s");
-    };
-}
+  
+   document.documentElement.style.setProperty(`--${this.name}`, speed + "s");
+}; 
 
 speedSlide.forEach(input => input.addEventListener('change', speedControl));
 speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
+
+//fan direction
+$('.fan-direction').change(function() {
+    var the_id = $(this).attr('id');
+    console.log(the_id);
+    var direction = "#"+the_id+" option:selected"
+    console.log($(direction).val());
+    const animDirection = (direction === "clockwise") ? "normal" : "reverse";
+    console.log(animDirection);
+    document.documentElement.style.setProperty(`--${this.name}`, animDirection);
+});
+

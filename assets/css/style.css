@@ -22,6 +22,9 @@
     --fanspeed1: 1s;;
     --fanspeed2: 1s;
     --fanspeed3: 1s;
+    --direction1: normal;
+    --direction2: normal;
+    --direction3: normal;
 }
 
 * {
@@ -199,14 +202,17 @@ h5 {
 
 #fan-icon1 {
     animation-duration: var(--fanspeed1);
+    animation-direction: var(--direction1);
 }
 
 #fan-icon2 {
     animation-duration: var(--fanspeed2);
+    animation-direction: var(--direction2);
 }
 
 #fan-icon3 {
     animation-duration: var(--fanspeed3);
+    animation-direction: var(--direction3);
 }
 
 @keyframes rotate {
