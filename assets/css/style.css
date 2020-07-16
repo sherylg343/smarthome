@@ -69,6 +69,8 @@ body {
 .function-name {
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--clr-royal-blue);
+    font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -232,17 +234,6 @@ h5 {
     animation-direction: reverse;
 }
 
-#control-box i, 
-#scheduler i {
-    font-size: 25px;
-    line-height: 30px;
-    color: var(--clr-indigo);
-}
-
-.fa-caret-square-up, .fa-caret-square-down {
-    padding-left: 10px;
-}
-
 select {
     text-align: center;
     background: var(--clr-teal);
@@ -398,7 +389,7 @@ select {
     background: var(--clr-teal);
     border: none;
     width: 75px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     color: var(--clr-royal-blue);
 }
@@ -407,9 +398,24 @@ select {
     cursor: pointer;
     float: left;
     text-align: center;
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 35px;
+    line-height: 35px;
     color: var(--clr-indigo);
+    border: none;
+    padding: 0px;
+    color: var(--clr-white);
+    background: transparent;
+}
+
+#control-box i, 
+#scheduler i {
+    font-size: 35px;
+    line-height: 35px;
+    color: var(--clr-indigo);
+}
+
+.fa-caret-square-up, .fa-caret-square-down {
+    padding-left: 10px;
 }
 
 /*---Navbar---*/
