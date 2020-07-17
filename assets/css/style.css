@@ -392,6 +392,11 @@ select {
     font-size: 1rem;
     font-weight: 400;
     color: var(--clr-royal-blue);
+    transition: opacity 250ms ease-in;
+}
+
+.input-change {
+    background-color: rgba(182,251,255,0.2);
 }
 
 .tempbtn {
@@ -400,11 +405,11 @@ select {
     text-align: center;
     font-size: 35px;
     line-height: 35px;
-    color: var(--clr-indigo);
     border: none;
     padding: 0px;
     color: var(--clr-white);
     background: transparent;
+    transition: transform 300ms ease-in-out;
 }
 
 #control-box i, 
@@ -412,7 +417,13 @@ select {
     font-size: 35px;
     line-height: 35px;
     color: var(--clr-indigo);
+    transform: scale(1);
 }
+
+.tempbtn:hover {
+    transform: scale(1.2);
+    border: none;
+} 
 
 .fa-caret-square-up, .fa-caret-square-down {
     padding-left: 10px;

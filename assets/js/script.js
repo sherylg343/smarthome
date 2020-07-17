@@ -47,29 +47,23 @@ $(function() {
     });
 });
 
-//code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/)
-$(".tempbutton").click(function(){
+//code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
+//Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
+$(".tempbtn").click(function(){
+    let targetButton = $(this);
+    var oldValue = currentInput.val();
 
-    var targetButton = $(this);
-    console.log(this);
-    var oldValue = $tempbutton.parent().find("input").val();
-    console.log(oldValue);
-
-    if ($(targetButton).hasclass("inc")) {
-//    if ($tempbutton.text() == "+") {
-	  var newVal = parseFloat(oldValue) + 1;
+    if ($(targetButton).hasClass("inc")) {
+      let newValue = parseFloat(oldValue) + 1;
+      $(targetButton).parent().find("input").val(newValue);
+      
 	} else {
-   // Don't allow decrementing below zero
-    if (oldValue > 0 && $(targetButton).hasclass("dec")){
-      var newVal = parseFloat(oldValue) - 1;
-
-    } else {
-      newVal = oldValue;
-   }
+        if (oldValue > 0 && $(targetButton).hasClass("dec")){
+            let newValue = parseFloat(oldValue) - 1;
+            $(targetButton).parent().find("input").val(newValue);
+    } else
+       $(targetButton).parent().find("input").val(0); 
   }
-
-  $tempbutton.parent().find("input").val(newVal);
-
 });
 
 
