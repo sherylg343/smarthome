@@ -79,8 +79,9 @@ function sliderUpdate() {
 slider.forEach(input => input.addEventListener('change', sliderUpdate));
 slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
 
-//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),
-//from "An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/), and
+//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
+//by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),and from 
+//"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
 const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
 function speedControl() {
@@ -109,3 +110,16 @@ $('.fan-direction').change(function() {
     document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
 
+//Weather in Footer
+//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+
+//check if felocation API exists
+if(navigator.geolocation) {
+    //true
+    alert('Lets get the location (placeholder)');
+} else {
+    //false
+    alert('geolocation not available?! What browser is this?')
+    //promot for city?
+}
