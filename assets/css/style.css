@@ -283,13 +283,11 @@ select {
 }
 
 .social-links li a i {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 20px;
+    height: 20px;;
     padding: 12px 0;
     margin-top: 0;
     border-radius: 50%;
-    font-size: 13px;
-    line-height: 7px;
     text-align: center;
     color: #fafafa;
     background: var(--clr-royal-blue);
@@ -300,7 +298,7 @@ select {
 }
 
 .social-links li a i:hover {
-    background: var(--clr-teal);
+    background: var(--clr-indigo);
 }
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
