@@ -268,7 +268,6 @@ select {
     background: var(--clr-darkteal);
 }
 
-
 #inline-list {
     padding: 0px;
 }
@@ -518,6 +517,12 @@ footer {
     left: 0px; 
     position: sticky;
     z-index: 999999;
+}
+
+#icon i {
+    width: 20px;
+    height: 20px;
+    background: transparent;
 }
 
 /*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/

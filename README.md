@@ -1,5 +1,5 @@
 <h3 style="text-align: center">
-    <a href="https://sherylg343.github.io/smarthome/" target="_blank">
+    <a href=" https://sherylg343.github.io/smarthome/" target="_blank">
         <img src="assets/images/amenity_logo2.png" alt="Amentiy">
     </a>
 </h3>
