@@ -2,8 +2,6 @@
  //code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
  //and Javascript30.com, Day 2 - Clock, by Wes Bos
  //and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
-
-
 const footerDate = document.getElementById("footerdate");
 const footerTime = document.getElementById("footertime");
 
@@ -103,12 +101,79 @@ speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
 $('.fan-direction').change(function() {
     var the_id = $(this).attr('id');
     console.log(the_id);
-    var direction = "#"+the_id+" option:selected"
+    var direction = "#"+the_id+" option:selected";
     console.log($(direction).val());
     const animDirection = (direction === "clockwise") ? "normal" : "reverse";
     console.log(animDirection);
     document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
+//Scheduler 
+////activate appropriate selections
+let scheduler = document.getElementById("scheduler");
+
+function schedulerDisplay() {
+    $('#device-select').change(function() {
+        switch ($(this).val()) { 
+            case "light-overhead":
+                $(".heat-cool").addClass("d-none");
+                $(".cfan").addClass("d-none");
+            break;
+
+            case "light-lamp":
+                $(".heat-cool").addClass("d-none");
+                $(".cfan").addClass("d-none");
+            break;
+
+            case "light-outside":
+                $(".heat-cool").addClass("d-none");
+                $(".cfan").addClass("d-none");
+            break;
+
+            case "heating-cooling":
+                $(".bright").addClass("d-none");
+                $(".cfan").addClass("d-none");
+            break;
+
+            case "ceiling-fan":
+                $(".bright").addClass("d-none");
+                $(".heat-cool").addClass("d-none");
+            break;
+    
+            case "":
+                return;
+        }
+    });
+    
+    $("#myonoffswitch15").change(function() {
+        if (($("#myonoffswitch15")).hasClass("onoffswitch-inner:after")) {
+            $(".properties").addClass("d-none");
+            $(".bright").addClass("d-none");
+            $(".heat-cool").addClass("d-none");
+            $(".cfan").addClass("d-none");
+        } else {
+            return;
+        }
+    });
+}
+
+scheduler.addEventListener("change", schedulerDisplay);
+scheduler.addEventListener("click", schedulerDisplay);
+ 
+        //case 'heating-cooling':
+        //    document.documentElement.style.setProperty("--opacity7", ".2");
+        //    document.documentElement.style.setProperty("--fan-speed3", "0s");
+        //    $("#fan-direction3").val("blank2").change();
+       // break;
+       // case 'ceiling-fan':
+       //     document.documentElement.style.setProperty("--opacity7", ".2");
+        //    $("#target5").val("blank1").change();
+       //     $(".tempbtn").addClass("click-off");
+       // break;  
+ //after submit to local storage need to reset all fields - list all.reset?   
+
+
+
+
 
 //Weather in Footer
 //code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
@@ -116,16 +181,14 @@ $('.fan-direction').change(function() {
 //and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 
 //check if gelocation API exists
-if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
-} else {
-    alert('geolocation not available')
-//    let zipEntry = prompt("Please enter zipcode for weather data", "US Zip Code Only");
- //   if (zipEntry == null || person == "") {
- //       txt = "User cancelled the prompt.";
- //   } else {
-//        function getWeatherByZip(zipEntry);
+function checkLoc() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
+    } else {
+        alert('geolocation not available')
+    }    
 }
+
 //getCurrentPosition: successful return
 function getPosSuccess(position) {
     var geoLat = position.coords.latitude.toFixed(2);
@@ -150,41 +213,7 @@ function getPosErr (err) {
             alert("An unknown error occurred.");
     }
 }
- 
 
-/*function getWeatherByZip(zipEntry) {
-    //API Variables
-    const proxyURL = "https://cors-anywhere.herokuapp.com/";
-    const weatherAPIz = "http://api.weatherunlocked.com/api/current/";
-    const weatherIdz =  "app_id=9ad053bc&";              
-    const weatherKeyz = "app_key=b52a697539693cdc84826de1e371658c";
-    //Concatenate API variables into a URLRequest
-    let URLRequest = proxyURL + weatherAPIz + "us." zipEntry + weatherIdz + weatherKeyz;
-    //Make JQuery.getJSON request
-    $.getJSON(URLRequest)
-    //success promise
-    $.ajax ({
-        url: URLRequest,
-        type: "GET",
-        crossDomain: true,
-        dataType: "json",
-        success: function (parsedResponse, statusText, jqXhr) {
-
-            console.log(parsedResponse);
-            let currentTemp = parsedResponse.temp_f.toFixed(0);
-            console.log(currentTemp);
-            document.getElementById("temp").innerHTML = currentTemp;
-            let currentIcon = parsedResponse.wx_icon;
-            document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
-        },
-        error: function (error) {
-
-            console.log(error);
-        }
-    });
-}
-
-}*/
 function getWeatherByLL(geoLat, geoLng) {
     //API Variables
     const proxyURL = "https://cors-anywhere.herokuapp.com/";
@@ -194,6 +223,7 @@ function getWeatherByLL(geoLat, geoLng) {
     //Concatenate API variables into a URLRequest
     let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
     console.log(URLRequest);
+
     $.ajax ({
         url: URLRequest,
         type: "GET",
@@ -214,4 +244,5 @@ function getWeatherByLL(geoLat, geoLng) {
         }
     });
 }
-   // var $newdiv1 = $( "<div id='object1'></div>" );*/
+setInterval(checkLoc, 1800000);
+checkLoc();
