@@ -15,6 +15,7 @@
  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>--> 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script defer type="text/javascript" language="javascript" src="assets/js/script.js"></script>
     <meta name="Amenity Smart Home Control" content="Demo Smart Home Manager">
     <title>Amenity, Your Smart Home Manager Demo</title>
 </head>
@@ -510,13 +511,14 @@
 <!--Schedule Menus-->  
             <div class="row no-gutters justify-content-center">
                 <h4 class="col-12 col-sm-8 mb-3 mt-3">Scheduler</h4>
-            </div>    
+            </div> 
+            <form class="scheduled-items">   
             <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6">
                     <div class="form-group">
-                        <label class="control-label function-name">Start Date/Time</label>
+                        <label class="control-label function-name" id="start-label">Start Date/Time</label>
                             <div class="input-group-date d-flex flex-nowrap" id="datetimepicker1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input order-1" data-target="#datetimepicker1" />
+                                <input type="text" class="form-control datetimepicker-input order-1" data-target="#datetimepicker1" data-item />
                                     <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                         <div class="input-group-text order-2"><i class="fa fa-calendar"></i></div>
                                     </div>
@@ -527,9 +529,9 @@
              <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6 pb-3">
                     <div class="form-group">
-                        <label class="control-label function-name">End Date/Time</label>
+                        <label class="control-label function-name" id="end-label">End Date/Time</label>
                             <div class="input-group-date d-flex flex-nowrap" id="datetimepicker2" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input order-1" data-target="#datetimepicker2" />
+                                <input type="text" class="form-control datetimepicker-input order-1" data-target="#datetimepicker2" data-item />
                                     <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                                         <span class="input-group-text order-2"><i class="fa fa-calendar"></i></span>
                                     </div>
@@ -539,8 +541,8 @@
             </div>
             <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6 pb-3">
-                    <label for="device-select" class="function-name">Device:</label>
-                    <select id="device-select" name="device">
+                    <label for="device-select" class="function-name" id="device-label">Device:</label>
+                    <select id="device-select" name="device" data-item>
                         <option value="light-overhead">Light-overhead</option>
                         <option value="light-lamp">Light-lamp</option>
                         <option value="light-outside">Light-outside</option>
@@ -552,8 +554,8 @@
             </div>
             <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6 pb-3">
-                    <label for="room-select" class="function-name">Whole House/Room:</label>
-                    <select id="room-select" name="room">
+                    <label for="room-select" class="function-name" id="room-label">Whole House/Room:</label>
+                    <select id="room-select" name="room" data-item>
                         <option value="whole-house" selected>Whole House</option>
                         <option value="kitchen">Kitchen</option>
                         <option value="great-room">Great Room</option>
@@ -565,7 +567,7 @@
             <div class="row no-gutters justify-content-center">
                 <div class="col-4 col-sm-2 pb-3">
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch15" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch15" tabindex="0" checked data-item> 
                         <label class="onoffswitch-label" for="myonoffswitch15">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -588,8 +590,8 @@
                     <img src="assets/images/light-icon2.png" alt="Lightbulb Icon" id="light-icon7">
                 </div>
                 <div class="col-5 col-sm-4 col-md-3 slidecontainer1 bright">
-                    <input type="range" name="opacity7" min="2" max="10" value="5" class="slider" id="brightness7"><br>
-                    <label for="brightness7" class="bright-label">Brightness</label>
+                    <input type="range" name="opacity7" min="2" max="10" value="5" class="slider" id="brightness7" data-item><br>
+                    <label for="brightness7" class="bright-label" id="bright-label">Brightness</label>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center"> 
@@ -599,8 +601,8 @@
             </div>
              <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-10 col-sm-8 col-md-6 pl-sm-3 pb-2 heat-cool">
-                    <label for="hvac-mode4" class="function-name">Mode:</label>
-                    <select id="hvac-mode4" name="mode4">
+                    <label for="hvac-mode4" class="function-name" id="mode-label">Mode:</label>
+                    <select id="hvac-mode4" name="mode4" data-item>
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
                         <option value="auto-cooling" selected>Auto Cooling</option>
@@ -613,8 +615,8 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-11 col-sm-8 col-md-6 pl-3 pb-2 justify-content-center heat-cool">
                     <form class="temp">
-                        <label for="target5" class="function-name">Target Temp.</label>
-                        <input type="text" id="target5" name="target-temp" value="70">
+                        <label for="target5" class="function-name" id="target-label">Target Temp.</label>
+                        <input type="text" id="target5" name="target-temp" value="70" data-item>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                     </form>
@@ -630,14 +632,14 @@
                     <img src="assets/images/fan-icon.png" alt="Ceiling Fan Icon" id="fan-icon3"> 
                 </div>
                 <div class="col-5 col-sm-4 col-md-3 pb-2 slidecontainer2 cfan">
-                    <input type="range" name="fanspeed3" min="1" max="4" value="2" class="slider" id="speed3"><br>
-                    <label for="speed3" class="speed-label">Speed</label>
+                    <input type="range" name="fanspeed3" min="1" max="4" value="2" class="slider" id="speed3" data-item><br>
+                    <label for="speed3" class="speed-label" id="speed-label">Speed</label>
                 </div>
             </div> 
             <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
                 <div class="col-10 col-sm-8 col-md-6 pl-sm-3 pb-3 direction cfan">
-                    <label for="fan-direction3" class="function-name">Fan Direction:</label>
-                    <select id="fan-direction3" name="direction3" class="fan-direction">
+                    <label for="fan-direction3" class="function-name" id="direction-label">Fan Direction:</label>
+                    <select id="fan-direction3" name="direction3" class="fan-direction" data-item>
                         <option value="clockwise" selected>Clockwise</option>
                         <option value="counterclockwise">Counterclockwise</option>
                     </select>
@@ -648,15 +650,20 @@
                 <input type="submit" class="btn ml-3" id="btn-submit" value="Submit">
                 </div>
             </div>
-
+            </form>
             <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8">
                     <h4 class="col-12 mb-3">Scheduled Events</h4>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center">
-                <div class="col-10 sched-table">
+                <div class="col-11 sched-table-header">
 
+                
+                </div>
+                <div class="col-11 sched-table-data">
+
+                
                 </div>
             </div>
 
@@ -700,6 +707,4 @@
         </h4>
     </footer>
 </body>
-<script type="text/javascript" language="javascript" src="assets/js/script.js">  
-</script>
 </html>

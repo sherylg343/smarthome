@@ -1,5 +1,5 @@
 //Footer with Date, Time and Weather
- //code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
+//code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
  //and Javascript30.com, Day 2 - Clock, by Wes Bos
  //and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
 const footerDate = document.getElementById("footerdate");
@@ -113,6 +113,9 @@ let scheduler = document.getElementById("scheduler");
 
 function schedulerDisplay() {
     $('#device-select').change(function() {
+        $(".heat-cool").removeClass("d-none");
+        $(".cfan").removeClass("d-none");
+        $(".bright").removeClass("d-none");
         switch ($(this).val()) { 
             case "light-overhead":
                 $(".heat-cool").addClass("d-none");
@@ -144,14 +147,15 @@ function schedulerDisplay() {
         }
     });
     
-    $("#myonoffswitch15").change(function() {
-        if (($("#myonoffswitch15")).hasClass("onoffswitch-inner:after")) {
+    $('input:checkbox[id^="myonoffswitch15"]').change(function() {
+        if ($("input[type=checkbox]").prop(":checked")) {
+            console.log(this);
+            return;
+        } else {
             $(".properties").addClass("d-none");
             $(".bright").addClass("d-none");
             $(".heat-cool").addClass("d-none");
             $(".cfan").addClass("d-none");
-        } else {
-            return;
         }
     });
 }
