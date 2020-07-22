@@ -59,8 +59,9 @@ $(".tempbtn").click(function(){
         if (oldValue > 0 && $(targetButton).hasClass("dec")){
             let newValue = parseFloat(oldValue) - 1;
             $(targetButton).parent().find("input").val(newValue);
-    } else
+    } else {
        $(targetButton).parent().find("input").val(0); 
+    }
   }
 });
 
@@ -92,7 +93,7 @@ function speedControl() {
     }) [this.value] || 0;
   
    document.documentElement.style.setProperty(`--${this.name}`, speed + "s");
-}; 
+}
 
 speedSlide.forEach(input => input.addEventListener('change', speedControl));
 speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
@@ -125,21 +126,30 @@ function schedulerDisplay() {
             case "light-lamp":
                 $(".heat-cool").addClass("d-none");
                 $(".cfan").addClass("d-none");
+                $("#kitchen").addClass("d-none");
+                $("#great-room").addClass("d-none");
+                $("#garage").addClass("d-none");
             break;
 
             case "light-outside":
                 $(".heat-cool").addClass("d-none");
                 $(".cfan").addClass("d-none");
+                $("#kitchen").addClass("d-none");
+                $("#great-room").addClass("d-none");
+                $("#master-br").addClass("d-none");
             break;
 
             case "heating-cooling":
                 $(".bright").addClass("d-none");
                 $(".cfan").addClass("d-none");
+                $("#garage").addClass("d-none");
             break;
 
             case "ceiling-fan":
                 $(".bright").addClass("d-none");
                 $(".heat-cool").addClass("d-none");
+                $("#kitchen").addClass("d-none");
+                $("#garage").addClass("d-none");
             break;
     
             case "":
@@ -175,15 +185,11 @@ let eventItems3 = [];
 //gather div for table
 const schedTableDiv = document.querySelector(".sched-table");
 
-function test(){
-    console.log(test)
-}
 
-$(addSchedule).submit(function( event ) { 
-    console.log("hello");
-    return false;
-//    const ids1 = this.querySelector("#dtp1");
- //   const inputs1 = container.querySelectorAll("input");
+//$(addSchedule).submit(function( event ) { 
+    //prevents page reloading
+  // e.preventDefault();
+   //console.log();
  //
  //   console.log(inputs1);
 //    const inputs1 = (this.querySelectorAll("input #dtp1, input #dtp2, input #brightness7, input #target5, input #speed3");
@@ -193,7 +199,7 @@ $(addSchedule).submit(function( event ) {
 //    console.table(inputs2);
 //    console.table(inputs3);
 
-});
+//});
 
 //eventItems.push(eventItem);
 //console.table(eventItems);
@@ -217,7 +223,7 @@ function checkLoc() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
     } else {
-        alert('geolocation not available')
+        alert('geolocation not available');
     }    
 }
 
@@ -271,7 +277,6 @@ function getWeatherByLL(geoLat, geoLng) {
             document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
         },
         error: function (error) {
-
             console.log(error);
         }
     });

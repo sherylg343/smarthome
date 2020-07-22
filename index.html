@@ -72,7 +72,10 @@
                 </div>
               <div class="row no-gutters justify-content-center"> 
                 <div class="col-6 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Lighting</p>
+                    <span class="form-check custom-checkbox">
+                    <input type="checkbox" class="form-check-input custom-control-input" name="wh-light">
+                    </span>
+                    <label class="text-align-center function-name">Lighting</label>
                 </div>
                 <div class="col-4 col-sm-3 pl-2 pl-sm-4 bdr-r">
                     <div class="onoffswitch">
@@ -512,11 +515,11 @@
             <div class="row no-gutters justify-content-center">
                 <h4 class="col-12 col-sm-8 mb-3 mt-3">Scheduler</h4>
             </div> 
-            <form class="scheduled-items" onsubmit="test()">   
+            <form class="scheduled-items">   
             <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6">
                     <div class="form-group">
-                        <label class="control-label function-name" id="start-label">Start Date/Time</label>
+                        <label class="control-label function-name" for="dtp1">Start Date/Time</label>
                             <div class="input-group-date d-flex flex-nowrap" id="datetimepicker1" data-target-input="nearest">
                                 <input type="text" name="start-date" class="form-control datetimepicker-input order-1" data-target="#datetimepicker1" id="dtp1" />
                                     <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
@@ -529,7 +532,7 @@
              <div class="row no-gutters justify-content-center"> 
                 <div class="col-10 col-sm-8 col-md-6 pb-3">
                     <div class="form-group">
-                        <label class="control-label function-name" id="end-label">End Date/Time</label>
+                        <label class="control-label function-name" for="dtp2">End Date/Time</label>
                             <div class="input-group-date d-flex flex-nowrap" id="datetimepicker2" data-target-input="nearest">
                                 <input type="text" name="end-date" class="form-control datetimepicker-input order-1" data-target="#datetimepicker2" id="dtp2" />
                                     <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
@@ -556,11 +559,11 @@
                 <div class="col-10 col-sm-8 col-md-6 pb-3">
                     <label for="room-select" class="function-name" id="room-label">Whole House/Room:</label>
                     <select id="room-select" name="room">
-                        <option value="whole-house" selected>Whole House</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="great-room">Great Room</option>
-                        <option value="master-br">Master Bedroom</option>
-                        <option value="garage">Garage</option>
+                        <option id="whole-house" value="whole-house" selected>Whole House</option>
+                        <option id="kitchen" value="kitchen">Kitchen</option>
+                        <option id="great-room" value="great-room">Great Room</option>
+                        <option id="master-br" value="master-br">Master Bedroom</option>
+                        <option id="garage" value="garage">Garage</option>
                     </select>
                 </div>
             </div>

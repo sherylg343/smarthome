@@ -151,6 +151,11 @@ h5 {
     border-radius: 20%;
 }
 
+/*Code provided on stackoverflow by "knetsi" on January 22, 2018*/
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+    background-color: var(--clr-indigo);
+}
+
 #light-icon1, #light-icon2, #light-icon3, #light-icon4, 
 #light-icon5, #light-icon6, #light-icon7 {
     display: block;
