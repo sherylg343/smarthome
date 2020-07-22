@@ -163,17 +163,45 @@ function schedulerDisplay() {
 scheduler.addEventListener("change", schedulerDisplay);
 scheduler.addEventListener("click", schedulerDisplay);
  
-        //case 'heating-cooling':
-        //    document.documentElement.style.setProperty("--opacity7", ".2");
-        //    document.documentElement.style.setProperty("--fan-speed3", "0s");
-        //    $("#fan-direction3").val("blank2").change();
-       // break;
-       // case 'ceiling-fan':
-       //     document.documentElement.style.setProperty("--opacity7", ".2");
-        //    $("#target5").val("blank1").change();
-       //     $(".tempbtn").addClass("click-off");
-       // break;  
- //after submit to local storage need to reset all fields - list all.reset?   
+//select form
+const addSchedule = document.querySelector(".scheduled-items");
+//gather labels
+const labelItemsContainer = document.querySelectorAll(".sched-table label");
+let labels = [];
+
+let eventItems1 = [];
+let eventItems2 = [];
+let eventItems3 = [];
+//gather div for table
+const schedTableDiv = document.querySelector(".sched-table");
+
+function test(){
+    console.log(test)
+}
+
+$(addSchedule).submit(function( event ) { 
+    console.log("hello");
+    return false;
+//    const ids1 = this.querySelector("#dtp1");
+ //   const inputs1 = container.querySelectorAll("input");
+ //
+ //   console.log(inputs1);
+//    const inputs1 = (this.querySelectorAll("input #dtp1, input #dtp2, input #brightness7, input #target5, input #speed3");
+//    const inputs2 = (this.querySelectorAll("'#device-select option:selected', '#room-select option:selected', '#havac-mode4 option:selected', '#fan-direction option:selected'");
+//    const inputs3 = (this.querySelectorAll("input #myonoffswitch15"); 
+//    console.table(inputs1);
+//    console.table(inputs2);
+//    console.table(inputs3);
+
+});
+
+//eventItems.push(eventItem);
+//console.table(eventItems);
+//populateList(eventItems, schedTableDiv);
+//localStorage.setItem
+
+
+
 
 
 
