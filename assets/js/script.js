@@ -48,7 +48,8 @@ $(function() {
 //code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
 //Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
 $(".tempbtn").click(function(){
-    let targetButton = $(this);
+    const targetButton = $(this);
+    const currentInput = $(targetButton).parent().find("input");
     var oldValue = currentInput.val();
 
     if ($(targetButton).hasClass("inc")) {
@@ -177,41 +178,44 @@ scheduler.addEventListener("click", schedulerDisplay);
 const addSchedule = document.querySelector(".scheduled-items");
 //gather labels
 const labelItemsContainer = document.querySelectorAll(".sched-table label");
-let labels = [];
 
-let eventItems1 = [];
-let eventItems2 = [];
-let eventItems3 = [];
+let eventItems = {};
 //gather div for table
 const schedTableDiv = document.querySelector(".sched-table");
 
 
-//$(addSchedule).submit(function( event ) { 
-    //prevents page reloading
-  // e.preventDefault();
-   //console.log();
- //
- //   console.log(inputs1);
-//    const inputs1 = (this.querySelectorAll("input #dtp1, input #dtp2, input #brightness7, input #target5, input #speed3");
-//    const inputs2 = (this.querySelectorAll("'#device-select option:selected', '#room-select option:selected', '#havac-mode4 option:selected', '#fan-direction option:selected'");
-//    const inputs3 = (this.querySelectorAll("input #myonoffswitch15"); 
-//    console.table(inputs1);
-//    console.table(inputs2);
-//    console.table(inputs3);
+$(addSchedule).submit(function( event ) { 
+//prevents page reloading
+    event.preventDefault();
 
-//});
+    const dtp1Value = $("#dtp1").val();
+    const dtp2Value = $("#dtp2").val();
+    console.log(input1);
+    const deviceValue = $("#device-select option:selected").val();  
+    const roomValue = $("#room-select option:selected").val();
+    const onOffValue = $("#myonoffswitch15").checked; 
+    console.log(onOffValue);
+    const brightValue = $("#brightness7").val().toString;
+    console.log(brightValue);
+    const hvacModeValue = $("#hvac-mode4 option:selected").val();
+    const targetTempValue = $("#target5").val();
+    const speedValue = $("#speed3").val();
+    const directionValue = $("#fan-direction option:selected").val();
+    const schedInputs = [inputs1 + inputs2 + inputs3 + inputs4 + inputs5 + inputs6 + inputs7 + inputs8 + inputs9];
+    console.log(schedInputs);
+    //    const schedLabels = schedInputs.labels.textContent;
+ //         const schedValues = schedInputs.value;
+//    const schedValues = schedInputs.value;
 
-//eventItems.push(eventItem);
-//console.table(eventItems);
-//populateList(eventItems, schedTableDiv);
-//localStorage.setItem
+//    for(let i=0; i > schedInputs.length; i++) {
+//        eventItems = {
+//          schedlabels[i]:  schedValues[i],
+//     };
 
+//    }*/
+});
 
-
-
-
-
-
+//need inputs4.checked not val
 
 //Weather in Footer
 //code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
@@ -269,9 +273,7 @@ function getWeatherByLL(geoLat, geoLng) {
         dataType: "json",
         success: function (parsedResponse, statusText, jqXhr) {
 
-            console.log(parsedResponse);
             let currentTemp = parsedResponse.temp_f.toFixed(0);
-            console.log(currentTemp);
             document.getElementById("temp").innerHTML = currentTemp;
             let currentIcon = parsedResponse.wx_icon;
             document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
