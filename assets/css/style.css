@@ -571,3 +571,8 @@ footer {
 .input-group-append {
     cursor: pointer;
 }
+
+ul {
+    list-style: none;
+
+}

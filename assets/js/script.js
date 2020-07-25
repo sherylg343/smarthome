@@ -105,7 +105,7 @@ $('.fan-direction').change(function() {
     console.log(the_id);
     var direction = "#"+the_id+" option:selected";
     console.log($(direction).val());
-    const animDirection = (direction === "clockwise") ? "normal" : "reverse";
+    const animDirection = ($(direction).val() === "clockwise") ? "normal" : "reverse";
     console.log(animDirection);
     document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
@@ -179,62 +179,65 @@ scheduler.addEventListener("click", schedulerDisplay);
 const labelItemsContainer = document.querySelectorAll(".sched-table label");
 
 let eventItems = {};
-
-
+let valueOnlyItems = JSON.parse(localStorage.getItem('valueOnlyItems')) || {};
 
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
- 
     eventItems = $(this).serializeArray();
-    finalItems = eventItems.filter(eventItem => (eventItem.value != ""));
-    console.log(finalItems);
-    
-   
- /*   $.each( finalItems, function( i, finalItem ) {
-        ( "#sched-list" ).append `
-        <li>
-            ${finalItem.name}: ${finalItem.value}
-        </li>
-    `;
-    }).join('');*/
-  
-
-
-
-    console.log(eventItems);
-
-
-
-
-/*    const dtp1Value = $("#dtp1").val();
-    const dtp2Value = $("#dtp2").val();
-    console.log(input1);
-    const deviceValue = $("#device-select option:selected").val();  
-    const roomValue = $("#room-select option:selected").val();
-    const onOffValue = $("#myonoffswitch15").checked; 
-    console.log(onOffValue);
-    const brightValue = $("#brightness7").val();
-    console.log(brightValue);
-    const hvacModeValue = $("#hvac-mode4 option:selected").val();
-    const targetTempValue = $("#target5").val();
-    const speedValue = $("#speed3").val();
-    const directionValue = $("#fan-direction option:selected").val();
-    const schedInputs = [inputs1 + inputs2 + inputs3 + inputs4 + inputs5 + inputs6 + inputs7 + inputs8 + inputs9];
-    console.log(schedInputs);
-    */
-    //    const schedLabels = schedInputs.labels.textContent;
- //         const schedValues = schedInputs.value;
-//    const schedValues = schedInputs.value;
-
-//    for(let i=0; i > schedInputs.length; i++) {
-//        eventItems = {
-//          schedlabels[i]:  schedValues[i],
-//     };
-
-//    }*/
+    //console.log(valueOnlyItems);
+    valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
+    console.log(valueOnlyItems);
+    populateList(valueOnlyItems);
+ //   localStorage.setItem('valueOnlyItems', JSON.stringify(valueOnlyItems));
+   // this.reset();
 });
 
-//need inputs4.checked not val
+    function populateList(valueOnlyItems) {
+    $.each( valueOnlyItems, function( i, valueOnlyItem ) {
+        $("#sched-list").append(`
+        <li>
+            ${valueOnlyItem.name}: ${valueOnlyItem.value}
+        </li>
+    `);
+    }).join('');
+
+    $('#sched-list li').each(function() {
+        if($(this).is(':contains("light-overhead")') || $(this).is(':contains("light-lamp")') || $(this).is(':contains("light-outside")')) {
+            $('#sched-list li').each(function() {
+                if($(this).is(':contains("ceiling-fan-speed")')) {
+                    $(this).addClass("d-none");
+                }
+            });   
+        } else {
+            return;
+        }
+    });
+
+    $('#sched-list li').each(function() {
+        if($(this).is(':contains("heating-cooling")')) {
+            $('#sched-list li').each(function() {
+                if($(this).is(':contains("ceiling-fan-speed")')|| $(this).is(':contains("brightness")')) {
+                    $(this).addClass("d-none");
+                }
+            });   
+        } else {
+            return;
+        }
+    });
+
+    $('#sched-list li').each(function() {
+        if($(this).is(':contains("ceiling-fan")')) {
+            $('#sched-list li').each(function() {
+                if($(this).is(':contains("brightness")')) {
+                    $(this).addClass("d-none");
+                }
+            });   
+        } else {
+            return;
+        }
+    });
+}
+
 
 //Weather in Footer
 //code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
