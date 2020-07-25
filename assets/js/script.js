@@ -174,10 +174,7 @@ function schedulerDisplay() {
 scheduler.addEventListener("change", schedulerDisplay);
 scheduler.addEventListener("click", schedulerDisplay);
  
-
-//gather labels
-const labelItemsContainer = document.querySelectorAll(".sched-table label");
-
+//parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
 
