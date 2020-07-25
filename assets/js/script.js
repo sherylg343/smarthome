@@ -174,28 +174,46 @@ function schedulerDisplay() {
 scheduler.addEventListener("change", schedulerDisplay);
 scheduler.addEventListener("click", schedulerDisplay);
  
-//select form
-const addSchedule = document.querySelector(".scheduled-items");
+
 //gather labels
 const labelItemsContainer = document.querySelectorAll(".sched-table label");
 
 let eventItems = {};
-//gather div for table
-const schedTableDiv = document.querySelector(".sched-table");
 
 
-$(addSchedule).submit(function( event ) { 
-//prevents page reloading
+
+$("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
+ 
+    eventItems = $(this).serializeArray();
+    finalItems = eventItems.filter(eventItem => (eventItem.value != ""));
+    console.log(finalItems);
+    
+   
+ /*   $.each( finalItems, function( i, finalItem ) {
+        ( "#sched-list" ).append `
+        <li>
+            ${finalItem.name}: ${finalItem.value}
+        </li>
+    `;
+    }).join('');*/
+  
 
-    const dtp1Value = $("#dtp1").val();
+
+
+    console.log(eventItems);
+
+
+
+
+/*    const dtp1Value = $("#dtp1").val();
     const dtp2Value = $("#dtp2").val();
     console.log(input1);
     const deviceValue = $("#device-select option:selected").val();  
     const roomValue = $("#room-select option:selected").val();
     const onOffValue = $("#myonoffswitch15").checked; 
     console.log(onOffValue);
-    const brightValue = $("#brightness7").val().toString;
+    const brightValue = $("#brightness7").val();
     console.log(brightValue);
     const hvacModeValue = $("#hvac-mode4 option:selected").val();
     const targetTempValue = $("#target5").val();
@@ -203,6 +221,7 @@ $(addSchedule).submit(function( event ) {
     const directionValue = $("#fan-direction option:selected").val();
     const schedInputs = [inputs1 + inputs2 + inputs3 + inputs4 + inputs5 + inputs6 + inputs7 + inputs8 + inputs9];
     console.log(schedInputs);
+    */
     //    const schedLabels = schedInputs.labels.textContent;
  //         const schedValues = schedInputs.value;
 //    const schedValues = schedInputs.value;
