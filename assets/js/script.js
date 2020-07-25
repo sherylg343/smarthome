@@ -179,7 +179,7 @@ scheduler.addEventListener("click", schedulerDisplay);
 const labelItemsContainer = document.querySelectorAll(".sched-table label");
 
 let eventItems = {};
-let valueOnlyItems = JSON.parse(localStorage.getItem('valueOnlyItems')) || {};
+let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
 
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
@@ -188,8 +188,8 @@ $("#scheduled-items").submit(function( event ) {
     valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
     console.log(valueOnlyItems);
     populateList(valueOnlyItems);
- //   localStorage.setItem('valueOnlyItems', JSON.stringify(valueOnlyItems));
-   // this.reset();
+    localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
+    this.reset();
 });
 
     function populateList(valueOnlyItems) {
