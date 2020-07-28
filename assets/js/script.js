@@ -45,6 +45,21 @@ $(function() {
     });
 });
 
+//Whole House Power Buttons
+powerButtons = JSON.parse(localStorage.getItem('powerButtons')) || [];
+
+$(".power").click(function() {
+    const powerName= $(this).name
+    if($(powerName).hasClass("power-on")) {
+        $(powerName).removeClass("power-on"); 
+    } else {
+        $(powerName).addClass("power-on");    
+    }
+    
+
+
+})
+
 //code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
 //Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
 $(".tempbtn").click(function(){

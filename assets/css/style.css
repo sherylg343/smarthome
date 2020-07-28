@@ -239,6 +239,28 @@ h5 {
     animation-direction: reverse;
 }
 
+.power {
+    background: transparent;
+    border: none;
+    margin-left: 1rem;
+}
+
+.power i {
+    display: inline-block;
+    padding-right: 2px;
+    vertical-align: middle;
+    font-weight: 700;
+    opacity: 0.3;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+    cursor: pointer;
+}
+
+.power-on {
+    opacity: 1;
+    transform: scale(1.2);
+} 
+
 select {
     text-align: center;
     background: var(--clr-teal);
