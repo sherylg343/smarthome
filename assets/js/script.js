@@ -46,19 +46,59 @@ $(function() {
 });
 
 //Whole House Power Buttons
-powerButtons = JSON.parse(localStorage.getItem('powerButtons')) || [];
-
+//powerButtons = JSON.parse(localStorage.getItem('powerButtons')) || [];
 $(".power").click(function() {
-    const powerName= $(this).name
-    if($(powerName).hasClass("power-on")) {
-        $(powerName).removeClass("power-on"); 
+    const powerId = $(this).attr('id');
+    const icon = $(this).parent().find("i");
+    console.log(powerId);
+    const opacity = $(icon).css("opacity");
+    console.log(opacity);
+
+    if($(opacity) == 1) {
+        console.log(opacity);
+        document.documentElement.style.setProperty(`--${powerId}`, ".3"); 
+            if($(powerId).is(':contains("light-power")')) { 
+                $("#on1").addClass("d-none");
+                //Question - if already not checked, what happens?
+                $('input:checkbox[id^="myonoffswitch4"]').prop("checked", false);
+                $('input:checkbox[id^="myonoffswitch6"]').prop("checked", false);
+                $('input:checkbox[id^="myonoffswitch9"]').prop("checked", false);
+                $('input:checkbox[id^="myonoffswitch10"]').prop("checked", false);
+                $('input:checkbox[id^="myonoffswitch13"]').prop("checked", false);
+                $('input:checkbox[id^="myonoffswitch14"]').prop("checked", false);
+            } else if($(powerId).is(':contains("hc-power")')) {
+                $("#on2").addClass("d-none");
+                $("#target1").addClass("d-none");
+
+    //            ($('input:checkbox[id^="myonoffswitch5"]').prop(":checked") => .removeProp(":checked"));
+      //          ($('input:checkbox[id^="myonoffswitch7"]').prop(":checked") => .removeProp(":checked"));
+            } else {
+                $("#on3").addClass("d-none");
+            }
     } else {
-        $(powerName).addClass("power-on");    
+        console.log(icon);
+        document.documentElement.style.setProperty(`--${powerId}`, "1");
+            if($(powerId).is(':contains("light-power")')) { 
+                $("#on1").removeClass("d-none");
+                $('input:checkbox[id^="myonoffswitch4"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch6"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch9"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch10"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch13"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch14"]').prop(":checked");
+            } else if($(powerId).is(':contains("hc-power")')) {
+                $("#on2").removeClass("d-none");
+                $("#target1").removeClass("d-none");
+                $('input:checkbox[id^="myonoffswitch5"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch7"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch11"]').prop(":checked");
+            } else {
+                $("#on3").removeClass("d-none");
+                $('input:checkbox[id^="myonoffswitch8"]').prop(":checked");
+                $('input:checkbox[id^="myonoffswitch12]').prop(":checked");
+            }
     }
-    
-
-
-})
+});
 
 //code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
 //Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)

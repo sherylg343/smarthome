@@ -25,6 +25,9 @@
     --direction1: normal;
     --direction2: normal;
     --direction3: normal;
+    --light-power: .3;
+    --hc-power: .3;
+    --fan-power: .3;
 }
 
 * {
@@ -243,6 +246,7 @@ h5 {
     background: transparent;
     border: none;
     margin-left: 1rem;
+    border: none;
 }
 
 .power i {
@@ -250,16 +254,20 @@ h5 {
     padding-right: 2px;
     vertical-align: middle;
     font-weight: 700;
-    opacity: 0.3;
-    transform: scale(1);
-    transition: transform 300ms ease-in-out;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
-.power-on {
-    opacity: 1;
-    transform: scale(1.2);
-} 
+#light-power i {
+    opacity: var(--light-power);
+}
+
+#hc-power i {
+    opacity: var(--hc-power);
+}
+
+#fan-power i {
+    opacity: var(--fan-power);
+}
 
 select {
     text-align: center;
