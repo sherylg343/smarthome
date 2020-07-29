@@ -58,6 +58,7 @@
 <!--Controls-->
     <section>
         <div class="container fluid" id="control-box">
+        <form id="control-form">
 <!--Whole House-->        
             <div class="row no-gutters justify-content-center">
                 <div class="col-7 col-sm-5 text-align-center bdr-t bdr-l">
@@ -71,15 +72,12 @@
                 </div>
                 </div>
               <div class="row no-gutters justify-content-center"> 
-                <div class="col-1 bdr-l">
-                    <button type="button" class="power" name="light-power" id="light-power"><i class="fas fa-power-off"></i></button>
-                </div>
-                <div class="col-5 col-sm-4">
+                <div class="col-6 col-sm-5 bdr-l">
                     <p class="text-align-center function-name">Lighting</p>
                 </div>
                 <div class="col-4 col-sm-3 pl-2 pl-sm-4 bdr-r">
-                    <div class="onoffswitch d-none" id="on1">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox d-none" id="myonoffswitch1" tabindex="0" checked>
+                    <div class="onoffswitch" id="on1">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox wh-power light-power" id="myonoffswitch1" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch1">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -88,15 +86,12 @@
                 </div>
             </div>
              <div class="row no-gutters justify-content-center">
-                <div class="col-1 bdr-l">
-                    <button type="button" class="power" name="hc-power" id="hc-power"><i class="fas fa-power-off"></i></button>
-                </div>
-                <div class="col-5 col-sm-4">
+                <div class="col-6 col-sm-5 bdr-l">
                     <p class="text-align-center function-name">Heating Cooling System</p>
                 </div>
                 <div class="col-4 col-sm-3 pl-2 pl-sm-4 bdr-r">
-                    <div class="onoffswitch d-none" id="on2">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox d-none" id="myonoffswitch2" tabindex="0" checked>
+                    <div class="onoffswitch" id="on2">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox wh-power hc-power" id="myonoffswitch2" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch2">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -106,25 +101,22 @@
             </div>
              <div class="row no-gutters justify-content-center">
                 <div class="col-10 col-sm-8 bdr-l bdr-r pl-5 pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="target1" class="function-name">Target Temp.</label>
                         <input type="text" id="target1" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
                         
-                    </form>
+                    </div>
                 </div>  
              </div>
              <div class="row no-gutters justify-content-center mb-3">
-                <div class="col-1 bdr-l bdr-b">
-                    <button type="button" class="power" name="fan-power" id="fan-power"><i class="fas fa-power-off"></i></button>
-                </div>
-                <div class="col-5 col-sm-4 bdr-b pb-2">
+                <div class="col-6 col-sm-5 bdr-l bdr-b pb-2">
                     <p class="text-align-center function-name">Ceiling Fans</p>
                 </div>
                 <div class="col-4 col-sm-3 pl-2 pl-sm-4 bdr-r bdr-b">
-                    <div class="onoffswitch d-none" id="on3">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox d-none" id="myonoffswitch3" tabindex="0" checked>
+                    <div class="onoffswitch" id="on3">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox wh-power fan-power" id="myonoffswitch3" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch3">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -149,7 +141,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on4">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch4" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch4">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -172,7 +164,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on5">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox hc-power" id="myonoffswitch5" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch5">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -195,20 +187,20 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="actual-kitchen" class="function-name">Actual Temp.</label>
                         <input type="text" id="actual-kitchen" name="actual-temp" value="70">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center p-b-5 mb-3">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r bdr-b pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="target2" class="function-name">Target Temp.</label>
                         <input type="text" id="target2" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
-                    </form>
+                    </div>
                 </div>  
              </div>
 <!--Great Room-->  
@@ -228,7 +220,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on6">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch6" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch6" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch6">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -251,7 +243,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on7">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch7" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox hc-power" id="myonoffswitch7" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch7">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -274,20 +266,20 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="actual-gr" class="function-name">Actual Temp.</label>
                         <input type="text" id="actual-gr" name="actual-temp" value="70">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="target3" class="function-name">Target Temp.</label>
                         <input type="text" id="target3" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                          <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>    
-                    </form>
+                    </div>
                 </div>  
             </div>
             <div class="row no-gutters justify-content-center my-auto">
@@ -296,7 +288,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on8">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch8" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox fan-power" id="myonoffswitch8" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch8">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -339,7 +331,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on9">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch9" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch9" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch9">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -362,7 +354,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on10">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch10" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch10" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch10">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -385,7 +377,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on11">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch11" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox hc-power" id="myonoffswitch11" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch11">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -408,20 +400,20 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="actual-master" class="function-name">Actual Temp.</label>
                         <input type="text" id="actual-master" name="actual-temp" value="70">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-10 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <form class="temp">
+                    <div class="temp">
                         <label for="target4" class="function-name">Target Temp.</label>
                         <input type="text" id="target4" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
-                    </form>
+                    </div>
                 </div>  
             </div>
             <div class="row no-gutters justify-content-center my-auto">
@@ -430,7 +422,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on12">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch12" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox fan-power" id="myonoffswitch12" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch12">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -473,7 +465,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on13">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch13" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch13" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch13">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -496,7 +488,7 @@
                 </div>
                 <div class="col-4 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on14">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch14" tabindex="0" checked>
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox light-power" id="myonoffswitch14" tabindex="0">
                         <label class="onoffswitch-label" for="myonoffswitch14">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
@@ -513,6 +505,7 @@
                     <label for="brightness6" class="bright-label">Brightness</label>
                 </div>
             </div>
+        </form>
         </div>
     </section>
 <!--Scheduler-->

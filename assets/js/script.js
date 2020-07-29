@@ -18,9 +18,10 @@ const footerTime = document.getElementById("footertime");
 
     const timeSuffix = hour <= 12 ? "AM" : "PM";
     const clockHour = (hour % 12) || 12;
+    const digitalMins = (mins < 10) ? "0"+ mins : mins;
 
     const today = `${month}/${day}/${year}`;
-    const time = `${clockHour}:${mins} ${timeSuffix}`;
+    const time = `${clockHour}:${digitalMins} ${timeSuffix}`;
 
     footerDate.innerHTML = today;
     footerTime.innerHTML = time;
@@ -30,75 +31,105 @@ setInterval(checkDate, 60000);
 
 checkDate();
 
-//jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
-//and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/)
-$(function() {
-    $('#datetimepicker1').datetimepicker();
-    $('#datetimepicker2').datetimepicker({
-        useCurrent: false
-    });
-    $("#datetimepicker1").on("change.datetimepicker", function (e) {
-        $('#datetimepicker2').datetimepicker('minDate', e.date);
-    });
-    $("#datetimepicker2").on("change.datetimepicker", function (e) {
-        $('#datetimepicker1').datetimepicker('maxDate', e.date);
-    });
-});
+//Weather in Footer
+//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+//and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 
-//Whole House Power Buttons
-//powerButtons = JSON.parse(localStorage.getItem('powerButtons')) || [];
-$(".power").click(function() {
-    const powerId = $(this).attr('id');
-    const icon = $(this).parent().find("i");
-    console.log(powerId);
-    const opacity = $(icon).css("opacity");
-    console.log(opacity);
-
-    if($(opacity) == 1) {
-        console.log(opacity);
-        document.documentElement.style.setProperty(`--${powerId}`, ".3"); 
-            if($(powerId).is(':contains("light-power")')) { 
-                $("#on1").addClass("d-none");
-                //Question - if already not checked, what happens?
-                $('input:checkbox[id^="myonoffswitch4"]').prop("checked", false);
-                $('input:checkbox[id^="myonoffswitch6"]').prop("checked", false);
-                $('input:checkbox[id^="myonoffswitch9"]').prop("checked", false);
-                $('input:checkbox[id^="myonoffswitch10"]').prop("checked", false);
-                $('input:checkbox[id^="myonoffswitch13"]').prop("checked", false);
-                $('input:checkbox[id^="myonoffswitch14"]').prop("checked", false);
-            } else if($(powerId).is(':contains("hc-power")')) {
-                $("#on2").addClass("d-none");
-                $("#target1").addClass("d-none");
-
-    //            ($('input:checkbox[id^="myonoffswitch5"]').prop(":checked") => .removeProp(":checked"));
-      //          ($('input:checkbox[id^="myonoffswitch7"]').prop(":checked") => .removeProp(":checked"));
-            } else {
-                $("#on3").addClass("d-none");
-            }
+//check if gelocation API exists
+function checkLoc() {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
     } else {
-        console.log(icon);
-        document.documentElement.style.setProperty(`--${powerId}`, "1");
-            if($(powerId).is(':contains("light-power")')) { 
-                $("#on1").removeClass("d-none");
-                $('input:checkbox[id^="myonoffswitch4"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch6"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch9"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch10"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch13"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch14"]').prop(":checked");
-            } else if($(powerId).is(':contains("hc-power")')) {
-                $("#on2").removeClass("d-none");
-                $("#target1").removeClass("d-none");
-                $('input:checkbox[id^="myonoffswitch5"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch7"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch11"]').prop(":checked");
-            } else {
-                $("#on3").removeClass("d-none");
-                $('input:checkbox[id^="myonoffswitch8"]').prop(":checked");
-                $('input:checkbox[id^="myonoffswitch12]').prop(":checked");
-            }
+        alert('geolocation not available');
+    }    
+}
+
+//getCurrentPosition: successful return
+function getPosSuccess(position) {
+    var geoLat = position.coords.latitude.toFixed(2);
+    var geoLng = position.coords.longitude.toFixed(2);
+    console.log(geoLat, geoLng);
+    getWeatherByLL(geoLat, geoLng);
+}
+
+//getCurrentPosition: error returned
+function getPosErr (err) {
+    switch (err.code) {
+        case err.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case err.POSITION_UNAVAILABLE: 
+            alert("Location information is unavailable.");
+            break;
+        case err.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        default:
+            alert("An unknown error occurred.");
+    }
+}
+
+function getWeatherByLL(geoLat, geoLng) {
+    //API Variables
+    const proxyURL = "https://cors-anywhere.herokuapp.com/";
+    const weatherAPI = "http://api.weatherunlocked.com/api/current/";
+    const weatherId =  "app_id=9ad053bc&";
+    const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
+    //Concatenate API variables into a URLRequest
+    let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
+    console.log(URLRequest);
+
+    $.ajax ({
+        url: URLRequest,
+        type: "GET",
+        crossDomain: true,
+        dataType: "json",
+        success: function (parsedResponse, statusText, jqXhr) {
+
+            let currentTemp = parsedResponse.temp_f.toFixed(0);
+            document.getElementById("temp").innerHTML = currentTemp;
+            let currentIcon = parsedResponse.wx_icon;
+            document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+setInterval(checkLoc, 1800000);
+checkLoc();
+
+//on-off switches
+$('input[type="checkbox"]').click(function() {
+    if($(this).prop("checked") == true) {
+        $(this).prop("checked") == false;
+            if($(this).hasClass("wh-power")) {
+                const powerId = $(this).attr('id');
+                housePower(powerId);
+            }    
+    }
+    else if($(this).prop("checked") == false){
+        $(this).prop("checked") == true;
+            if($(this).hasClass("wh-power")) {
+                const powerId = $(this).attr('id');
+                housePower(powerId);
+            }   
     }
 });
+
+function housePower (powerId) {
+    if(powerId == 'myonoffswitch1') {
+        $("input.light-power").each(function(i, input) {
+            if ($(powerId).prop("checked") == true) {
+                $(input[i]).prop("checked") == true;
+            }
+            else if ($(powerId).prop("checked") == false) {
+                $(input[i]).prop("checked") == false;
+            }
+        });
+    }
+}
 
 //code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
 //Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
@@ -164,6 +195,22 @@ $('.fan-direction').change(function() {
     console.log(animDirection);
     document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
+
+//jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
+//and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/)
+$(function() {
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker({
+        useCurrent: false
+    });
+    $("#datetimepicker1").on("change.datetimepicker", function (e) {
+        $('#datetimepicker2').datetimepicker('minDate', e.date);
+    });
+    $("#datetimepicker2").on("change.datetimepicker", function (e) {
+        $('#datetimepicker1').datetimepicker('maxDate', e.date);
+    });
+});
+
 //Scheduler 
 ////activate appropriate selections
 let scheduler = document.getElementById("scheduler");
@@ -289,73 +336,3 @@ $("#scheduled-items").submit(function( event ) {
         }
     });
 }
-
-
-//Weather in Footer
-//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
-//and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
-
-//check if gelocation API exists
-function checkLoc() {
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
-    } else {
-        alert('geolocation not available');
-    }    
-}
-
-//getCurrentPosition: successful return
-function getPosSuccess(position) {
-    var geoLat = position.coords.latitude.toFixed(2);
-    var geoLng = position.coords.longitude.toFixed(2);
-    console.log(geoLat, geoLng);
-    getWeatherByLL(geoLat, geoLng);
-}
-
-//getCurrentPosition: error returned
-function getPosErr (err) {
-    switch (err.code) {
-        case err.PERMISSION_DENIED:
-            alert("User denied the request for Geolocation.");
-            break;
-        case err.POSITION_UNAVAILABLE: 
-            alert("Location information is unavailable.");
-            break;
-        case err.TIMEOUT:
-            alert("The request to get user location timed out.");
-            break;
-        default:
-            alert("An unknown error occurred.");
-    }
-}
-
-function getWeatherByLL(geoLat, geoLng) {
-    //API Variables
-    const proxyURL = "https://cors-anywhere.herokuapp.com/";
-    const weatherAPI = "http://api.weatherunlocked.com/api/current/";
-    const weatherId =  "app_id=9ad053bc&";
-    const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
-    //Concatenate API variables into a URLRequest
-    let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
-    console.log(URLRequest);
-
-    $.ajax ({
-        url: URLRequest,
-        type: "GET",
-        crossDomain: true,
-        dataType: "json",
-        success: function (parsedResponse, statusText, jqXhr) {
-
-            let currentTemp = parsedResponse.temp_f.toFixed(0);
-            document.getElementById("temp").innerHTML = currentTemp;
-            let currentIcon = parsedResponse.wx_icon;
-            document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-}
-setInterval(checkLoc, 1800000);
-checkLoc();

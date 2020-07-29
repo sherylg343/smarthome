@@ -242,33 +242,6 @@ h5 {
     animation-direction: reverse;
 }
 
-.power {
-    background: transparent;
-    border: none;
-    margin-left: 1rem;
-    border: none;
-}
-
-.power i {
-    display: inline-block;
-    padding-right: 2px;
-    vertical-align: middle;
-    font-weight: 700;
-    cursor: pointer; 
-}
-
-#light-power i {
-    opacity: var(--light-power);
-}
-
-#hc-power i {
-    opacity: var(--hc-power);
-}
-
-#fan-power i {
-    opacity: var(--fan-power);
-}
-
 select {
     text-align: center;
     background: var(--clr-teal);
