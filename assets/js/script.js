@@ -100,22 +100,44 @@ function getWeatherByLL(geoLat, geoLng) {
 setInterval(checkLoc, 1800000);
 checkLoc();
 
+//default off position of sliders
+$(".slider").prop('disabled', true);
+$(".silent").prop("animation-duration", "0s");
+
 //on-off switches
 $('input[type="checkbox"]').click(function() {
-    if($(this).prop("checked") == true) {
-        $(this).prop("checked") == false;
-            if($(this).hasClass("wh-power")) {
-                const powerId = $(this).attr('id');
-                housePower(powerId);
-            }    
-    }
-    else if($(this).prop("checked") == false){
-        $(this).prop("checked") == true;
-            if($(this).hasClass("wh-power")) {
-                const powerId = $(this).attr('id');
-                housePower(powerId);
-            }   
-    }
+    const powerId = $(this).attr('id');
+    if ($(this).hasClass("wh-power")) {
+         housePower(powerId);
+    } else if (powerId == "myonoffswitch15") {
+        schedulerToggle(powerId);
+    } else {
+        console.log(powerId);
+        console.log(this);
+        let img = $(this).parent().parent().parent().next().find("img");
+        console.log(img);
+        let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+        let sliderId = $(sliderInput).attr('id');
+        console.log(sliderId);
+        console.log(sliderInput);
+        if($(this).prop("checked") === false) {   
+            $(img).css("background-color", "rgba(83,83,83,0.3)");  
+            $(sliderInput).prop('disabled', true);
+            console.log("false fan and light");    
+        } else if($(this).prop("checked") === true && $(img).hasClass("light")) {
+            $(img).css({"background-color": "var(--clr-yellow)"}); 
+            $(sliderInput).prop('disabled', false);
+            sliderUpdate(sliderInput);
+            console.log("true light");                 
+        }  else {
+            $(img).css({"background-color": "var(--clr-white)"});
+            $(sliderInput).prop('disabled', false);
+            document.documentElement.style.setProperty(`--${sliderInput.name}`, speed + "s");
+            speedControl(sliderInput);
+            console.log("true fan"); 
+        } 
+    }          
+            
 });
 
 function housePower (powerId) {
@@ -259,18 +281,20 @@ function schedulerDisplay() {
                 return;
         }
     });
-    
-    $('input:checkbox[id^="myonoffswitch15"]').change(function() {
-        if ($("input[type=checkbox]").prop(":checked")) {
-            console.log(this);
+}
+
+//change conditions to add && device-select == "" to turn on controls
+//above - when select device will remove d-none, but leaves off
+function schedulerToggle(powerId) {
+    if ($("input[type=checkbox]").prop(":checked")) {
+            $(".properties").removeClass("d-none");
+            $(".bright").removeClass("d-none");
+            $(".heat-cool").removeClass("d-none");
+            $(".cfan").removeClass("d-none");
             return;
         } else {
-            $(".properties").addClass("d-none");
-            $(".bright").addClass("d-none");
-            $(".heat-cool").addClass("d-none");
-            $(".cfan").addClass("d-none");
+            console.log(this);
         }
-    });
 }
 
 scheduler.addEventListener("change", schedulerDisplay);

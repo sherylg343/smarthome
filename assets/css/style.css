@@ -12,16 +12,16 @@
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
     --box-border: 5px solid var(--clr-royal-blue);
-    --opacity1: 0.5;
-    --opacity2: 0.5;
-    --opacity3: 0.5;
-    --opacity4: 0.5;
-    --opacity5: 0.5;
-    --opacity6: 0.5;
-    --brightness: 0.5;
-    --fanspeed1: 1s;;
-    --fanspeed2: 1s;
-    --fanspeed3: 1s;
+    --opacity1: 1;
+    --opacity2: 1;
+    --opacity3: 1;
+    --opacity4: 1;
+    --opacity5: 1;
+    --opacity6: 1;
+    --brightness: 1;
+    --fanspeed1: .5s;;
+    --fanspeed2: .5s;
+    --fanspeed3: .5s;
     --direction1: normal;
     --direction2: normal;
     --direction3: normal;
@@ -167,7 +167,7 @@ h5 {
     height: 2.5rem;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: var(--clr-yellow);
+    background-color: rgb(83,83,83);
 }
 
 #light-icon1 {
