@@ -19,9 +19,9 @@
     --opacity5: 1;
     --opacity6: 1;
     --brightness: 1;
-    --fanspeed1: .5s;;
-    --fanspeed2: .5s;
-    --fanspeed3: .5s;
+    --fanspeed1: 0s;;
+    --fanspeed2: 0s;
+    --fanspeed3: 0s;
     --direction1: normal;
     --direction2: normal;
     --direction3: normal;

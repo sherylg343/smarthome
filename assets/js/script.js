@@ -112,30 +112,52 @@ $('input[type="checkbox"]').click(function() {
     } else if (powerId == "myonoffswitch15") {
         schedulerToggle(powerId);
     } else {
-        console.log(powerId);
-        console.log(this);
         let img = $(this).parent().parent().parent().next().find("img");
-        console.log(img);
         let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
         let sliderId = $(sliderInput).attr('id');
+        let sliderName = $(sliderInput).attr('name');
+        let hcMode = $(this).parent().parent().parent().next().find("select");
+        let hcModeId = $(hcMode).attr('id');
+        let hcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
+        let hcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
         console.log(sliderId);
-        console.log(sliderInput);
-        if($(this).prop("checked") === false) {   
-            $(img).css("background-color", "rgba(83,83,83,0.3)");  
-            $(sliderInput).prop('disabled', true);
-            console.log("false fan and light");    
-        } else if($(this).prop("checked") === true && $(img).hasClass("light")) {
-            $(img).css({"background-color": "var(--clr-yellow)"}); 
-            $(sliderInput).prop('disabled', false);
-            sliderUpdate(sliderInput);
-            console.log("true light");                 
-        }  else {
-            $(img).css({"background-color": "var(--clr-white)"});
-            $(sliderInput).prop('disabled', false);
-            document.documentElement.style.setProperty(`--${sliderInput.name}`, speed + "s");
-            speedControl(sliderInput);
-            console.log("true fan"); 
-        } 
+        console.log(sliderName);
+        if($(this).prop("checked") === false) {
+            if($(this).hasClass("light-power" || "fan-power")) {
+                $(img).css("background-color", "rgba(83,83,83,0.3)");  
+                $(sliderInput).prop('disabled', true);
+                console.log("false light and fan"); 
+            } else if($(this).hasClass("fan-power")) {
+                document.documentElement.style.setProperty(`--${sliderName}`, 0 + "s");
+                $(sliderInput).val(0);
+            } else {
+                $(hcMode).prop('disabled', true);
+                $(`#${hcModeId} option[value=""]`).prop('selected', true);
+                $(hcTarget).prop('disabled', true);
+                $(hcTargetBtns).prop('disabled', true);               
+            }   
+        } else if($(this).prop("checked") === true) {
+            if($(this).hasClass("light-power")) {
+                $(img).css({"background-color": "var(--clr-yellow)"}); 
+                $(sliderInput).prop('disabled', false);
+                sliderUpdate(sliderInput);
+                console.log("true light");                 
+            }  else if($(this).hasClass("hc-power")){
+                $(hcMode).prop('disabled', false);
+                $(hcTarget).prop('disabled', false);
+                $(hcTargetBtns).prop('disabled', false);
+                console.log("true hc")
+            } else {
+                $(img).css({"background-color": "var(--clr-white)"});
+                $(sliderInput).prop('disabled', false);
+                document.documentElement.style.setProperty(`--${sliderName}`, .5 + "s");
+                $(sliderInput).val(4);
+                speedControl(sliderInput);
+                console.log("true fan"); 
+            }
+        } else {
+            console.log("error");
+        }
     }          
             
 });
