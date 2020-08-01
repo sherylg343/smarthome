@@ -102,7 +102,7 @@ checkLoc();
 
 //default off position of sliders
 $(".slider").prop('disabled', true);
-$(".silent").prop("animation-duration", "0s");
+//$(".silent").prop("animation-duration", "0s");
 
 //on-off switches
 $('input[type="checkbox"]').click(function() {
@@ -163,15 +163,29 @@ $('input[type="checkbox"]').click(function() {
 });
 
 function housePower (powerId) {
-    if(powerId == 'myonoffswitch1') {
-        $("input.light-power").each(function(i, input) {
+    const whLights = $(".light-power");
+    const whHeatCool = $(".hc-power");
+    const whFan = $(".fan-power");
+    
+    if(powerId == 'myonoffswitch1') { 
+        const whLight = whLights[i];
+        for (var i = 0; 0 < whLights.length; i++) {
             if ($(powerId).prop("checked") == true) {
-                $(input[i]).prop("checked") == true;
-            }
-            else if ($(powerId).prop("checked") == false) {
-                $(input[i]).prop("checked") == false;
-            }
-        });
+                $(whLight).prop("checked") == true;
+              //  let whLightImages = `${".light-power"}[i]`.parent().parent().parent().next().find("img");
+              //  let whLightImage = whLightImages[i];
+              //  $(whLightImage).css({"background-color": "var(--clr-yellow)"}); 
+              //  console.log(whLightImages);
+              //  $(whLight).prop('disabled', false);
+              //  sliderUpdate($(whLight));
+      //     } else if ($(powerId).prop("checked") == false) {
+       //         $(whiteLight).prop("checked") == false;
+        //        $(whLightImage).css("background-color", "rgba(83,83,83,0.3)");  
+        //        $(whLight).prop('disabled', true);
+           } else { 
+       //         console.log("wh lights for loop error");
+           }
+        }   
     }
 }
 
