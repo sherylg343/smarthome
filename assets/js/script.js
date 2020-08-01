@@ -150,7 +150,7 @@ $('input[type="checkbox"]').click(function() {
             } else {
                 $(img).css({"background-color": "var(--clr-white)"});
                 $(sliderInput).prop('disabled', false);
-                document.documentElement.style.setProperty(`--${sliderName}`, .5 + "s");
+                document.documentElement.style.setProperty(`--${sliderName}`, 0.5 + "s");
                 $(sliderInput).val(4);
                 speedControl(sliderInput);
                 console.log("true fan"); 
@@ -163,30 +163,79 @@ $('input[type="checkbox"]').click(function() {
 });
 
 function housePower (powerId) {
-    const whLights = $(".light-power");
-    const whHeatCool = $(".hc-power");
-    const whFan = $(".fan-power");
-    
     if(powerId == 'myonoffswitch1') { 
-        const whLight = whLights[i];
-        for (var i = 0; 0 < whLights.length; i++) {
-            if ($(powerId).prop("checked") == true) {
-                $(whLight).prop("checked") == true;
-              //  let whLightImages = `${".light-power"}[i]`.parent().parent().parent().next().find("img");
-              //  let whLightImage = whLightImages[i];
-              //  $(whLightImage).css({"background-color": "var(--clr-yellow)"}); 
-              //  console.log(whLightImages);
-              //  $(whLight).prop('disabled', false);
-              //  sliderUpdate($(whLight));
-      //     } else if ($(powerId).prop("checked") == false) {
-       //         $(whiteLight).prop("checked") == false;
-        //        $(whLightImage).css("background-color", "rgba(83,83,83,0.3)");  
-        //        $(whLight).prop('disabled', true);
+        $(".light-power").each(function() {
+        let whImg = $(this).parent().parent().parent().next().find("img");
+        let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+        let whSliderName = $(whSliderInput).attr('name');
+            if($(powerId).prop("checked") === false) {
+                $(this).prop("checked") === false;
+                $(whImg).css("background-color", "rgba(83,83,83,0.3)"); 
+                $(whSliderInput).prop('disabled', true);
+
+            } else if($(powerId).prop("checked") === true) {
+                $(this).prop("checked") === true;
+                $(whImg).css({"background-color": "var(--clr-yellow)"}); 
+                $(whSliderInput).prop('disabled', false);
+                sliderUpdate(whSliderInput);
+                console.log("wh true light");  
+              
            } else { 
-       //         console.log("wh lights for loop error");
+                console.log("wh lights each() error");
            }
-        }   
-    }
+        }); 
+    } else if(powerId == 'myonoffswitch2') {
+        $(".hc-power").each(function() {
+        let whHcMode = $(this).parent().parent().parent().next().find("select");
+        let whHcModeId = $(whHcMode).attr('id');
+        let whHcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
+        let whHcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
+            if($(powerId).prop("checked") === false) {
+                $(this).prop("checked") === false;
+                $(whHcMode).prop('disabled', true);
+                $(`#${whHcModeId} option[value=""]`).prop('selected', true);
+                $(whHcTarget).prop('disabled', true);
+                $(whHcTargetBtns).prop('disabled', true); 
+                console.log("wh false hc");
+            } else if($(powerId).prop("checked") === true) {
+                $(this).prop("checked") === true;
+                $(whHcMode).prop('disabled', false);
+                $(whHcTarget).prop('disabled', false);
+                $(whHcTargetBtns).prop('disabled', false);
+                console.log("wh true hc");
+            } else { 
+                console.log("wh hc each() error");
+           }
+        }); 
+    } else {
+        if(powerId == 'myonoffswitch3') {
+            $(".fan-power").each(function() {
+            let whImg = $(this).parent().parent().parent().next().find("img");
+            let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+            let whSliderName = $(whSliderInput).attr('name');
+                if($(powerId).prop("checked") === false) {
+                    $(this).prop("checked") === false;
+                    $(whImg).css("background-color", "rgba(83,83,83,0.3)");  
+                    $(whSliderInput).prop('disabled', true);
+                    document.documentElement.style.setProperty(`--${whSliderName}`, 0 + "s");
+                    $(whSliderInput).val(0);
+                    console.log("wh false fan");
+                } else if($(powerId).prop("checked") === true) {
+                    $(this).prop("checked") === true;
+                    $(whImg).css({"background-color": "var(--clr-white)"});
+                    $(whSliderInput).prop('disabled', false);
+                    document.documentElement.style.setProperty(`--${whSliderName}`, 0.5 + "s");
+                    $(whSliderInput).val(4);
+                    speedControl(whSliderInput);
+                    console.log("wh true fan"); 
+                } else {
+                    console.log("wh fan each() error");
+                }
+            });
+        } else  {
+           console.log("wh error"); 
+        }
+    }  
 }
 
 //code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
