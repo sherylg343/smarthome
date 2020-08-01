@@ -37,10 +37,10 @@
 /*-Colors--*/
 body {
     background: linear-gradient(to left, #83a4d4, #b6fbff);
-    font-family: var(--ff-body);
+    font-family: var(--ff-body) important!;
     color: var(--clr-royal-blue);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 /*--Special Padding/Margins/Text/Borders--*/
@@ -60,9 +60,14 @@ body {
     border-bottom: var(--box-border);
 }
 
+.header {
+    font-family: var(--ff-head);
+}
+
 .room-name {
     color: var(--clr-white);
     font-size: 2rem;
+    font-family: var(--ff-body);
     padding-top: 3vh;
     padding-bottom: 1.5vh;
     text-align: center;
@@ -72,8 +77,19 @@ body {
 .function-name {
     padding-left: 1rem;
     padding-right: 1rem;
+    font-family: var(--ff-body);
     color: var(--clr-royal-blue);
     font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.sub-head {
+    font-family: var(--ff-body) important!;
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+    font-size: .9rem;
+    padding-left: 1.15rem;
+} 
 }
 
 @media (min-width: 768px) {
@@ -520,8 +536,14 @@ footer {
     margin: 0px;
     font-size: 1rem;
     color: var(--clr-indigo);
-    font-family: var(--head);
+    font-family: var(--ff-head);
     font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    footer {
+        font-size: 1.5rem;
+    }
 }
 
 .footer-stick {

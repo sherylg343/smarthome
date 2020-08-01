@@ -13,8 +13,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>--> 
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <script defer type="text/javascript" language="javascript" src="assets/js/script.js"></script>
     <meta name="Amenity Smart Home Control" content="Demo Smart Home Manager">
     <title>Amenity, Your Smart Home Manager Demo</title>
@@ -48,10 +48,10 @@
 <!--Header-->
     <header class="container-fluid">
         <div class="row no-gutters" id="one">
-            <h1 class="col-12">Demo</h1>
+            <h1 class="col-12 header">Demo</h1>
         </div>
         <div class="row no-gutters">
-            <h4 class="col-12 pb-3">Our Smart Home Control Panel</h4>
+            <h4 class="col-12 pb-3 header">Our Smart Home Control Panel</h4>
         </div>
     </header>
 
@@ -102,7 +102,7 @@
              <div class="row no-gutters justify-content-center">
                 <div class="col-12 col-sm-8 bdr-l bdr-r pl-sm-5 pb-2">
                     <div class="temp">
-                        <label for="target1" class="function-name">Target Temp.</label>
+                        <label for="target1" class="sub-head">Target Temp.</label>
                         <input type="text" id="target1" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
@@ -137,7 +137,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Light-overhead</p>
+                    <p class="text-align-center sub-head">Light-overhead</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r pb-2">
                     <div class="onoffswitch" id="on4">
@@ -174,8 +174,8 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <label for="hvac-mode1" class="function-name">Mode:</label>
-                    <select id="hvac-mode1" class="testerrr" name="mode">
+                    <label for="hvac-mode1" class="sub-head">Mode:</label>
+                    <select id="hvac-mode1" name="mode">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
                         <option value="auto-cooling">Auto Cooling</option>
@@ -189,7 +189,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
-                        <label for="actual-kitchen" class="function-name">Actual Temp.</label>
+                        <label for="actual-kitchen" class="sub-head">Actual Temp.</label>
                         <input type="text" id="actual-kitchen" name="actual-temp" value="70">
                     </div>
                 </div>
@@ -197,7 +197,7 @@
             <div class="row no-gutters justify-content-center p-b-5 mb-3">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r bdr-b pb-2">
                     <div class="temp">
-                        <label for="target2" class="function-name">Target Temp.</label>
+                        <label for="target2" class="sub-head">Target Temp.</label>
                         <input type="text" id="target2" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
@@ -206,7 +206,7 @@
              </div>
 <!--Great Room-->  
             <div class="row no-gutters justify-content-center">
-                <div class="col-8 col-sm-5 bdr-t bdr-l">
+                <div class="col-8 col-sm-4 bdr-t bdr-l">
                     <p class="room-name">Great Room</p>
                 </div>
                 <div class="col-4 bdr-t bdr-r">
@@ -217,7 +217,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Light-overhead</p>
+                    <p class="text-align-center sub-head">Light-overhead</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on6">
@@ -254,7 +254,7 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <label for="hvac-mode2" class="function-name">Mode:</label>
+                    <label for="hvac-mode2" class="sub-head">Mode:</label>
                     <select id="hvac-mode2" name="mode2">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
@@ -269,7 +269,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
-                        <label for="actual-gr" class="function-name">Actual Temp.</label>
+                        <label for="actual-gr" class="sub-head">Actual Temp.</label>
                         <input type="text" id="actual-gr" name="actual-temp" value="70">
                     </div>
                 </div>
@@ -277,7 +277,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
-                        <label for="target3" class="function-name">Target Temp.</label>
+                        <label for="target3" class="sub-head">Target Temp.</label>
                         <input type="text" id="target3" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                          <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>    
@@ -309,7 +309,7 @@
             </div> 
             <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r bdr-b pb-3">
-                    <label for="fan-direction1" class="function-name" >Fan Direction:</label>
+                    <label for="fan-direction1" class="sub-head">Fan Direction:</label>
                     <select id="fan-direction1" name="direction1" class="fan-direction">
                         <option value="clockwise" selected>Clockwise</option>
                         <option value="counterclockwise">Counterclockwise</option>
@@ -318,7 +318,7 @@
             </div>
     <!--Master Bedroom-->  
             <div class="row no-gutters justify-content-center">
-                <div class="col-8 col-sm-5 bdr-t bdr-l">
+                <div class="col-8 col-sm-4 bdr-t bdr-l">
                     <p class="room-name">Master Bedroom</p>
                 </div>
                 <div class="col-4 bdr-t bdr-r">
@@ -329,7 +329,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Light-overhead</p>
+                    <p class="text-align-center sub-head">Light-overhead</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r switch-parent">
                     <div class="onoffswitch" id="on9">
@@ -352,7 +352,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Light-lamp</p>
+                    <p class="text-align-center sub-head">Light-lamp</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on10">
@@ -389,7 +389,7 @@
             </div>
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
-                    <label for="hvac-mode3" class="function-name">Mode:</label>
+                    <label for="hvac-mode3" class="sub-head">Mode:</label>
                     <select id="hvac-mode3" name="mode3">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
@@ -404,7 +404,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
-                        <label for="actual-master" class="function-name">Actual Temp.</label>
+                        <label for="actual-master" class="sub-head">Actual Temp.</label>
                         <input type="text" id="actual-master" name="actual-temp" value="70">
                     </div>
                 </div>
@@ -412,7 +412,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
-                        <label for="target4" class="function-name">Target Temp.</label>
+                        <label for="target4" class="sub-head">Target Temp.</label>
                         <input type="text" id="target4" name="target-temp" value="70">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
@@ -444,7 +444,7 @@
             </div> 
             <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
                 <div class="col-12 col-sm-8 pl-sm-3 bdr-l bdr-r bdr-b pb-3">
-                    <label for="fan-direction2" class="function-name">Fan Direction:</label>
+                    <label for="fan-direction2" class="sub-head">Fan Direction:</label>
                     <select id="fan-direction2" name="direction2" class="fan-direction">
                         <option value="clockwise" selected>Clockwise</option>
                         <option value="counterclockwise">Counterclockwise</option>
@@ -453,7 +453,7 @@
             </div>
     <!--Garage-->  
             <div class="row no-gutters justify-content-center">
-                <div class="col-8 col-sm-5 bdr-t bdr-l">
+                <div class="col-8 col-sm-4 bdr-t bdr-l">
                     <p class="room-name">Garage</p>
                 </div>
                 <div class="col-4 bdr-t bdr-r">
@@ -464,7 +464,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name">Light-overhead</p>
+                    <p class="text-align-center sub-head">Light-overhead</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on13">
@@ -487,7 +487,7 @@
             </div>
             <div class="row no-gutters justify-content-center my-auto">
                 <div class="col-7 col-sm-5 bdr-l">
-                    <p class="text-align-center function-name" id="sched">Light-outdoor</p>
+                    <p class="text-align-center sub-head" id="sched">Light-outdoor</p>
                 </div>
                 <div class="col-5 col-sm-3 bdr-r">
                     <div class="onoffswitch" id="on14">
@@ -607,7 +607,7 @@
             </div>
              <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-8 col-md-6 pl-sm-3 pb-2 heat-cool">
-                    <label for="hvac-mode4" class="function-name" id="mode-label">Mode:</label>
+                    <label for="hvac-mode4" id="mode-label" class="sub-head">Mode:</label>
                     <select id="hvac-mode4" name="heating-cooling-mode">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
@@ -622,7 +622,7 @@
             <div class="row no-gutters justify-content-center p-b-5">
                 <div class="col-12 col-sm-8 col-md-6 pl-3 pb-2 justify-content-center heat-cool">
                     <div class="temp">
-                        <label for="target5" class="function-name" id="target-label">Target Temp.</label>
+                        <label for="target5" id="target-label" class="sub-head">Target Temp.</label>
                         <input type="text" id="target5" name="target-temp" value="">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
@@ -645,7 +645,7 @@
             </div> 
             <div class="row no-gutters justify-content-center p-b-5 fan mb-3">
                 <div class="col-12 col-sm-8 col-md-6 pl-sm-3 pb-3 direction cfan">
-                    <label for="fan-direction3" class="function-name" id="direction-label">Fan Direction:</label>
+                    <label for="fan-direction3" id="direction-label" class="sub-head">Fan Direction:</label>
                     <select id="fan-direction3" name="ceiling-fan-direction" class="fan-direction">
                         <option value="clockwise" selected>Clockwise</option>
                         <option value="counterclockwise">Counterclockwise</option>
