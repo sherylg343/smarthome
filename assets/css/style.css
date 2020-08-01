@@ -255,13 +255,14 @@ select {
 
 #btn-submit {
     width: 5rem;
-    height: 2rem;
+    height: 2.5rem;
     background-color: var(--clr-indigo);
     color: #FFFFFF;
     font-family: var(--ff-head);
     font-weight: 600;
     border: 2px solid var(--clr-indigo);
     border-radius: 20%;
+    padding: 2px;
 }
 
 @media (min-width: 768px) {
@@ -292,7 +293,7 @@ select {
 .social-links li a i {
     width: 20px;
     height: 20px;;
-    padding: 12px 0;
+    padding: 6px 6px;
     margin-top: 0;
     border-radius: 50%;
     text-align: center;
@@ -517,6 +518,10 @@ footer {
     background-color: #FFFFFF;
     border-top: 5px solid var(--clr-yellow);
     margin: 0px;
+    font-size: 1rem;
+    color: var(--clr-indigo);
+    font-family: var(--head);
+    font-weight: 700;
 }
 
 .footer-stick {
