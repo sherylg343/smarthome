@@ -107,10 +107,12 @@ $(".slider").prop('disabled', true);
 //on-off switches
 $('input[type="checkbox"]').click(function() {
     const powerId = $(this).attr('id');
+    //will return true or false value
+    const powerIdValue = $(this).is(':checked');
     if ($(this).hasClass("wh-power")) {
-         housePower(powerId);
+         housePower(powerId, powerIdValue);
     } else if (powerId == "myonoffswitch15") {
-        schedulerToggle(powerId);
+        schedulerToggle(powerId, powerIdValue);
     } else {
         let img = $(this).parent().parent().parent().next().find("img");
         let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
@@ -120,8 +122,6 @@ $('input[type="checkbox"]').click(function() {
         let hcModeId = $(hcMode).attr('id');
         let hcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
         let hcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
-        console.log(sliderId);
-        console.log(sliderName);
         if($(this).prop("checked") === false) {
             if($(this).hasClass("light-power" || "fan-power")) {
                 $(img).css("background-color", "rgba(83,83,83,0.3)");  
@@ -162,19 +162,20 @@ $('input[type="checkbox"]').click(function() {
             
 });
 
-function housePower (powerId) {
+function housePower (powerId, powerIdValue) {
     if(powerId == 'myonoffswitch1') { 
         $(".light-power").each(function() {
         let whImg = $(this).parent().parent().parent().next().find("img");
         let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
         let whSliderName = $(whSliderInput).attr('name');
-            if($(powerId).prop("checked") === false) {
-                $(this).prop("checked") === false;
+        console.log(powerIdValue);
+            if(powerIdValue === false) {
+                $(this).prop("checked", false);
                 $(whImg).css("background-color", "rgba(83,83,83,0.3)"); 
                 $(whSliderInput).prop('disabled', true);
-
-            } else if($(powerId).prop("checked") === true) {
-                $(this).prop("checked") === true;
+                console.log("wh false light");
+            } else if(powerIdValue === true) {
+                $(this).prop("checked", true);
                 $(whImg).css({"background-color": "var(--clr-yellow)"}); 
                 $(whSliderInput).prop('disabled', false);
                 sliderUpdate(whSliderInput);
@@ -190,15 +191,15 @@ function housePower (powerId) {
         let whHcModeId = $(whHcMode).attr('id');
         let whHcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
         let whHcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
-            if($(powerId).prop("checked") === false) {
-                $(this).prop("checked") === false;
+            if(powerIdValue === false) {
+                $(this).prop("checked", false);
                 $(whHcMode).prop('disabled', true);
                 $(`#${whHcModeId} option[value=""]`).prop('selected', true);
                 $(whHcTarget).prop('disabled', true);
                 $(whHcTargetBtns).prop('disabled', true); 
                 console.log("wh false hc");
-            } else if($(powerId).prop("checked") === true) {
-                $(this).prop("checked") === true;
+            } else if(powerIdValue === true) {
+                $(this).prop("checked", true);
                 $(whHcMode).prop('disabled', false);
                 $(whHcTarget).prop('disabled', false);
                 $(whHcTargetBtns).prop('disabled', false);
@@ -213,15 +214,15 @@ function housePower (powerId) {
             let whImg = $(this).parent().parent().parent().next().find("img");
             let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
             let whSliderName = $(whSliderInput).attr('name');
-                if($(powerId).prop("checked") === false) {
-                    $(this).prop("checked") === false;
+                if(powerIdValue === false) {
+                    $(this).prop("checked", false);
                     $(whImg).css("background-color", "rgba(83,83,83,0.3)");  
                     $(whSliderInput).prop('disabled', true);
                     document.documentElement.style.setProperty(`--${whSliderName}`, 0 + "s");
                     $(whSliderInput).val(0);
                     console.log("wh false fan");
-                } else if($(powerId).prop("checked") === true) {
-                    $(this).prop("checked") === true;
+                } else if(powerIdValue === true) {
+                    $(this).prop("checked", true);
                     $(whImg).css({"background-color": "var(--clr-white)"});
                     $(whSliderInput).prop('disabled', false);
                     document.documentElement.style.setProperty(`--${whSliderName}`, 0.5 + "s");
