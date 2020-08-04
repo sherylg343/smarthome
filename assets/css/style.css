@@ -73,6 +73,14 @@ body {
     font-weight: 600;
 }
 
+@media (min-width: 768px) {
+   .room-name {
+    padding-left: 2.5rem;
+    font-size: 3rem;
+    } 
+}
+
+
 .function-name {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -84,6 +92,15 @@ body {
     margin-top: 1rem;
 }
 
+@media (min-width: 768px) {
+   .function-name {
+    padding-left: 2.5rem;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: .4rem;
+    } 
+}
+
 .sub-head {
     font-family: var(--ff-body) important!;
     color: var(--clr-royal-blue);
@@ -91,19 +108,41 @@ body {
     font-size: .9rem;
     padding-left: 1.15rem;
 } 
-}
 
 @media (min-width: 768px) {
-   .function-name {
-    padding-left: 2.5rem;
+   .sub-head {
+    padding-left: 3.5rem;
     font-size: 1.4rem;
     } 
 }
 
-#scheduler .function-name {
+#scheduler .head {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     text-align: left;
+    font-size: 1.15rem;
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+}
+
+@media (min-width: 768px) {
+    .sched-head {
+        font-size: 1.6rem;
+    }
+}
+
+.sched-sub {
+    font-family: var(--ff-body) important!;
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+    font-size: .9rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+   .sched-sub {
+    font-size: 1.4rem;
+    } 
 }
 
 label {
@@ -169,6 +208,13 @@ h5 {
     border: 2px solid var(--clr-teal);
     background-color: var(--clr-teal);
     border-radius: 20%;
+}
+
+@media (min-width: 768px) {
+   .room-icon {
+       width: 5rem;
+    height: 5rem;
+    } 
 }
 
 /*Code provided on stackoverflow by "knetsi" on January 22, 2018*/
