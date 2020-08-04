@@ -69,7 +69,6 @@ body {
     font-size: 2rem;
     font-family: var(--ff-body);
     padding-top: 3vh;
-    padding-bottom: 1.5vh;
     text-align: center;
     font-weight: 600;
 }
@@ -81,6 +80,8 @@ body {
     color: var(--clr-royal-blue);
     font-weight: 600;
     font-size: 1.15rem;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
 }
 
 .sub-head {
@@ -265,7 +266,7 @@ select {
     width: 150px;
     font-family: var(--ff-body);
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--clr-royal-blue);
 }
 
@@ -309,7 +310,7 @@ select {
 .social-links li a i {
     width: 20px;
     height: 20px;;
-    padding: 6px 6px;
+    padding: 3px;
     margin-top: 0;
     border-radius: 50%;
     text-align: center;
@@ -414,7 +415,6 @@ select {
     font-size: 1rem;
     font-weight: 400;
     color: var(--clr-royal-blue);
-    transition: opacity 250ms ease-in;
 }
 
 .input-change {
@@ -425,8 +425,8 @@ select {
     cursor: pointer;
     float: left;
     text-align: center;
-    font-size: 35px;
-    line-height: 35px;
+    font-size: 30px;
+    line-height: 30px;
     border: none;
     padding: 0px;
     color: var(--clr-white);
@@ -436,8 +436,8 @@ select {
 
 #control-box i, 
 #scheduler i {
-    font-size: 35px;
-    line-height: 35px;
+    font-size: 30px;
+    line-height: 30px;
     color: var(--clr-indigo);
     transform: scale(1);
 }
@@ -479,18 +479,37 @@ select {
 
 #navlogo {
     display: block;
-    width: calc(8vw + 3rem);
+    width: 60px;
     margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    #navlogo {
+        width: 100px;
+    }
+}
+
+@media (min-width: 992px) {
+    #navlogo {
+        width: 125px;
+    }
 }
 
 #link1, #link2 {
     color: var(--clr-indigo);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 592px) {
     #link1 {
         padding-left: 20vw;
         padding-right: 5vw;
+    }
+}
+
+@media (min-width: 992px) {
+    #link1 {
+        padding-left: 25vw;
+        padding-right: 8vw;
     }
 }
 

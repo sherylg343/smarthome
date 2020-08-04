@@ -406,8 +406,8 @@ $("#scheduled-items").submit(function( event ) {
         $("#sched-list").append(`
         <li>
             ${valueOnlyItem.name}: ${valueOnlyItem.value}
-        </li>
-    `);
+        </li>`
+    );
     }).join('');
 
     $('#sched-list li').each(function() {
