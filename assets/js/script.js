@@ -182,7 +182,6 @@ function housePower (powerId, powerIdValue) {
                 $(whSliderInput).prop('disabled', false);
                 sliderUpdate(whSliderInput);
                 console.log("wh true light");  
-              
            } else { 
                 console.log("wh lights each() error");
            }
@@ -193,18 +192,38 @@ function housePower (powerId, powerIdValue) {
         let whHcModeId = $(whHcMode).attr('id');
         let whHcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
         let whHcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
+        
             if(powerIdValue === false) {
                 $(this).prop("checked", false);
                 $(whHcMode).prop('disabled', true);
-                $(`#${whHcModeId} option[value=""]`).prop('selected', true);
-                $(whHcTarget).prop('disabled', true);
-                $(whHcTargetBtns).prop('disabled', true); 
+                $(`#${whHcModeId} option[value="blank"]`).prop('selected', true);
+                $(whHcTarget).attr('disabled', 'disabled');
+                $(whHcTargetBtns).prop('disabled', true);
+                $("#target1").val('');
+                $("#target1").attr('disabled', 'disabled');
+                $('#hvacmode5 option[value="blank"]').prop('selected', true);
+                $("#hvacmode5").prop('disabled', true);
+                console.log(whHcTarget);
                 console.log("wh false hc");
             } else if(powerIdValue === true) {
                 $(this).prop("checked", true);
                 $(whHcMode).prop('disabled', false);
-                $(whHcTarget).prop('disabled', false);
+                $("#hvacmode5").prop('disabled', false);
+                $(whHcTarget).removeAttr('disabled');
+                $("#target1").removeAttr('disabled');
                 $(whHcTargetBtns).prop('disabled', false);
+                $("#target1").on('input', function () {
+                    const tValue = $("#target1").val();
+                    $(".target").each( function() {
+                        $(this).val(tValue);
+                    });
+                });
+                $("#hvacmode5").change( function() {
+                    const modeValue = $("#hvacmode5").val();
+                    $(".mode").each( function() {
+                       $(this).val(modeValue);
+                    });
+                });
                 console.log("wh true hc");
             } else { 
                 console.log("wh hc each() error");
@@ -321,8 +340,7 @@ $(function() {
     });
 });
 
-//select random number for Actual Temp provided by Ionut G. Stan on 10/6/09 on stackOverflow 
-//(https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+//Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
 $(document).ready( function() {
     getRandomIntInclusive(50, 80);
 });
@@ -432,6 +450,7 @@ function schedulerToggle(powerIdValue) {
 //parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
+let controlItems = JSON.parse(localStorage.getItem("controlItems")) || {};
 
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
@@ -500,3 +519,6 @@ $("#scheduled-items").submit(function( event ) {
         }
     });
 }
+
+//from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
+document.querySelectorAll('#control-form input:not([type="submit"])').forEach(elt => { elt.value = localStorage.getItem(elt.name); elt.addEventListener("change", e => { localStorage.setItem(e.target.name, e.target.value); }); });

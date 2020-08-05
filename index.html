@@ -101,8 +101,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row no-gutters justify-content-center p-b-5 hcmode">
+                <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
+                    <label for="hvac-mode5" class="sub-head pr-2">Mode:</label>
+                    <select id="hvac-mode5" name="mode">
+                        <option value="fully-auto">Fully Auto</option>
+                        <option value="auto-heating">Auto Heating</option>
+                        <option value="auto-cooling">Auto Cooling</option>
+                        <option value="manual-heating">Manual Heating</option>
+                        <option value="manual-cooling">Manual Cooling</option>
+                        <option value="service-mode">Service Mode</option>
+                        <option value="blank" selected></option>
+                    </select>
+                </div>
+            </div>
              <div class="row no-gutters justify-content-center">
-                <div class="col-12 col-sm-10 bdr-l bdr-r pl-sm-5 pb-3">
+            <div class="col-12 col-sm-10 bdr-l bdr-r pl-sm-3 pb-3">
                     <div class="temp">
                         <label for="target1" class="sub-head pr-2">Target Temp.</label>
                         <input type="text" id="target1" name="target-temp">
@@ -182,14 +196,14 @@
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
                     <label for="hvac-mode1" class="sub-head pr-2">Mode:</label>
-                    <select id="hvac-mode1" name="mode">
+                    <select id="hvac-mode1" class="mode" name="mode">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
                         <option value="auto-cooling">Auto Cooling</option>
                         <option value="manual-heating">Manual Heating</option>
                         <option value="manual-cooling">Manual Cooling</option>
                         <option value="service-mode">Service Mode</option>
-                        <option value="" selected></option>
+                        <option value="blank" selected></option>
                     </select>
                 </div>
             </div>
@@ -205,7 +219,7 @@
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r bdr-b pb-3">
                     <div class="temp">
                         <label for="target2" class="sub-head pr-2">Target Temp.  </label>
-                        <input type="text" id="target2" name="target-temp">
+                        <input type="text" id="target2" class="target" name="target-temp">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
                     </div>
@@ -267,14 +281,14 @@
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
                     <label for="hvac-mode2" class="sub-head pr-2">Mode:</label>
-                    <select id="hvac-mode2" name="mode2">
+                    <select id="hvac-mode2" class="mode" name="mode2">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
                         <option value="auto-cooling">Auto Cooling</option>
                         <option value="manual-heating">Manual Heating</option>
                         <option value="manual-cooling">Manual Cooling</option>
                         <option value="service-mode">Service Mode</option>
-                        <option value="" selected></option>
+                        <option value="blank" selected></option>
                     </select>
                 </div>
             </div>
@@ -290,7 +304,7 @@
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
                         <label for="target3" class="sub-head pr-2">Target Temp.</label>
-                        <input type="text" id="target3" name="target-temp">
+                        <input type="text" id="target3" class="target" name="target-temp">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                          <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>    
                     </div>
@@ -407,14 +421,14 @@
             <div class="row no-gutters justify-content-center p-b-5 hcmode">
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
                     <label for="hvac-mode3" class="sub-head pr-2">Mode:</label>
-                    <select id="hvac-mode3" name="mode3">
+                    <select id="hvac-mode3" class="mode" name="mode3">
                         <option value="fully-auto">Fully Auto</option>
                         <option value="auto-heating">Auto Heating</option>
                         <option value="auto-cooling">Auto Cooling</option>
                         <option value="manual-heating">Manual Heating</option>
                         <option value="manual-cooling">Manual Cooling</option>
                         <option value="service-mode">Service Mode</option>
-                        <option value="" selected></option>
+                        <option value="blank" selected></option>
                     </select>
                 </div>
             </div>
@@ -430,7 +444,7 @@
                 <div class="col-12 col-sm-10 pl-sm-3 bdr-l bdr-r pb-2">
                     <div class="temp">
                         <label for="target4" class="sub-head pr-2">Target Temp.</label>
-                        <input type="text" id="target4" name="target-temp">
+                        <input type="text" id="target4" class="target" name="target-temp">
                         <button type="button" class="tempbtn dec"><i class="fas fa-caret-square-down"></i></button>
                         <button type="button" class="tempbtn inc"><i class="fas fa-caret-square-up"></i></button>
                     </div>
