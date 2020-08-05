@@ -107,12 +107,14 @@ $(".slider").prop('disabled', true);
 //on-off switches
 $('input[type="checkbox"]').click(function() {
     const powerId = $(this).attr('id');
+    console.log(powerId);
     //will return true or false value
     const powerIdValue = $(this).is(':checked');
     if ($(this).hasClass("wh-power")) {
          housePower(powerId, powerIdValue);
     } else if (powerId == "myonoffswitch15") {
-        schedulerToggle(powerId, powerIdValue);
+        console.log("scheduler switch");
+        schedulerToggle(powerIdValue);
     } else {
         let img = $(this).parent().parent().parent().next().find("img");
         let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
@@ -319,48 +321,65 @@ $(function() {
     });
 });
 
+//select random number for Actual Temp provided by Ionut G. Stan on 10/6/09 on stackOverflow 
+//(https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)
+$(document).ready( function() {
+    getRandomIntInclusive(50, 80);
+});
+
+function getRandomIntInclusive(low, high) {
+        const min = Math.ceil(low);
+        const max = Math.floor(high);
+        const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(actualValue);
+        $(".actual").each( function() {
+            $(this).val(actualValue);
+        });
+}
+
 //Scheduler 
 ////activate appropriate selections
-let scheduler = document.getElementById("scheduler");
+let scheduler = document.getElementById("scheduler-form");
 
 function schedulerDisplay() {
-    $('#device-select').change(function() {
-        $(".heat-cool").removeClass("d-none");
-        $(".cfan").removeClass("d-none");
-        $(".bright").removeClass("d-none");
+    $('#room-select').change(function() {
+        $("#speed3").prop('disabled', false);
+        $("#brightness7").prop('disabled', false);
         switch ($(this).val()) { 
-            case "light-overhead":
-                $(".heat-cool").addClass("d-none");
-                $(".cfan").addClass("d-none");
+            case "whole-house":
+                $("#light-overhead").addClass("d-none");
+                $("#light-lamp").addClass("d-none");
+                $("#light-outside").addClass("d-none");
+                console.log("whole-house");
             break;
 
-            case "light-lamp":
-                $(".heat-cool").addClass("d-none");
-                $(".cfan").addClass("d-none");
-                $("#kitchen").addClass("d-none");
-                $("#great-room").addClass("d-none");
-                $("#garage").addClass("d-none");
+            case "kitchen":
+                $("#lighting").addClass("d-none");
+                $("#light-lamp").addClass("d-none");
+                $("#light-outside").addClass("d-none");
+                $("#ceiling-fan").addClass("d-none");
+                console.log("kitchen");
             break;
 
-            case "light-outside":
-                $(".heat-cool").addClass("d-none");
-                $(".cfan").addClass("d-none");
-                $("#kitchen").addClass("d-none");
-                $("#great-room").addClass("d-none");
-                $("#master-br").addClass("d-none");
+            case "great-room":
+                $("#lighting").addClass("d-none");
+                $("#light-lamp").addClass("d-none");
+                $("#light-outside").addClass("d-none");
+                console.log("great-room");
             break;
 
-            case "heating-cooling":
-                $(".bright").addClass("d-none");
-                $(".cfan").addClass("d-none");
-                $("#garage").addClass("d-none");
+            case "master-bedroom":
+                $("#lighting").addClass("d-none");
+                $("#light-outside").addClass("d-none");
+                console.log("master-br");
             break;
 
-            case "ceiling-fan":
-                $(".bright").addClass("d-none");
-                $(".heat-cool").addClass("d-none");
-                $("#kitchen").addClass("d-none");
-                $("#garage").addClass("d-none");
+            case "garage":
+                $("#lighting").addClass("d-none");
+                $("#light-lamp").addClass("d-none");
+                $("#ceiling-fan").addClass("d-none");
+                $("#heating-cooling").addClass("d-none");
+                console.log("garage");
             break;
     
             case "":
@@ -369,23 +388,47 @@ function schedulerDisplay() {
     });
 }
 
-//change conditions to add && device-select == "" to turn on controls
-//above - when select device will remove d-none, but leaves off
-function schedulerToggle(powerId) {
-    if ($("input[type=checkbox]").prop(":checked")) {
-            $(".properties").removeClass("d-none");
-            $(".bright").removeClass("d-none");
-            $(".heat-cool").removeClass("d-none");
-            $(".cfan").removeClass("d-none");
-            return;
-        } else {
-            console.log(this);
-        }
-}
-
 scheduler.addEventListener("change", schedulerDisplay);
 scheduler.addEventListener("click", schedulerDisplay);
  
+//change conditions to add && device-select == "" to turn on controls
+//above - when select device will remove d-none, but leaves off
+function schedulerToggle(powerIdValue) {
+    if(powerIdValue === true) {
+        if($("#device-select").val() == "lighting") {
+           $(".bright").removeClass("d-none"); 
+           console.log("scheduler wh lighting");
+        }
+        if($("#device-select").val() == "light-overhead") {
+           $(".bright").removeClass("d-none"); 
+           console.log("scheduler overhead");
+        }
+        if($("#device-select").val() == "light-lamp") {
+            $(".bright").removeClass("d-none");
+            $("#kitchen").addClass("d-none");
+            $("#great-room").addClass("d-none");
+            $("#garage").addClass("d-none");
+        }
+        if($("#device-select").val() == "light-outside") {
+            $(".bright").removeClass("d-none");
+            $("#kitchen").addClass("d-none");
+            $("#great-room").addClass("d-none");
+            $("#master-br").addClass("d-none");
+        }
+        if($("#device-select").val() == "heating-cooling") {
+            $(".heat-cool").removeClass("d-none");
+            $("#garage").addClass("d-none");
+        }
+        if($("#device-select").val() == "ceiling-fan") {
+            $(".cfan").removeClass("d-none");
+            $("#kitchen").addClass("d-none");
+            $("#garage").addClass("d-none");
+    } else {
+            console.log(this);
+        }
+    }
+}
+
 //parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
@@ -399,6 +442,17 @@ $("#scheduled-items").submit(function( event ) {
     populateList(valueOnlyItems);
     localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
     this.reset();
+    $("#speed3").prop('disabled', false);
+    $("#brightness7").prop('disabled', false);
+    $("#lighting").removeClass("d-none");
+    $("#light-overhead").removeClass("d-none");
+    $("#light-lamp").removeClass("d-none");
+    $("#heating-cooling").removeClass("d-none");
+    $("#ceiling-fan").removeClass("d-none");
+    $(".heat-cool").addClass("d-none");
+    $(".bright").addClass("d-none");
+    $(".cfan").addClass("d-none");
+    console.log("completed reset");
 });
 
     function populateList(valueOnlyItems) {

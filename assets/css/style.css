@@ -18,10 +18,11 @@
     --opacity4: 1;
     --opacity5: 1;
     --opacity6: 1;
+    --opacity7: 1;
     --brightness: 1;
     --fanspeed1: 0s;;
     --fanspeed2: 0s;
-    --fanspeed3: 0s;
+    --fanspeed3: 2s;
     --direction1: normal;
     --direction2: normal;
     --direction3: normal;
@@ -223,7 +224,7 @@ h5 {
 }
 
 #light-icon1, #light-icon2, #light-icon3, #light-icon4, 
-#light-icon5, #light-icon6, #light-icon7 {
+#light-icon5, #light-icon6 {
     display: block;
     margin-left: 33%;
     width: 2.5rem;
@@ -259,6 +260,13 @@ h5 {
 
 #light-icon7 {
     opacity: var(--opacity7);
+    display: block;
+    margin-left: 33%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: var(--clr-yellow);
 }
 
 #fan-icon1, #fan-icon2, #fan-icon3 {
