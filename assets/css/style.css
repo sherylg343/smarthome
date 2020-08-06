@@ -198,7 +198,7 @@ h5 {
     margin-top: 0px;
 }
 
-/*--Images, Icons, Buttons, Inputs--*/
+/*--Images, Icons, Buttons, Inputs, Lines--*/
 .room-icon {
     display: block;
     width: 3rem;
@@ -325,20 +325,21 @@ select {
 }
 
 #btn-submit {
-    width: 5rem;
+    width: 15rem;
     height: 2.5rem;
     background-color: var(--clr-indigo);
     color: #FFFFFF;
     font-family: var(--ff-head);
     font-weight: 600;
     border: 2px solid var(--clr-indigo);
-    border-radius: 20%;
+    border-radius: 15%;
     padding: 2px;
+    font-size: .8rem;
 }
 
 @media (min-width: 768px) {
     #btn-submit {
-        width: 6rem;
+        width: 20rem;
         height: 3rem;
         font-size: 1.25rem;
     }
@@ -503,6 +504,10 @@ select {
 
 .fa-caret-square-up, .fa-caret-square-down {
     padding-left: 10px;
+}
+
+hr {
+    border-top: 3px solid var(--clr-royal-blue);
 }
 
 /*---Navbar---*/

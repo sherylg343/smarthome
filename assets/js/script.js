@@ -1,3 +1,18 @@
+//Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+$(document).ready( function() {
+    getRandomIntInclusive(50, 80);
+});
+
+function getRandomIntInclusive(low, high) {
+        const min = Math.ceil(low);
+        const max = Math.floor(high);
+        const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(actualValue);
+        $(".actual").each( function() {
+            $(this).val(actualValue);
+        });
+}
+
 //Footer with Date, Time and Weather
 //code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
  //and Javascript30.com, Day 2 - Clock, by Wes Bos
@@ -340,21 +355,6 @@ $(function() {
     });
 });
 
-//Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
-$(document).ready( function() {
-    getRandomIntInclusive(50, 80);
-});
-
-function getRandomIntInclusive(low, high) {
-        const min = Math.ceil(low);
-        const max = Math.floor(high);
-        const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
-        console.log(actualValue);
-        $(".actual").each( function() {
-            $(this).val(actualValue);
-        });
-}
-
 //Scheduler 
 ////activate appropriate selections
 let scheduler = document.getElementById("scheduler-form");
@@ -450,14 +450,37 @@ function schedulerToggle(powerIdValue) {
 //parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
-let controlItems = JSON.parse(localStorage.getItem("controlItems")) || {};
+/*const item = {
+    'start-date': 'Start Date/Time',
+    'end-date': 'End Date/Time',
+    'room': 'Room',
+    'device': "Device",
+    'onoffswitch': 'Power',
+    'opacity7': 'Brightness',
+    'heating-cooling-mode': 'Heating Cooling Mode',
+    'target-temp': 'Target Temp',
+    'fanspeed3': 'Fan Speed',
+    'direction3': "Fan Direction"
+};
+
+const itemName = item.name;
+const headerLookup = (itemName) => {
+    return item[itemName];
+}*/
 
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
     eventItems = $(this).serializeArray();
-    //console.log(valueOnlyItems);
+    $('#scheduled-items input[type="checkbox"]:not(:checked)').each(function() {
+        if($.inArray(this.name, eventItems) === -1) {
+            eventItems.push({name: this.name, value: "off"});
+        }
+    });
+
     valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
-    console.log(valueOnlyItems);
+ //   valueOnlyItems.forEach((value) => {
+ //       headerLookup(value);
+ //   });
     populateList(valueOnlyItems);
     localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
     this.reset();
@@ -472,21 +495,23 @@ $("#scheduled-items").submit(function( event ) {
     $(".bright").addClass("d-none");
     $(".cfan").addClass("d-none");
     console.log("completed reset");
+
 });
 
-    function populateList(valueOnlyItems) {
+    
+function populateList(valueOnlyItems) {
     $.each( valueOnlyItems, function( i, valueOnlyItem ) {
         $("#sched-list").append(`
-        <li>
-            ${valueOnlyItem.name}: ${valueOnlyItem.value}
-        </li>`
-    );
+            <li>
+                ${valueOnlyItem.name}: ${valueOnlyItem.value}
+            </li>
+            `);
     }).join('');
-
+    
     $('#sched-list li').each(function() {
         if($(this).is(':contains("light-overhead")') || $(this).is(':contains("light-lamp")') || $(this).is(':contains("light-outside")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("ceiling-fan-speed")')) {
+                if($(this).is(':contains("fanspeed3")') || $(this).is(':contains("direction3")') || $(this).is(':contains("heating-cooling-mode")')) {
                     $(this).addClass("d-none");
                 }
             });   
@@ -498,7 +523,7 @@ $("#scheduled-items").submit(function( event ) {
     $('#sched-list li').each(function() {
         if($(this).is(':contains("heating-cooling")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("ceiling-fan-speed")')|| $(this).is(':contains("brightness")')) {
+                if($(this).is(':contains("fanspeed3")')|| $(this).is(':contains("opacity7")') || $(this).is(':contains("direction3")')) {
                     $(this).addClass("d-none");
                 }
             });   
@@ -508,9 +533,9 @@ $("#scheduled-items").submit(function( event ) {
     });
 
     $('#sched-list li').each(function() {
-        if($(this).is(':contains("ceiling-fan")')) {
+        if($(this).is(':contains("fanspeed3")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("brightness")')) {
+                if($(this).is(':contains("opacity7")') || $(this).is(':contains("heating-cooling-mode")')) {
                     $(this).addClass("d-none");
                 }
             });   
@@ -518,7 +543,9 @@ $("#scheduled-items").submit(function( event ) {
             return;
         }
     });
-}
+     $('#sched-list').append('<hr>');
+}  
+
 
 //from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
 document.querySelectorAll('#control-form input:not([type="submit"])').forEach(elt => { elt.value = localStorage.getItem(elt.name); elt.addEventListener("change", e => { localStorage.setItem(e.target.name, e.target.value); }); });
