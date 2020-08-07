@@ -163,7 +163,7 @@ $('input[type="checkbox"]').click(function() {
                 $(hcMode).prop('disabled', false);
                 $(hcTarget).prop('disabled', false);
                 $(hcTargetBtns).prop('disabled', false);
-                console.log("true hc")
+                console.log("true hc");
             } else {
                 $(img).css({"background-color": "var(--clr-white)"});
                 $(sliderInput).prop('disabled', false);
@@ -450,41 +450,62 @@ function schedulerToggle(powerIdValue) {
 //parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
-/*const item = {
-    'start-date': 'Start Date/Time',
-    'end-date': 'End Date/Time',
-    'room': 'Room',
-    'device': "Device",
-    'onoffswitch': 'Power',
-    'opacity7': 'Brightness',
-    'heating-cooling-mode': 'Heating Cooling Mode',
-    'target-temp': 'Target Temp',
-    'fanspeed3': 'Fan Speed',
-    'direction3': "Fan Direction"
-};
-
-const itemName = item.name;
-const headerLookup = (itemName) => {
-    return item[itemName];
-}*/
 
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
     eventItems = $(this).serializeArray();
+    //code from Adam Merrifield, 6/21/14, stackOverflow (https://stackoverflow.com/questions/24338177/jquery-serializearray-is-not-getting-the-value-of-the-checked-checkbox)
     $('#scheduled-items input[type="checkbox"]:not(:checked)').each(function() {
         if($.inArray(this.name, eventItems) === -1) {
             eventItems.push({name: this.name, value: "off"});
         }
     });
-
     valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
- //   valueOnlyItems.forEach((value) => {
- //       headerLookup(value);
- //   });
+     $.each( valueOnlyItems, function (i, name) {
+         console.log(this.name);
+        switch (this.name) { 
+            case "start-date":
+               this.name = "Start Date/Time"; 
+               console.log(this.name);
+            break;
+            case "end-date":
+               this.name = "End Date/Time"; 
+            break;
+            case "room":
+               this.name = "Room"; 
+            break;
+            case "device":
+               this.name = "Device"; 
+            break;
+            case "onoffswitch":
+               this.name = "Power"; 
+            break;
+            case "opacity7":
+               this.name = "Brightness"; 
+            break;
+            case "heating-cooling-mode":
+                this.name = "Heating Cooling Mode"; 
+            break;
+            case "target-temp":
+               this.name = "Target Temp."; 
+            break;
+            case "fanspeed3":
+               this.name = "Fan Speed"; 
+            break;
+            case "direction3":
+               this.name = "Fan Direction"; 
+            break;
+            case "":
+                return;
+        }
+    });
+    console.log(valueOnlyItems);
     populateList(valueOnlyItems);
     localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
     this.reset();
     $("#speed3").prop('disabled', false);
+    $("#speed3").removeClass("d-none");
+    $("#direction3").removeClass("d-none");
     $("#brightness7").prop('disabled', false);
     $("#lighting").removeClass("d-none");
     $("#light-overhead").removeClass("d-none");
@@ -533,7 +554,7 @@ function populateList(valueOnlyItems) {
     });
 
     $('#sched-list li').each(function() {
-        if($(this).is(':contains("fanspeed3")')) {
+        if($(this).is(':contains("ceiling-fan")')) {
             $('#sched-list li').each(function() {
                 if($(this).is(':contains("opacity7")') || $(this).is(':contains("heating-cooling-mode")')) {
                     $(this).addClass("d-none");
