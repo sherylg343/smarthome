@@ -133,40 +133,69 @@ $('input[type="checkbox"]').click(function() {
     } else {
         let img = $(this).parent().parent().parent().next().find("img");
         let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+        let sliderInputLabel = $(this).parent().parent().parent().next().find("label");
         let sliderId = $(sliderInput).attr('id');
         let sliderName = $(sliderInput).attr('name');
         let hcMode = $(this).parent().parent().parent().next().find("select");
+        let hcModeLabel = $(this).parent().parent().parent().next().find("label");
         let hcModeId = $(hcMode).attr('id');
         let hcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
+        let hcTargetLabel = $(this).parent().parent().parent().next().next().next().find("label");
         let hcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
+        let direction = $(this).parent().parent().parent().next().next().find("select");
+        let directionLabel = $(this).parent().parent().parent().next().next().find("label");
         if($(this).prop("checked") === false) {
             if($(this).hasClass("light-power" || "fan-power")) {
-                $(img).css("background-color", "rgba(83,83,83,0.3)");  
+                $(img).css("background-color", "rgb(222, 222, 222");  
                 $(sliderInput).prop('disabled', true);
+                $(sliderInput).addClass("opaque");
+                $(sliderInputLabel).addClass("opaque");
                 console.log("false light and fan"); 
             } else if($(this).hasClass("fan-power")) {
                 document.documentElement.style.setProperty(`--${sliderName}`, 0 + "s");
+                $(direction).addClass("opaque");
+                $(directionLabel).addClass("opaque");
+                $(img).css("background-color", "rgb(222, 222, 222"); 
                 $(sliderInput).val(0);
             } else {
                 $(hcMode).prop('disabled', true);
                 $(`#${hcModeId} option[value=""]`).prop('selected', true);
                 $(hcTarget).prop('disabled', true);
-                $(hcTargetBtns).prop('disabled', true);               
+                $(hcTargetBtns).prop('disabled', true);
+                $(hcTarget).val("");
+                $(hcMode).val("blank");
+                $(hcMode).addClass("opaque"); 
+                $(hcModeLabel).addClass("opaque"); 
+                $(hcTarget).addClass("opaque"); 
+                $(hcTargetLabel).addClass("opaque"); 
+                $(hcTargetBtns).addClass("opaque");               
             }   
         } else if($(this).prop("checked") === true) {
             if($(this).hasClass("light-power")) {
                 $(img).css({"background-color": "var(--clr-yellow)"}); 
                 $(sliderInput).prop('disabled', false);
+                $(sliderInput).removeClass("opaque");
+                $(sliderInputLabel).removeClass("opaque");
                 sliderUpdate(sliderInput);
                 console.log("true light");                 
             }  else if($(this).hasClass("hc-power")){
                 $(hcMode).prop('disabled', false);
                 $(hcTarget).prop('disabled', false);
                 $(hcTargetBtns).prop('disabled', false);
+                $(hcMode).removeClass("opaque"); 
+                $(hcModeLabel).removeClass("opaque"); 
+                $(hcTarget).removeClass("opaque"); 
+                $(hcTargetLabel).removeClass("opaque"); 
+                $(hcTargetBtns).removeClass("opaque");  
                 console.log("true hc");
             } else {
                 $(img).css({"background-color": "var(--clr-white)"});
                 $(sliderInput).prop('disabled', false);
+                $(sliderInput).prop('disabled', true);
+                $(sliderInput).removeClass("opaque");
+                $(sliderInputLabel).removeClass("opaque");
+                $(direction).removeClass("opaque");
+                $(directionLabel).removeClass("opaque");
                 document.documentElement.style.setProperty(`--${sliderName}`, 0.5 + "s");
                 $(sliderInput).val(4);
                 speedControl(sliderInput);
@@ -184,17 +213,22 @@ function housePower (powerId, powerIdValue) {
         $(".light-power").each(function() {
         let whImg = $(this).parent().parent().parent().next().find("img");
         let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+        let whSliderInputLabel = $(this).parent().parent().parent().next().find("label");
         let whSliderName = $(whSliderInput).attr('name');
         console.log(powerIdValue);
             if(powerIdValue === false) {
                 $(this).prop("checked", false);
-                $(whImg).css("background-color", "rgba(83,83,83,0.3)"); 
+                $(whImg).css("background-color", "rgb(222 222,222)"); 
                 $(whSliderInput).prop('disabled', true);
                 console.log("wh false light");
+                $(whSliderInputLabel).addClass("opaque");
+                $(whSliderInput).addClass("opaque");
             } else if(powerIdValue === true) {
                 $(this).prop("checked", true);
                 $(whImg).css({"background-color": "var(--clr-yellow)"}); 
                 $(whSliderInput).prop('disabled', false);
+                $(whSliderInputLabel).removeClass("opaque");
+                $(whSliderInput).removeClass("opaque");
                 sliderUpdate(whSliderInput);
                 console.log("wh true light");  
            } else { 
@@ -203,8 +237,10 @@ function housePower (powerId, powerIdValue) {
         }); 
     } else if(powerId == 'myonoffswitch2') {
         $(".hc-power").each(function() {
+        let whHcModeLabel = $(this).parent().parent().parent().next().find("label");
         let whHcMode = $(this).parent().parent().parent().next().find("select");
         let whHcModeId = $(whHcMode).attr('id');
+        let whHcTargetLabel = $(this).parent().parent().parent().next().next().next().find("label");
         let whHcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
         let whHcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
         
@@ -214,10 +250,18 @@ function housePower (powerId, powerIdValue) {
                 $(`#${whHcModeId} option[value="blank"]`).prop('selected', true);
                 $(whHcTarget).attr('disabled', 'disabled');
                 $(whHcTargetBtns).prop('disabled', true);
+                $(whHcModeLabel).addClass("opaque");
+                $(whHcMode).addClass("opaque");
+                $(whHcTargetLabel).addClass("opaque");
+                $(whHcTarget).addClass("opaque");
+                $(whHcTargetBtns).addClass("opaque");
+                $(hcTarget).val("");
+                $(".hc-power")
                 $("#target1").val('');
                 $("#target1").attr('disabled', 'disabled');
                 $('#hvacmode5 option[value="blank"]').prop('selected', true);
                 $("#hvacmode5").prop('disabled', true);
+                $(".wh-hvac-off").addClass("opaque");
                 console.log(whHcTarget);
                 console.log("wh false hc");
             } else if(powerIdValue === true) {
@@ -227,6 +271,12 @@ function housePower (powerId, powerIdValue) {
                 $(whHcTarget).removeAttr('disabled');
                 $("#target1").removeAttr('disabled');
                 $(whHcTargetBtns).prop('disabled', false);
+                $(whHcModeLabel).removeClass("opaque");
+                $(whHcMode).removeClass("opaque");
+                $(whHcTargetLabel).removeClass("opaque");
+                $(whHcTarget).removeClass("opaque");
+                $(whHcTargetBtns).removeClass("opaque");
+                $(".wh-hvac-off").removeClass("opaque");
                 $("#target1").on('input', function () {
                     const tValue = $("#target1").val();
                     $(".target").each( function() {
@@ -249,11 +299,18 @@ function housePower (powerId, powerIdValue) {
             $(".fan-power").each(function() {
             let whImg = $(this).parent().parent().parent().next().find("img");
             let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
+            let whSliderInputLabel = $(this).parent().parent().parent().next().find("label");
+            let whDirection = $(this).parent().parent().parent().next().next().find("select");
+            let whDirectionLabel = $(this).parent().parent().parent().next().next().find("label");
             let whSliderName = $(whSliderInput).attr('name');
                 if(powerIdValue === false) {
                     $(this).prop("checked", false);
-                    $(whImg).css("background-color", "rgba(83,83,83,0.3)");  
+                    $(whImg).css("background-color", "rgb(222, 222, 222)");  
                     $(whSliderInput).prop('disabled', true);
+                    $(whSliderInputLabel).addClass("opaque");
+                    $(whSliderInput).addClass("opaque");
+                    $(whDirection).addClass("opaque");
+                    $(whDirectionLabel).addClass("opaque");
                     document.documentElement.style.setProperty(`--${whSliderName}`, 0 + "s");
                     $(whSliderInput).val(0);
                     console.log("wh false fan");
@@ -261,6 +318,10 @@ function housePower (powerId, powerIdValue) {
                     $(this).prop("checked", true);
                     $(whImg).css({"background-color": "var(--clr-white)"});
                     $(whSliderInput).prop('disabled', false);
+                    $(whSliderInputLabel).removeClass("opaque");
+                    $(whSliderInput).removeClass("opaque");
+                    $(whDirection).removeClass("opaque");
+                    $(whDirectionLabel).removeClass("opaque");
                     document.documentElement.style.setProperty(`--${whSliderName}`, 0.5 + "s");
                     $(whSliderInput).val(4);
                     speedControl(whSliderInput);

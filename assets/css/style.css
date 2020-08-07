@@ -231,7 +231,7 @@ h5 {
     height: 2.5rem;
     border: 2px solid black;
     border-radius: 50%;
-    background-color: rgb(83,83,83);
+    background-color: rgb(222,222,222);
 }
 
 #light-icon1 {
@@ -269,14 +269,14 @@ h5 {
     background-color: var(--clr-yellow);
 }
 
-#fan-icon1, #fan-icon2, #fan-icon3 {
+#fan-icon1, #fan-icon2 {
     display: block;
     margin-left: 33%;
     width: 3rem;
     height: 3rem;
     border: 2px solid #999999;
     border-radius: 50%;
-    background-color: #FFFFFF;
+    background-color: rgb(222, 222, 222);
     animation: rotate linear; 
     animation-iteration-count: infinite;
 }
@@ -294,6 +294,15 @@ h5 {
 #fan-icon3 {
     animation-duration: var(--fanspeed3);
     animation-direction: var(--direction3);
+    display: block;
+    margin-left: 33%;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background-color: var(--clr-white);
+    animation: rotate linear; 
+    animation-iteration-count: infinite;
 }
 
 @keyframes rotate {
@@ -504,6 +513,10 @@ select {
 
 .fa-caret-square-up, .fa-caret-square-down {
     padding-left: 10px;
+}
+
+.opaque {
+    opacity: 0.3;
 }
 
 hr {
