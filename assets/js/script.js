@@ -191,7 +191,7 @@ $('input[type="checkbox"]').click(function() {
             } else {
                 $(img).css({"background-color": "var(--clr-white)"});
                 $(sliderInput).prop('disabled', false);
-                $(sliderInput).prop('disabled', true);
+                $(sliderInput).prop('disabled', false);
                 $(sliderInput).removeClass("opaque");
                 $(sliderInputLabel).removeClass("opaque");
                 $(direction).removeClass("opaque");
@@ -573,9 +573,14 @@ $("#scheduled-items").submit(function( event ) {
     $("#light-lamp").removeClass("d-none");
     $("#heating-cooling").removeClass("d-none");
     $("#ceiling-fan").removeClass("d-none");
+    $("#whole-house").removeClass("d-none");
+    $("#kitchen").removeClass("d-none");
+    $("#great-room").removeClass("d-none");
+    $("#master-br").removeClass("d-none");
+    $("#garage").removeClass("d-none");
     $(".heat-cool").addClass("d-none");
     $(".bright").addClass("d-none");
-    $(".cfan").addClass("d-none");
+    $(".cfan").addClass("d-none");  
     console.log("completed reset");
 
 });
@@ -593,7 +598,7 @@ function populateList(valueOnlyItems) {
     $('#sched-list li').each(function() {
         if($(this).is(':contains("light-overhead")') || $(this).is(':contains("light-lamp")') || $(this).is(':contains("light-outside")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("fanspeed3")') || $(this).is(':contains("direction3")') || $(this).is(':contains("heating-cooling-mode")')) {
+                if($(this).is(':contains("Fan Direction")') || $(this).is(':contains("Fan Speed")') || $(this).is(':contains("Heating Cooling Mode")')) {
                     $(this).addClass("d-none");
                 }
             });   
@@ -605,7 +610,7 @@ function populateList(valueOnlyItems) {
     $('#sched-list li').each(function() {
         if($(this).is(':contains("heating-cooling")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("fanspeed3")')|| $(this).is(':contains("opacity7")') || $(this).is(':contains("direction3")')) {
+                if($(this).is(':contains("Fan Speed")')|| $(this).is(':contains("Brightness")') || $(this).is(':contains("Fan Direction")')) {
                     $(this).addClass("d-none");
                 }
             });   
@@ -617,7 +622,7 @@ function populateList(valueOnlyItems) {
     $('#sched-list li').each(function() {
         if($(this).is(':contains("ceiling-fan")')) {
             $('#sched-list li').each(function() {
-                if($(this).is(':contains("opacity7")') || $(this).is(':contains("heating-cooling-mode")')) {
+                if($(this).is(':contains("Brightness")') || $(this).is(':contains("Heating Cooling Mode")')) {
                     $(this).addClass("d-none");
                 }
             });   

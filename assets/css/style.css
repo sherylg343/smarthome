@@ -20,9 +20,9 @@
     --opacity6: 1;
     --opacity7: 1;
     --brightness: 1;
-    --fanspeed1: 0s;;
+    --fanspeed1: 0s;
     --fanspeed2: 0s;
-    --fanspeed3: 2s;
+    --fanspeed3: 0.5s;
     --direction1: normal;
     --direction2: normal;
     --direction3: normal;
@@ -269,7 +269,7 @@ h5 {
     background-color: var(--clr-yellow);
 }
 
-#fan-icon1, #fan-icon2 {
+#fan-icon1, #fan-icon2, #fan-icon3 {
     display: block;
     margin-left: 33%;
     width: 3rem;
@@ -294,15 +294,7 @@ h5 {
 #fan-icon3 {
     animation-duration: var(--fanspeed3);
     animation-direction: var(--direction3);
-    display: block;
-    margin-left: 33%;
-    width: 3rem;
-    height: 3rem;
-    border: 2px solid #999999;
-    border-radius: 50%;
     background-color: var(--clr-white);
-    animation: rotate linear; 
-    animation-iteration-count: infinite;
 }
 
 @keyframes rotate {
@@ -331,6 +323,10 @@ select {
     font-weight: 400;
     font-size: 1rem;
     color: var(--clr-royal-blue);
+}
+
+#device-select {
+    width: 200px;
 }
 
 #btn-submit {
@@ -389,6 +385,7 @@ select {
 .social-links li a i:hover {
     background: var(--clr-indigo);
 }
+
 /*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
     position: relative; 
@@ -510,6 +507,43 @@ select {
     transform: scale(1.2);
     border: none;
 } 
+
+/*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 12px;
+  border-radius: 4px;  
+  background: var(--clr-teal);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+  background: var(--clr-indigo);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--clr-indigo);
+  cursor: pointer;
+}
+
+.slidecontainer1 label, .slidecontainer2 label {
+    display: block;
+    float: left;
+    margin-left: 1rem;
+}
 
 .fa-caret-square-up, .fa-caret-square-down {
     padding-left: 10px;
@@ -649,43 +683,6 @@ footer {
     width: 30px;
     height: 30px;
     background: transparent;
-}
-
-/*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
-.slider {
-  -webkit-appearance: none;
-  width: 80%;
-  height: 12px;
-  border-radius: 4px;  
-  background: var(--clr-teal);
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%; 
-  background: var(--clr-indigo);
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--clr-indigo);
-  cursor: pointer;
-}
-
-.slidecontainer1 label, .slidecontainer2 label {
-    display: block;
-    float: left;
-    margin-left: 1rem;
 }
 
 /*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
