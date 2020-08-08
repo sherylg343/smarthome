@@ -522,8 +522,8 @@ $("#scheduled-items").submit(function( event ) {
         }
     });
     valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
+    console.log(valueOnlyItems);
      $.each( valueOnlyItems, function (i, name) {
-         console.log(this.name);
         switch (this.name) { 
             case "start-date":
                this.name = "Start Date/Time"; 
@@ -570,6 +570,7 @@ $("#scheduled-items").submit(function( event ) {
     $("#brightness7").prop('disabled', false);
     $("#lighting").removeClass("d-none");
     $("#light-overhead").removeClass("d-none");
+    $("#light-outside").removeClass("d-none");
     $("#light-lamp").removeClass("d-none");
     $("#heating-cooling").removeClass("d-none");
     $("#ceiling-fan").removeClass("d-none");
