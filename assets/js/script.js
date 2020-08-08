@@ -150,6 +150,7 @@ $('input[type="checkbox"]').click(function() {
                 $(sliderInput).prop('disabled', true);
                 $(sliderInput).addClass("opaque");
                 $(sliderInputLabel).addClass("opaque");
+                $(direction).val("");
                 console.log("false light and fan"); 
             } else if($(this).hasClass("fan-power")) {
                 document.documentElement.style.setProperty(`--${sliderName}`, 0 + "s");
@@ -163,7 +164,7 @@ $('input[type="checkbox"]').click(function() {
                 $(hcTarget).prop('disabled', true);
                 $(hcTargetBtns).prop('disabled', true);
                 $(hcTarget).val("");
-                $(hcMode).val("blank");
+                $(hcMode).val("");
                 $(hcMode).addClass("opaque"); 
                 $(hcModeLabel).addClass("opaque"); 
                 $(hcTarget).addClass("opaque"); 
@@ -247,7 +248,7 @@ function housePower (powerId, powerIdValue) {
             if(powerIdValue === false) {
                 $(this).prop("checked", false);
                 $(whHcMode).prop('disabled', true);
-                $(`#${whHcModeId} option[value="blank"]`).prop('selected', true);
+                $(`#${whHcModeId} option[value=""]`).prop('selected', true);
                 $(whHcTarget).attr('disabled', 'disabled');
                 $(whHcTargetBtns).prop('disabled', true);
                 $(whHcModeLabel).addClass("opaque");
@@ -256,10 +257,9 @@ function housePower (powerId, powerIdValue) {
                 $(whHcTarget).addClass("opaque");
                 $(whHcTargetBtns).addClass("opaque");
                 $(hcTarget).val("");
-                $(".hc-power")
-                $("#target1").val('');
+                $("#target1").val("");
                 $("#target1").attr('disabled', 'disabled');
-                $('#hvacmode5 option[value="blank"]').prop('selected', true);
+                $('#hvacmode5 option[value=""]').prop('selected', true);
                 $("#hvacmode5").prop('disabled', true);
                 $(".wh-hvac-off").addClass("opaque");
                 console.log(whHcTarget);
@@ -424,6 +424,12 @@ function schedulerDisplay() {
     $('#room-select').change(function() {
         $("#speed3").prop('disabled', false);
         $("#brightness7").prop('disabled', false);
+        $("#lighting").removeClass("d-none");
+        $("#light-overhead").removeClass("d-none");
+        $("#light-outside").removeClass("d-none");
+        $("#light-lamp").removeClass("d-none");
+        $("#heating-cooling").removeClass("d-none");
+        $("#ceiling-fan").removeClass("d-none");
         switch ($(this).val()) { 
             case "whole-house":
                 $("#light-overhead").addClass("d-none");
@@ -503,7 +509,7 @@ function schedulerToggle(powerIdValue) {
             $("#kitchen").addClass("d-none");
             $("#garage").addClass("d-none");
     } else {
-            console.log(this);
+            return;
         }
     }
 }
@@ -515,15 +521,14 @@ let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
 $("#scheduled-items").submit(function( event ) { 
     event.preventDefault();
     eventItems = $(this).serializeArray();
+    console.log(eventItems);
     //code from Adam Merrifield, 6/21/14, stackOverflow (https://stackoverflow.com/questions/24338177/jquery-serializearray-is-not-getting-the-value-of-the-checked-checkbox)
     $('#scheduled-items input[type="checkbox"]:not(:checked)').each(function() {
         if($.inArray(this.name, eventItems) === -1) {
             eventItems.push({name: this.name, value: "off"});
         }
     });
-    valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
-    console.log(valueOnlyItems);
-     $.each( valueOnlyItems, function (i, name) {
+    $.each( eventItems, function (name, value) {
         switch (this.name) { 
             case "start-date":
                this.name = "Start Date/Time"; 
@@ -545,7 +550,7 @@ $("#scheduled-items").submit(function( event ) {
                this.name = "Brightness"; 
             break;
             case "heating-cooling-mode":
-                this.name = "Heating Cooling Mode"; 
+                this.name = "Mode"; 
             break;
             case "target-temp":
                this.name = "Target Temp."; 
@@ -560,7 +565,32 @@ $("#scheduled-items").submit(function( event ) {
                 return;
         }
     });
+    console.log(eventItems);
+    let hc = eventItems.some( elem => elem.value === 'heating-cooling');
+    console.log(hc);
+    const lights = eventItems.some(item => (item.value === "lighting") || (item.value === "light-overhead") || (item.value === "light-lamp") || (item.value === "light-outside"));
+    console.log(lights);
+    if(hc === true) {
+        console.log("hc true");
+        const index1 = eventItems.findIndex(item => item.name === 'Brightness');
+        eventItems[index1].value = "";
+        console.log("bright1");
+        const index2 = eventItems.findIndex(item => item.name === 'Fan Speed');
+        eventItems[index2].value = "";
+        console.log("speed1");
+    } else if(lights === true) {
+        const index3 = eventItems.findIndex(item => item.name === 'Fan Speed');
+        eventItems[index3].value = "";  
+        console.log('bright2')
+    } else {
+        const index4 = eventItems.findIndex(item => item.name === 'Brightness');
+        eventItems[index4].value = "";
+        console.log("speed2");           
+    }             
+    
+    valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
     console.log(valueOnlyItems);
+     
     populateList(valueOnlyItems);
     localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
     this.reset();
@@ -595,43 +625,7 @@ function populateList(valueOnlyItems) {
             </li>
             `);
     }).join('');
-    
-    $('#sched-list li').each(function() {
-        if($(this).is(':contains("light-overhead")') || $(this).is(':contains("light-lamp")') || $(this).is(':contains("light-outside")')) {
-            $('#sched-list li').each(function() {
-                if($(this).is(':contains("Fan Direction")') || $(this).is(':contains("Fan Speed")') || $(this).is(':contains("Heating Cooling Mode")')) {
-                    $(this).addClass("d-none");
-                }
-            });   
-        } else {
-            return;
-        }
-    });
-
-    $('#sched-list li').each(function() {
-        if($(this).is(':contains("heating-cooling")')) {
-            $('#sched-list li').each(function() {
-                if($(this).is(':contains("Fan Speed")')|| $(this).is(':contains("Brightness")') || $(this).is(':contains("Fan Direction")')) {
-                    $(this).addClass("d-none");
-                }
-            });   
-        } else {
-            return;
-        }
-    });
-
-    $('#sched-list li').each(function() {
-        if($(this).is(':contains("ceiling-fan")')) {
-            $('#sched-list li').each(function() {
-                if($(this).is(':contains("Brightness")') || $(this).is(':contains("Heating Cooling Mode")')) {
-                    $(this).addClass("d-none");
-                }
-            });   
-        } else {
-            return;
-        }
-    });
-     $('#sched-list').append('<hr>');
+    $('#sched-list').append('<hr>');
 }  
 
 
