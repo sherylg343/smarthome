@@ -1,6 +1,6 @@
 <h3 style="text-align: center">
     <a href=" https://sherylg343.github.io/smarthome/" target="_blank">
-        <img src="assets/images/amenity_logo2.png" alt="Amentiy">
+        <img src="assets/images/amenity3_logo.png" alt="Amentiy">
     </a>
 </h3>
 
@@ -10,9 +10,19 @@
 [Click here to view website in GitHub Pages] (https://sherylg343.github.io/smarthome/)
 </div>
 
-Amenity, Smart House Manager, is a new technology company seeking to provide a
+# Table of Contents
+
+1. [Project Purpose](#purpose)
+2. [UX](#ux)
+
+
+
+## Project Purpose <a name="purpose"></a> 
+Amenity, Smart Home Manager, is a new technology company seeking to provide a
 demonstration (Demo) website that will showcase their product's interactive controls and 
 scheduling capabilities, without being connected to a set of home appliances and products. 
+
+## Project Goals
 Amenity's Demo control panel must provide a potential buyer with the opportunity to play 
 with the function inputs and controls to gain an understanding of the scope of the product 
 and how the controls interact with one another. The Scheduler section of the Demo will 
@@ -21,27 +31,41 @@ whole house or in a specific room. Amenity's goal for this Demo site is to have 
 leave the Demo with a clear understanding of the basic functionality of the product and 
 how this technology could work for them.
 
-The target audience is home owners looking for a fully-integrated smart house
-manager, easily controlled through mobile devices. This website is not intended to sell 
-the product, it is only to be used as a Demo of the coreproduct. It's important that the 
-user see the types of controls that can be accessed remotely and how scheduling is 
-integrated into the system. The website will likely be used while working with a 
-salesperson, either on the phone or in-person, so instructional directions are not 
-required on the website. However, it is expected that the control
-elements will be intuitive to use.
+The business goal of the site is to move the potential customer further along through the
+sales funnel. While some customers may visit the site during the product research stage, 
+the intent is to use the site to assist the customer in making a purchasing 
+decision. Amenity wants the Demo site to help convince a potential client that their
+smart-home manager suits the customer's specific needs and resolves their relevant
+problems. The user should leave the site believing that this smart home manager would
+help them manage their home in an easy and convenient mannner.
 
-## UX
+## Target Audience
+The target audience is defined as home owners looking for a fully-integrated smart-home
+manager, easily controlled through mobile devices. This website is not intended to sell 
+the product, it is only to be used as a Demo of the core product. It's important that the 
+user views, and has the opportunity to physically test, the types of controls that can be 
+accessed remotely and see how scheduling is integrated into the system. The website will 
+likely be used while working with a salesperson, either on the phone or in-person, so 
+instructional directions are not required on the website. However, it is expected that 
+the control elements will be intuitive to use.
+
+
+## UX <a name="ux"></a>
 
 ### Targeted Demo Customers
-* Own home 
+* Own home - this product is specifically designed as a comprehensive home manager.
+For example, apartment residents with a few electronic appliances are not a target
+audience for this product.
 * Currently possess or plan to purchase products and appliances for the home that are 
-capable of being wirelessly controlled by a smart house manager.
-* Have explored Amenity's smart-house manager product and have enough interest in the
+capable of being wirelessly controlled by a smart-home manager.
+* Have explored Amenity's smart-home manager product and have enough interest in the
 product that they are willing to devote time to exploring the product's capabilities
 through a Demo.
 
 ### This Demo is being commissioned:
-* to showcase Amenity's customized and integrated product;
+* to showcase Amenity's customized and integrated product in a succinct manner.
+Amenity does not want to overwhelm potential clients, so the Demo should be a 
+cross-section of the product's capabilities;
 * to provide potential customers with the opportunity to try out the controls and 
 functionality without having to first connect with their home products, as many other 
 software packages require;
@@ -50,7 +74,7 @@ software packages require;
 ### User Stories
 1. As a homeowner with an existing "smart home," I want to change my system to one that
 integrates all my products and appliances capable of being controlled wirelessly. 
-Additional conditions of satisfaction include:
+I am viewing the demo to determine if the following conditions of satisfaction are met:
 * system supports a variety of controls and products;
 * I am able to view all current settings for my home products and appliances electronically;
 * I am able to make changes to settings in real time or schedule the changes in the future.
@@ -58,7 +82,8 @@ Additional conditions of satisfaction include:
 
 2. As a homeowner, I have recently decided to purchase a smart house manager product that
 will electronically control available products and appliances within my home, for my 
-convenience and ease of use. Additional conditions of satisfaction include:
+convenience and ease of use. I am viewing the demo to determine if the following conditions 
+of satisfaction are met:
 * I need to try out the product and see how the controls work as I have not owned one of 
 these products previously.
 * controls and functions needs to be intuitive and integrated;
@@ -84,9 +109,69 @@ mockups were designed for the 3 primary screen sizes using Balsamiq software
 [Desktop](..smarthome/master/README-assets/#.pdf)
 </div>
 
-During creation of the website, the following changes were made to improve the design 
-originally created with the WireFrames.
-1.
+### Wireframe Mock-Up Revisions
+After designing the wire-frame mock-ups, I read "Best Practices for Form Design: Structure, Inputs, Labels 
+and Actions," by Nick Babich, published on March 12, 2020 on xd.adobe.com 
+[Article Link](https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/).
+I recognized that the home controls functioned very similar to a form, and thus adopted several best 
+practices outlined in this article, specifically:
+1. Group related information - flow left to right;
+2. Default values were set at off.
+3. Do not use a reset button ("pure evil").
+5. Submit buttons - state action will perform when clicked.
+
+Based on this article and other observations made during the site creation, the following changes were 
+made to improve the design originally created with the WireFrames.
+1. Heating cooling mode dropdown menu was added to the Whole House, so that the entire
+havac system was functional at the Whole Home level.
+2. The on-off switch was placed to right of title, and icon and range controller were placed side-by-
+side.
+3. Schedule controls are hidden except when their function is specifically chosen - to avoid user error.
+4. Scheduled events are printed in a list rather than a table.
+5. Termperature was added to the weather icon in the footer.
+6. Large screen display does not involve a multi-column view - single column is maintained among all screen
+sizes.
+7. Date and time were combined in one picker.
+
+### Features
+
+### Strategy Plane
+An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
+customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/#.pdf).
+All of the "Must Adddress" issues were addressed in this first phase of the Demo website.
+
+### Scope Plane
+Below is a summary of the analysis done for this Demo site during the Scope Plane.
+1. Objective: The user wants to accomplish manipulating the smart home controls to determine: ease of use, 
+general capabilities of product, and answer question: will this do what I need it to do?
+2. Functional: The user needs to physically see and manipulate the controls, see how they are integrated, and 
+understand that controls can be scheduled as well as manipulated in real time.
+3. Non-functional: The demo cannot easily connect to user's own appliances, so need to simulate the product being
+controlled. Security and scaleability are not concerns at this time.
+4. Business Rules: Human resources are limited at this time so need to produce a basic demo now that can be modified in
+the future.
+
+### Structure Plane
+Below are the key considerations relative to the Structure Plane.
+1. Consistency: 
+* controls laid out in rows and move left to right
+* one font used for headings and another used for body 
+* one background, so focus is on the controls
+2. Predictable:  
+* similarly functioning controls look the same (e.g. on/off switches and range controllers)
+* layout of each room box - controls are positioned in same order and location. e.g. Lighting is first, heating cooling is
+second and ceiling fans are third. On-off switches are to right of device name.
+3. Learnable:
+* Inputs/controls are disabled and faded out in when in "off" mode - easily recognizeable as "off" to user.
+* Fan and light bulb icons are animated to assist is selecting "speed" and "brightness" levels.
+* Fan speed and light brightness use same range controller to assist in learning.
+4. Visible:
+* All controls are one long scrolling page - easily accessible.
+* The scheduler has a nav link for quick access shown in a sticky nav bar.
+5. User Feedback:
+* Links change color and sometimes size when clicked.
+* When power switch turned on, relevant controls appear in full color and are enabled.
+* Additional interactive feedback for duplicate schedules is planned for next phase.
 
 
 
