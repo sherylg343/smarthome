@@ -188,6 +188,35 @@ sizes.
 background. Blue/Teal says "they care about what you do" and expresses sincerity and peacefulness.
 Green is the other color which portrays safety and stability. These are sub-conscious messages
 consistent with the image Amentity wants to portray for the company and its product.
+2. Fonts:
+Two fonts were chosen, one for headlines and one for body. Both were chosen for simplicity and readability:
+Headlines: Noto Sans JP
+Body: Hind Siliguri
+Back-up: Sans Serif
+3. Images/Icons
+The focus of this website is the controls and scheduler. Therefore, the decision was made to not use
+photo images that might distract from the focus on the functionaility of the product. Instead, to provide
+some design element and improve useability, icons were chosen to depict the whole house and each room, answer
+well as to animate the lights and fans and help the user visualize the changes s/he was making with the controls.
+4. Controls:
+* Consistency and useability were driving forces in the design of the controls.
+* All the range inputs (brightness and fan speed), look the same, as do the drop down menus.
+* Size of the controls was established so they are easy to use and recognizeable.
+* Organization and sequence of controls designed based on step-by-step analysis of their use. Whole Home is 
+biggest "unit" to be controlled, so it is shown first. If you want to turn off all of the house lights you can
+do that at the top of screen without scrolling down to find it. Rooms of the house are the next organizational unit -
+on par with the whole house. Following, the rooms are organized by device. The devices are in the same order in each
+room - but each room only lists the devices relevant to it (e.g. there is not a ceiling fan in the kitchen so it isn't
+listed). The device controls are indented and use a smaller type to indicate they are sub-items within the room structure.
+5. Defensive Design:
+* This was a prominent philosophy throughout the operational design of the Demo site. Within the control section, the
+default setting is off. When the on-off switches are off, the relevant controls are opaque and the controls are disabled.
+* When the Whole House on-off switches are turned on or off, all of the relevant device switches are changed accordingly.
+* In the scheduling area, only the initial controls who when you start to schedule an event: Start Date/Time, End Date/Time,
+House/Room, Device and On-Off Switch. The first four are required inputs to submit the event. The device dropdown menu is
+revised based upon the house/room selected to avoid scheduling a device that doesn't exist in a room. Additionally, 
+once the device is selected and the off-on switch is clicked "on," then the relevant controls appear below (e.g. fan
+speed and direction for Ceiling Fans). Again, this is done to help prevent human errors.
 
 
 
