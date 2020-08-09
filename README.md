@@ -22,7 +22,7 @@ Amenity, Smart Home Manager, is a new technology company seeking to provide a
 demonstration (Demo) website that will showcase their product's interactive controls and 
 scheduling capabilities, without being connected to a set of home appliances and products. 
 
-## Project Goals
+### Project Goals
 Amenity's Demo control panel must provide a potential buyer with the opportunity to play 
 with the function inputs and controls to gain an understanding of the scope of the product 
 and how the controls interact with one another. The Scheduler section of the Demo will 
@@ -39,7 +39,7 @@ smart-home manager suits the customer's specific needs and resolves their releva
 problems. The user should leave the site believing that this smart home manager would
 help them manage their home in an easy and convenient mannner.
 
-## Target Audience
+### Target Audience
 The target audience is defined as home owners looking for a fully-integrated smart-home
 manager, easily controlled through mobile devices. This website is not intended to sell 
 the product, it is only to be used as a Demo of the core product. It's important that the 
@@ -91,9 +91,57 @@ these products previously.
 * I am able to make changes to settings in real time or schedule the changes in the future.
 * I can easily access and make changes using my an app on my phone.
 
-### Wireframe Mock-Ups:
 
-After reviewing the User Stories and evaluating the Features (see below), the following
+### Features
+
+#### Strategy Plane
+An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
+customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/#.pdf).
+All of the "Must Adddress" issues were addressed in this first phase of the Demo website.
+
+#### Scope Plane
+Below is a summary of the analysis done for this Demo site during the Scope Plane.
+1. Objective: The user wants to accomplish manipulating the smart home controls to determine: ease of use, 
+general capabilities of product, and answer question: will this do what I need it to do?
+2. Functional: The user needs to physically see and manipulate the controls, see how they are integrated, and 
+understand that controls can be scheduled as well as manipulated in real time.
+3. Non-functional: The demo cannot easily connect to user's own appliances, so need to simulate the product being
+controlled. Security and scaleability are not concerns at this time.
+4. Business Rules: Human resources are limited at this time so need to produce a basic demo now that can be modified in
+the future.
+
+#### Structure Plane
+Below are the key considerations relative to the Structure Plane.
+1. Consistency: 
+* controls laid out in rows and move left to right
+* one font used for headings and another used for body 
+* one background, so focus is on the controls
+2. Predictable:  
+* similarly functioning controls look the same (e.g. on/off switches and range controllers)
+* layout of each room box - controls are positioned in same order and location. e.g. Lighting is first, heating cooling is
+second and ceiling fans are third. On-off switches are to right of device name.
+3. Learnable:
+* Inputs/controls are disabled and faded out in when in "off" mode - easily recognizeable as "off" to user.
+* Fan and light bulb icons are animated to assist is selecting "speed" and "brightness" levels.
+* Fan speed and light brightness use same range controller to assist in learning.
+4. Visible:
+* All controls are one long scrolling page - easily accessible.
+* The scheduler has a nav link for quick access shown in a sticky nav bar.
+5. User Feedback:
+* Links change color and sometimes size when clicked.
+* When power switch turned on, relevant controls appear in full color and are enabled.
+* Additional interactive feedback for duplicate schedules is planned for next phase.
+
+#### Skeleton Plane
+Useability: 
+* Boxes organized by home/room with device controls laid out in same manner.
+* Representational icons are used that are easy to identify: fan and light bulb, as
+well as icons representing each room. Icons are used consistently throughout site both
+in content as well as layout.
+
+#### Wireframe Mock-Ups:
+
+After reviewing the User Stories and evaluating the Features, the following
 mockups were designed for the 3 primary screen sizes using Balsamiq software 
 (https://basamiq.com). The website was created using a mobile-first design philosophy.
 
@@ -109,7 +157,7 @@ mockups were designed for the 3 primary screen sizes using Balsamiq software
 [Desktop](..smarthome/master/README-assets/#.pdf)
 </div>
 
-### Wireframe Mock-Up Revisions
+#### Wireframe Mock-Up Revisions
 After designing the wire-frame mock-ups, I read "Best Practices for Form Design: Structure, Inputs, Labels 
 and Actions," by Nick Babich, published on March 12, 2020 on xd.adobe.com 
 [Article Link](https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/).
@@ -133,46 +181,13 @@ side.
 sizes.
 7. Date and time were combined in one picker.
 
-### Features
-
-### Strategy Plane
-An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
-customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/#.pdf).
-All of the "Must Adddress" issues were addressed in this first phase of the Demo website.
-
-### Scope Plane
-Below is a summary of the analysis done for this Demo site during the Scope Plane.
-1. Objective: The user wants to accomplish manipulating the smart home controls to determine: ease of use, 
-general capabilities of product, and answer question: will this do what I need it to do?
-2. Functional: The user needs to physically see and manipulate the controls, see how they are integrated, and 
-understand that controls can be scheduled as well as manipulated in real time.
-3. Non-functional: The demo cannot easily connect to user's own appliances, so need to simulate the product being
-controlled. Security and scaleability are not concerns at this time.
-4. Business Rules: Human resources are limited at this time so need to produce a basic demo now that can be modified in
-the future.
-
-### Structure Plane
-Below are the key considerations relative to the Structure Plane.
-1. Consistency: 
-* controls laid out in rows and move left to right
-* one font used for headings and another used for body 
-* one background, so focus is on the controls
-2. Predictable:  
-* similarly functioning controls look the same (e.g. on/off switches and range controllers)
-* layout of each room box - controls are positioned in same order and location. e.g. Lighting is first, heating cooling is
-second and ceiling fans are third. On-off switches are to right of device name.
-3. Learnable:
-* Inputs/controls are disabled and faded out in when in "off" mode - easily recognizeable as "off" to user.
-* Fan and light bulb icons are animated to assist is selecting "speed" and "brightness" levels.
-* Fan speed and light brightness use same range controller to assist in learning.
-4. Visible:
-* All controls are one long scrolling page - easily accessible.
-* The scheduler has a nav link for quick access shown in a sticky nav bar.
-5. User Feedback:
-* Links change color and sometimes size when clicked.
-* When power switch turned on, relevant controls appear in full color and are enabled.
-* Additional interactive feedback for duplicate schedules is planned for next phase.
-
+#### Surface Plane
+1. Background: 
+* color chosen to maintain consistency;
+* Per www.colorpsychology.org, blue and green colors were selected for the gradient texture
+background. Blue/Teal says "they care about what you do" and expresses sincerity and peacefulness.
+Green is the other color which portrays safety and stability. These are sub-conscious messages
+consistent with the image Amentity wants to portray for the company and its product.
 
 
 
