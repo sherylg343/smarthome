@@ -9,6 +9,7 @@
     --clr-darkteal: #66b2b2;
     --clr-duskyblue: #475F94;
     --clr-royal-blue: #02066F;
+    --clr-ltgray: rgb(222,222,222);
     --ff-head: 'Noto Sans JP', 'Sans';
     --ff-body: 'Hind Siliguri', 'Sans';
     --box-border: 5px solid var(--clr-royal-blue);
@@ -276,7 +277,7 @@ h5 {
     height: 3rem;
     border: 2px solid #999999;
     border-radius: 50%;
-    background-color: rgb(222, 222, 222);
+    background-color:var(--clr-ltgray);
     animation: rotate linear; 
     animation-iteration-count: infinite;
 }
