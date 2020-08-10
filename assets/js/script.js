@@ -1,6 +1,6 @@
 //Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
 $(document).ready( function() {
-    getRandomIntInclusive(50, 80);
+    getRandomIntInclusive(50, 85);
     //default off position of sliders
     $(".slider").prop('disabled', true);
     //default off position of dropdown menus
@@ -18,6 +18,7 @@ function getRandomIntInclusive(low, high) {
         console.log(actualValue);
         $(".actual").each( function() {
             $(this).val(actualValue);
+        $("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
         });
 }
 
@@ -124,7 +125,13 @@ setInterval(checkLoc, 1800000);
 checkLoc();
 
 
-//$(".silent").prop("animation-duration", "0s");
+$(".temp input[type=text]").on('change input', function() {
+    if(($(this).val() <50) || $(this).val() >85) {
+        $(".temp-alert").removeClass("d-none");
+    } else {
+        $(".temp-alert").addClass("d-none");
+    }
+});
 
 //on-off switches
 $('input[type="checkbox"]').click(function() {
