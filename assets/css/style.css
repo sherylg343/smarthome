@@ -528,6 +528,28 @@ input:-webkit-autofill:active  {
   transition: opacity .2s;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

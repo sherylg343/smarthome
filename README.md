@@ -49,6 +49,7 @@ likely be used while working with a salesperson, either on the phone or in-perso
 instructional directions are not required on the website. However, it is expected that 
 the control elements will be intuitive to use.
 
+---
 
 ## UX <a name="ux"></a>
 
@@ -91,9 +92,11 @@ these products previously.
 * I am able to make changes to settings in real time or schedule the changes in the future.
 * I can easily access and make changes using my an app on my phone.
 
+---
 
-### Features
+## Features
 
+### Use of Five Planes of UX in Project Design
 #### Strategy Plane
 An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
 customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/Amenity_strategy_trade_off.pdf).
@@ -139,6 +142,7 @@ Useability:
 well as icons representing each room. Icons are used consistently throughout site both
 in content as well as layout.
 
+
 #### Wireframe Mock-Ups:
 
 After reviewing the User Stories and evaluating the Features, the following
@@ -146,18 +150,18 @@ mockups were designed for the 3 primary screen sizes using Balsamiq software
 (https://basamiq.com). The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
-[Mobile](..smarthome/master/README-assets/#.pdf)
+[Mobile](..smarthome/master/README-assets/smart_home_mobile.pdf)
 </div>
 
 <div style="text-align:center;">
-[Tablet](..smarthome/master/README-assets/#.pdf)
+[Tablet](..smarthome/master/README-assets/smart_home_iPad.pdf)
 </div>
 
 <div style="text-align:center;">
-[Desktop](..smarthome/master/README-assets/#.pdf)
+[Desktop](..smarthome/master/README-assets/smart_home_desktop.pdf)
 </div>
 
-#### Wireframe Mock-Up Revisions
+##### Wireframe Mock-Up Revisions
 After designing the wire-frame mock-ups, I read "Best Practices for Form Design: Structure, Inputs, Labels 
 and Actions," by Nick Babich, published on March 12, 2020 on xd.adobe.com 
 [Article Link](https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/).
@@ -220,9 +224,195 @@ once the device is selected and the off-on switch is clicked "on," then the rele
 speed and direction for Ceiling Fans). Again, this is done to help prevent human errors.
 
 ### More on Features
-A sticky navigation bar 
+Navigation:  A sticky navigation bar with a dropdowm menu to easily access the desired room to control was created for the site. The
+dropdowm menu was added towards then end when it was realized that the user would need to scroll significantly if trying
+to access a room farther down the page. A sticky footer was created, providing the date, time, temperature and weather
+to assist with both real time and event scheduling for the controls.
+
+Defensive Design: as mentioned previously, this was a key concept used in creating the site in order to make the site 
+more user-friendly and to minimize errors. These steps taken, include the following:
+* disabling controls when function switch is in off positioned
+* making controls opaque when function switch is in off positioned
+* Input fields, except for fan direction, are made blank when turned off, so user starts with clean slate when the 
+control is turned on again.
+* An error message was included for the Target Temperature input field, to ensure that the temperature entered is 
+within the thermostat's specified range of 50 to 85 degrees Farenheit.
+* In scheduling, the whole house/room choice, limits the devices available for selection so the user doesn't selected
+a control not in a specific room. Once the device is selected, then the relevant controls appear and are available
+to the user. 
+* Submit button is labeled to describe action being taken, "Finish Scheduling Event."
+* A reset button was suggested, but several articles disagreed with the inclusion of reset buttons, so it was not added
+to the website.
+* Beneath the Scheduled Events header, events are printed out with a line separating the events. Each event prints out
+only the device and controls scheduled.
+
+Local Storage: This was used in two ways.
+1. Scheduled events are saved and printed on the site.
+2. The control status' selected are saved and returned to the page, not lost when an event is scheduled.
+
+Actual Temperature:
+At the suggestion of my mentor, I added a random selection script for the Actual Temperature. As with the target 
+temperature, the range of actual temperatures is between 50 and 85.
+
+Controls: In addition to the features of controls discussed previously, a bootstrap date/time picker was selected
+for ease of use. Also, large up and down arrow buttons were included for the Target Temperature - as they are easier to
+see and use than the small ones that default with a number input field.
+
+---
+
+## Future Goals
+
+### More Devices
+Add a variety of devices to demonstrate scope of product's capabilities, e.g. security system, tv, music and a washer. 
+Demonstrating a variety of controls, will showcase the product's breadth and provide the user with a better
+understanding of the product's potential use.
+
+### New Section for Adding Devices
+Introduce a new section that demonstrates how to add a new device to the control panel. This would demonstrate ease
+of adding a new product to the system.
+
+### Date/Time Picker
+A more advanced, user-friendly version is a planned update. A selector that spins the options would be more convenient.
+
+### Automatic Numeric keypad for mobile
+This would prevent error and ease inputs for temperature.
+
+### Control setting for Temperature unit
+Offer option for Celsius rather than default to Farenheit
+
+### Zip Code Entry for Weather
+Provide a pop-up box that offers zip code entry option if geolocation is not available on a device - for the weather
+API.
+
+---
+
+## Technology Used
+
+* HTML & CSS programming languages
+* [Bootstrap] (https://getbootstrap.com/) - used to help make the website designed for 
+mobile-first and responsive to all screen sizes
+* [Bootstrap-popper] (https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js) - used for navbar 
+dropdown menu
+* [Bootstrap-tempusdominus-js-plugin] (https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js) - 
+used for date/time picker in scheduler
+* [Bootstrap-tempusdominus-css-plugin] (https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css) -
+used for date-time picker in scheduler
+* [GoogleFonts] (https://fonts.google.com/) - Noto Sans JP and Hind Siliguri Font Styles
+* [tinyjpg] (https://tinyjpg.com/) - used to reduce image file sizes
+* [FontAwesome] (https://fontawesome.com/) - Design icons for Services 1 page and social 
+media icons
+* [jQuery] (https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js) 
+* [javascript] used with jquery for functionality of website
+* [GIT] (https://git-scm.com/) - Version Control
+* [GITHUB] (https://github.com) - to host the repositories for this project and the 
+live website preview
+* [WeatherUnlocked] (https://developer.weatherunlocked.com/) - API used to provide temperature and weather icon
+* [BeautifyTools] (http://beautifytools.com/javascript-validator.php) - used to validate HTML, CSS and JQuery/javascript
+code and format/beautify all code
 
 
+---
+
+## Testing
+
+Testing can be found in a separate file - [TESTING.md] (TESTING.md)
 
 
+---
+
+## Deployment
+
+To deploy this page to GitHub Pages from its [GitHub repository]
+(https://sherylg343.github.io/smarthome/), follow the process described below.
+
+1. Identify the menu items below the name of the repository and move to the far right and 
+click on **Settings**.
+2. Scroll down the screen until reach section labeled **GitHub Pages**.
+3. Below the sub-heading **Source** is a dropdown menu. Click on it and select 
+**master branch**.
+4. Once the master branch is selected, the page is automatically refreshed and the 
+website is deployed.
+5. Scroll down the page again to the sub-heading **GitHub Pages** and you will now find
+a message thatt the website is deployed and providing the web address. Copy the web address 
+to view the deployed website in your browser.
+
+
+### How to Run this Project Locally
+
+To run the project locally, make a clone of it from GitHub:
+
+1. Working from the GitHub repository page, find the green button on right labeled 
+**Clone or download** and click it to open a dropdown menu.
+2. Below the headline **Clone with HTTPS** is a web address, click on the button to the right
+of it to copy the link.
+3. In your local IDE open Git Bash.
+4. Change the current working directory to the location where you want to place the 
+cloned directory.
+5. Type ```git clone```, then paste the clone URL address copied in step 2 as follows:
+```console git clone https://sherylg343.github.io/smarthome/```
+6. Press enter to finish creating the local clone.
+
+
+---
+
+## Credits
+
+### Images
+Icons were free and found on the following sites:
+* [FontAwesome] (https://fontawesome.com/) 
+* [cleanpng] (https://www.cleanpng.com)
+* [toppng] (https://toppng.com)
+* [pngtree] (https://pngtree.com)
+* [favpng] (https://favpng.com)
+* [uihere] (https://uihere.com)
+* [pngkey] (https://pngkey.com)
+* [clipartkey] (https://clipartkey.com)
+
+Also, a favicon was added using the company logo and the following website:
+[Favicon] (https://favicon.io/favicon-converter/)
+
+### Content
+All copy was written by developer.
+
+### Code
+* The On/Off Switch Code was taken from [proto.io] (https://proto.io/freebies/onoff/)
+* The Target Temperature up and down buttons code was based on [Add Button Number Incrementers 
+from *css-tricks, by Chris Coyier, 3/29/13] (https://css-tricks.com/number-increment-buttons/)
+and was then modified.
+* Code to modify the slider controls was taken from [w3schools.com] 
+(https://www.w3schools.com/howto/howto_js_rangeslider.asp)
+* Code used to access geolocation to utilize the weather API was obtained from
+[Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+published on 1/15/19 by Spatial Times] (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+and [Google Maps Platform] (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
+* Code for the time and date was obtained from three sources and modified:
+[How to Get Current Date & Time in Javascript, by Sofija Simic, posted 10/22/19] (www.phoenixnap.com)
+[Wes Bos, Day 2 - Clock] (Javascript30.com)
+[How to convert 24hours format to 12 hours in Javascript, by Javascript Jeep, 6/29/19 from Frontend Weekly] (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
+* Calculation of random temperature for Actual Temp. field came from [MDN web docs] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+* Rotation of fan icon was based on the following sources:
+//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
+[flavio on 1/13/19] (https://flaviocopes.com/rotate-image/)
+[An alternative to if/else and switch in JavaScript by Fabien Huet] (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
+* Use of local storage was based on following two sources:
+[#15 Local Storage, by Wes Bos] (https://javascript30.com)
+[Basj on stackOverflow] (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
+* Additional resources used for snippets of code are marked above the corresponding code in the css
+and js files
+
+
+### Acknowedgements
+Many thanks to Code Institute students and alumni/channel leaders who provided assistance
+throughout the development phase, with special appreciation extended towards:
+
+* Brian Mancharia - mentor; Brian provided extraordinary guidance and insight that
+enabled me to tackle this project.
+* Code Institute Tutors: Michael, Samantha, Scott, Kevin, Stephen, Miklos & Anna
+* Slack leaders and alumni: MPia_lead, Eventyret_mentor, robinz_alumni
+* Wes Bos - Javascript30.com
+* Kevin Powell & Kyle Cook "How to Code a Better To-Do List" (https://youtu.be/IhmSidOJSeE) 
+(https://www.youtube.com/watch?reload=9&v=W7FaYfuwu70)
+
+## Disclaimer
+Please note the content and images on this website are for educational purposes only.
 
