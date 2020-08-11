@@ -125,11 +125,14 @@ setInterval(checkLoc, 1800000);
 checkLoc();
 
 
-$(".temp input[type=text]").on('change input', function() {
+$(".temp input[type=text]").on('change input click', function() {
     if(($(this).val() <50) || $(this).val() >85) {
         $(".temp-alert").removeClass("d-none");
     } else {
         $(".temp-alert").addClass("d-none");
+        const inputId = $(this).attr('id');
+        console.log(inputId);
+        $(inputId).css({"background-color": "var(--clr-teal)"}); 
     }
 });
 
