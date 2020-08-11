@@ -1,5 +1,5 @@
 //Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
-$(document).ready( function() {
+$(document).ready(function() {
     getRandomIntInclusive(50, 85);
     //default off position of sliders
     $(".slider").prop('disabled', true);
@@ -9,7 +9,7 @@ $(document).ready( function() {
     $("#target1, #target2, #target3, #target4").prop('disabled', true);
     $("#target1, #target2, #target3, #target4").val("");
     $("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
-    $('.dropdown').click( function() {
+    $('.dropdown').click(function() {
         $(".dropdown-menu").toggleClass('show');
     });
 });
@@ -135,9 +135,6 @@ $(".temp input[type=text]").on('change input click', function() {
         $(".temp-alert").removeClass("d-none");
     } else {
         $(".temp-alert").addClass("d-none");
-        const inputId = $(this).attr('id');
-        console.log(inputId);
-        $(inputId).css({"background-color": "var(--clr-teal)"}); 
     }
 });
 

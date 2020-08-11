@@ -36,133 +36,21 @@
     box-sizing: border-box;
 }
 
-/*-Colors--*/
+/*------------- Background/Colors ---------*/
 body {
     background: linear-gradient(to left, #83a4d4, #b6fbff);
-    font-family: var(--ff-body) important!;
-    color: var(--clr-royal-blue);
-    font-weight: 600;
-    font-size: .9rem;
 }
 
-/*--Special Padding/Margins/Text/Borders--*/
-.bdr-l {
-    border-left: var(--box-border);
+.opaque {
+    opacity: 0.3;
 }
 
-.bdr-r {
-    border-right: var(--box-border);
+/*----- Special Paddings, Margins and Other -----*/
+#inline-list {
+    padding: 0px;
 }
 
-.bdr-t {
-    border-top: var(--box-border);
-}
-
-.bdr-b {
-    border-bottom: var(--box-border);
-}
-
-.header {
-    font-family: var(--ff-head);
-}
-
-.room-name {
-    color: var(--clr-white);
-    font-size: 2rem;
-    font-family: var(--ff-body);
-    padding-top: 3vh;
-    text-align: center;
-    font-weight: 600;
-}
-
-@media (min-width: 768px) {
-   .room-name {
-    padding-left: 2.5rem;
-    font-size: 3rem;
-    } 
-}
-
-
-.function-name {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-family: var(--ff-body);
-    color: var(--clr-royal-blue);
-    font-weight: 600;
-    font-size: 1.15rem;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
-}
-
-@media (min-width: 768px) {
-   .function-name {
-    padding-left: 2.5rem;
-    font-size: 2rem;
-    margin-top: 1.5rem;
-    margin-bottom: .4rem;
-    } 
-}
-
-.sub-head {
-    font-family: var(--ff-body) important!;
-    color: var(--clr-royal-blue);
-    font-weight: 600;
-    font-size: .9rem;
-    padding-left: 1.15rem;
-} 
-
-@media (min-width: 768px) {
-   .sub-head {
-    padding-left: 3.5rem;
-    font-size: 1.4rem;
-    } 
-}
-
-#scheduler .head {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    text-align: left;
-    font-size: 1.15rem;
-    font-family: var(--ff-body);
-    color: var(--clr-royal-blue);
-}
-
-@media (min-width: 768px) {
-    .sched-head {
-        font-size: 1.6rem;
-    }
-}
-
-.sched-sub {
-    font-family: var(--ff-body) important!;
-    color: var(--clr-royal-blue);
-    font-weight: 600;
-    font-size: .9rem;
-    padding-right: 1rem;
-}
-
-@media (min-width: 768px) {
-   .sched-sub {
-    font-size: 1.4rem;
-    } 
-}
-
-label {
-    font-family: var(--ff-body);
-    color: var(--clr-royal-blue);
-    font-weight: 600;
-}
-
-.hcmode, .fan {
-    text-align: left;
-}
-
-
-/*--Headings--*/
-/*header {
-    bottom: -13rem;
-}*/
-
+/*----------------- Text -----------------*/
 h1, h3, h4, h5 {
     font-family: var(--ff-head);
     font-weight: 900;
@@ -199,7 +87,79 @@ h5 {
     margin-top: 0px;
 }
 
-/*--Images, Icons, Buttons, Inputs, Lines--*/
+.header {
+    font-family: var(--ff-head);
+}
+
+.room-name {
+    color: var(--clr-white);
+    font-size: 2rem;
+    font-family: var(--ff-body);
+    padding-top: 3vh;
+    text-align: center;
+    font-weight: 600;
+}
+
+.function-name {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.sub-head {
+    font-family: var(--ff-body) important!;
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+    font-size: .9rem;
+    padding-left: 1.15rem;
+} 
+
+#scheduler .head {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: left;
+    font-size: 1.15rem;
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+}
+
+.sched-sub {
+    font-family: var(--ff-body) important!;
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+    font-size: .9rem;
+    padding-right: 1rem;
+}
+
+
+/*---------------- Borders & Lines -------------*/
+.bdr-l {
+    border-left: var(--box-border);
+}
+
+.bdr-r {
+    border-right: var(--box-border);
+}
+
+.bdr-t {
+    border-top: var(--box-border);
+}
+
+.bdr-b {
+    border-bottom: var(--box-border);
+}
+
+hr {
+    border-top: 3px solid var(--clr-royal-blue);
+}
+
+
+/*-------------- Images, Icons, ----------------*/
 .room-icon {
     display: block;
     width: 3rem;
@@ -210,18 +170,6 @@ h5 {
     border: 2px solid var(--clr-teal);
     background-color: var(--clr-teal);
     border-radius: 20%;
-}
-
-@media (min-width: 768px) {
-   .room-icon {
-       width: 5rem;
-    height: 5rem;
-    } 
-}
-
-/*Code provided on stackoverflow by "knetsi" on January 22, 2018*/
-.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
-    background-color: var(--clr-indigo);
 }
 
 #light-icon1, #light-icon2, #light-icon3, #light-icon4, 
@@ -308,11 +256,35 @@ h5 {
 }
 
 .clockwise {
-    animation-direction: forward;
+    animation-direction: normal;
 }
 
 .counterclockwise {
     animation-direction: reverse;
+}
+
+/* temp button icons*/
+#control-box i, 
+#scheduler i {
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--clr-indigo);
+    transform: scale(1);
+}
+
+.fa-caret-square-up, .fa-caret-square-down {
+    padding-left: 10px;
+}
+
+/*--------------------------- Inputs & Buttons ----------------*/
+label {
+    font-family: var(--ff-body);
+    color: var(--clr-royal-blue);
+    font-weight: 600;
+}
+
+.hcmode, .fan {
+    text-align: left;
 }
 
 select {
@@ -326,10 +298,39 @@ select {
     color: var(--clr-royal-blue);
 }
 
-
 #device-select {
     width: 200px;
 }
+
+.temp input[type=text] {
+    float: left;
+    text-align: center;
+    background: var(--clr-teal) !important;
+    border: none;
+    width: 75px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--clr-royal-blue);
+    font-family: var(--ff-body);
+}
+
+.tempbtn {
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    border: none;
+    padding: 0px;
+    color: var(--clr-white);
+    background: transparent;
+    transition: transform 300ms ease-in-out;
+}
+
+.tempbtn:hover {
+    transform: scale(1.2);
+    border: none;
+} 
 
 #btn-submit {
     width: 15rem;
@@ -344,51 +345,12 @@ select {
     font-size: .8rem;
 }
 
-@media (min-width: 768px) {
-    #btn-submit {
-        width: 20rem;
-        height: 3rem;
-        font-size: 1.25rem;
-    }
-}
-
 #btn-submit:hover {
     background: var(--clr-darkteal);
 }
 
-#inline-list {
-    padding: 0px;
-}
-
-#inline-list li {
-    list-style: none;
-     display: inline;
-}
-
-.social-links {
-    padding-bottom: 15px;
-}
-
-.social-links li a i {
-    width: 20px;
-    height: 20px;;
-    padding: 3px;
-    margin-top: 0;
-    border-radius: 50%;
-    text-align: center;
-    color: #fafafa;
-    background: var(--clr-royal-blue);
-    transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    -webkit-transition: all 0.35s ease-in-out;
-    -o-transition: all 0.35s ease-in-out;
-}
-
-.social-links li a i:hover {
-    background: var(--clr-indigo);
-}
-
-/*--On/Off Switch from proto.io (https://proto.io/freebies/onoff/) --*/
+/*--On/Off Switch from proto.io 
+(https://proto.io/freebies/onoff/) --*/
 .onoffswitch {
     position: relative; 
     width: 90px;
@@ -458,7 +420,9 @@ select {
     right: 0px; 
 }
 
-/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
+/*--(+/-) Code based on "Add Button Number Incrementers" 
+from *css-tricks, by Chris Coyier, 3/29/13, 
+(https://css-tricks.com/number-increment-buttons/) --*/
 .temp form div{
     overflow: hidden;
     margin: 0 0 5px;
@@ -469,7 +433,9 @@ select {
     float: left;
 }
 
-/*code from Samantha at Code Institute and Fareed Alnamrouti, posted on stackOverflow on Jan 7 '13 at 23:35(https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete)*/
+/*code from Samantha at Code Institute and Fareed Alnamrouti, 
+posted on stackOverflow on Jan 7 '13 at 23:35
+(https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete)*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -477,45 +443,8 @@ input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px var(--clr-teal) inset !important;
 }
 
-.temp input[type=text] {
-    float: left;
-    text-align: center;
-    background: var(--clr-teal) !important;
-    border: none;
-    width: 75px;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--clr-royal-blue);
-    font-family: var(--ff-body);
-}
-
-.tempbtn {
-    cursor: pointer;
-    float: left;
-    text-align: center;
-    font-size: 30px;
-    line-height: 30px;
-    border: none;
-    padding: 0px;
-    color: var(--clr-white);
-    background: transparent;
-    transition: transform 300ms ease-in-out;
-}
-
-#control-box i, 
-#scheduler i {
-    font-size: 30px;
-    line-height: 30px;
-    color: var(--clr-indigo);
-    transform: scale(1);
-}
-
-.tempbtn:hover {
-    transform: scale(1.2);
-    border: none;
-} 
-
-/*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
+/*--code from w3schools.com 
+(https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
 .slider {
   -webkit-appearance: none;
   width: 80%;
@@ -527,28 +456,6 @@ input:-webkit-autofill:active  {
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -574,19 +481,13 @@ input:-webkit-autofill:active  {
     margin-left: 1rem;
 }
 
-.fa-caret-square-up, .fa-caret-square-down {
-    padding-left: 10px;
+/*--code from stackoverflow.com, Yudiz_Webdesign, 
+12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
+.input-group-append {
+    cursor: pointer;
 }
 
-.opaque {
-    opacity: 0.3;
-}
-
-hr {
-    border-top: 3px solid var(--clr-royal-blue);
-}
-
-/*---Navbar---*/
+/*---------------Navigation--------------*/
 .navbar {
     width: 100%;
     background-color: var(--clr-white);
@@ -604,18 +505,151 @@ hr {
     z-index: 999999;
 }
 
+#navlogo {
+    display: block;
+    width: 60px;
+    margin-left: 0.5rem;
+}
+
+#link1, #link2 {
+    color: var(--clr-indigo);
+}
+
+
+/*-----Section Styling(not Nav or Footer) ---------*/
+.control-box {
+    color: var(--clr-duskyblue);
+    font-family: var(--ff-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#closing {
+    background-color: var(--clr-teal);
+}
+
+.closing-specs {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+
+}
+
+/*------------- Footer -----------------*/
+footer {
+    background-color: #FFFFFF;
+    border-top: 5px solid var(--clr-yellow);
+    margin: 0px;
+    font-size: 1rem;
+    color: var(--clr-indigo);
+    font-family: var(--ff-head);
+    font-weight: 700;
+}
+
+.footer-stick {
+    display: flex;
+    bottom: 0px;
+    left: 0px; 
+    position: sticky;
+    z-index: 999999;
+}
+
+#inline-list li {
+    list-style: none;
+     display: inline;
+}
+
+#icon i {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 20px;
+    height: 20px;;
+    padding: 3px;
+    margin-top: 0;
+    border-radius: 50%;
+    text-align: center;
+    color: #fafafa;
+    background: var(--clr-royal-blue);
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background: var(--clr-indigo);
+}
+
+
+/*--------- Media Queries -----------*/
+@media (min-width: 768px) {
+   .room-name {
+    padding-left: 2.5rem;
+    font-size: 3rem;
+    } 
+}
+
+@media (min-width: 768px) {
+   .function-name {
+    padding-left: 2.5rem;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: .4rem;
+    } 
+}
+
+@media (min-width: 768px) {
+   .sub-head {
+    padding-left: 3.5rem;
+    font-size: 1.4rem;
+    } 
+}
+
+@media (min-width: 768px) {
+    .sched-head {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 768px) {
+   .sched-sub {
+    font-size: 1.4rem;
+    } 
+}
+
+@media (min-width: 768px) {
+   .room-icon {
+       width: 5rem;
+    height: 5rem;
+    } 
+}
+
+@media (min-width: 768px) {
+    #btn-submit {
+        width: 20rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+}
+
 @media (min-width: 768px){ 
     .navbar-nav .mr-auto {
     flex: 1;
     margin: auto  !important;
     display: flex;
     }   
-}
-
-#navlogo {
-    display: block;
-    width: 60px;
-    margin-left: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -628,10 +662,6 @@ hr {
     #navlogo {
         width: 125px;
     }
-}
-
-#link1, #link2 {
-    color: var(--clr-indigo);
 }
 
 @media (min-width: 592px) {
@@ -664,60 +694,9 @@ hr {
     }
 }
 
-/*--Sections--*/
-.control-box {
-    color: var(--clr-duskyblue);
-    font-family: var(--ff-body);
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-#closing {
-    background-color: var(--clr-teal);
-}
-
-.closing-specs {
-    margin-left: .5rem;
-    margin-right: .5rem;
-    text-align: center;
-}
-
-footer {
-    background-color: #FFFFFF;
-    border-top: 5px solid var(--clr-yellow);
-    margin: 0px;
-    font-size: 1rem;
-    color: var(--clr-indigo);
-    font-family: var(--ff-head);
-    font-weight: 700;
-}
-
 @media (min-width: 768px) {
     footer {
         font-size: 1.5rem;
     }
 }
 
-.footer-stick {
-    display: flex;
-    bottom: 0px;
-    left: 0px; 
-    position: sticky;
-    z-index: 999999;
-}
-
-#icon i {
-    width: 30px;
-    height: 30px;
-    background: transparent;
-}
-
-/*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
-.input-group-append {
-    cursor: pointer;
-}
-
-ul {
-    list-style: none;
-
-}

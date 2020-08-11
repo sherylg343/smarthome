@@ -309,7 +309,7 @@ live website preview
 * [WeatherUnlocked] (https://developer.weatherunlocked.com/) - API used to provide temperature and weather icon
 * [BeautifyTools] (http://beautifytools.com/javascript-validator.php) - used to validate HTML, CSS and JQuery/javascript
 code and format/beautify all code
-
+* [Nu html checker] (https://validator.w3.org/)
 
 ---
 
