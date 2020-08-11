@@ -9,7 +9,12 @@ $(document).ready( function() {
     $("#target1, #target2, #target3, #target4").prop('disabled', true);
     $("#target1, #target2, #target3, #target4").val("");
     $("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
+    $('.dropdown').click( function() {
+        $(".dropdown-menu").toggleClass('show');
+    });
 });
+
+
 
 function getRandomIntInclusive(low, high) {
         const min = Math.ceil(low);

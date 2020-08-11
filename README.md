@@ -96,7 +96,7 @@ these products previously.
 
 #### Strategy Plane
 An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
-customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/#.pdf).
+customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/Amenity_strategy_trade_off.pdf).
 All of the "Must Adddress" issues were addressed in this first phase of the Demo website.
 
 #### Scope Plane
@@ -166,7 +166,7 @@ practices outlined in this article, specifically:
 1. Group related information - flow left to right;
 2. Default values were set at off.
 3. Do not use a reset button ("pure evil").
-5. Submit buttons - state action will perform when clicked.
+5. Submit buttons - state action will perform when clicked, not a generic "Submit."
 
 Based on this article and other observations made during the site creation, the following changes were 
 made to improve the design originally created with the WireFrames.
@@ -196,8 +196,9 @@ Back-up: Sans Serif
 3. Images/Icons
 The focus of this website is the controls and scheduler. Therefore, the decision was made to not use
 photo images that might distract from the focus on the functionaility of the product. Instead, to provide
-some design element and improve useability, icons were chosen to depict the whole house and each room, answer
-well as to animate the lights and fans and help the user visualize the changes s/he was making with the controls.
+some design element and improve useability, icons were chosen to depict the whole house and each room, 
+answer well as to animate the lights and fans and help the user visualize the changes s/he was making with 
+the controls.
 4. Controls:
 * Consistency and useability were driving forces in the design of the controls.
 * All the range inputs (brightness and fan speed), look the same, as do the drop down menus.
@@ -217,6 +218,9 @@ House/Room, Device and On-Off Switch. The first four are required inputs to subm
 revised based upon the house/room selected to avoid scheduling a device that doesn't exist in a room. Additionally, 
 once the device is selected and the off-on switch is clicked "on," then the relevant controls appear below (e.g. fan
 speed and direction for Ceiling Fans). Again, this is done to help prevent human errors.
+
+### More on Features
+A sticky navigation bar 
 
 
 

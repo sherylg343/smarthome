@@ -642,14 +642,12 @@ hr {
     }
 }
 
-
 /*--Sections--*/
 .control-box {
     color: var(--clr-duskyblue);
     font-family: var(--ff-body);
     font-size: 1.1rem;
     font-weight: 500;
-    margin-top: 3rem;
 }
 
 #closing {
