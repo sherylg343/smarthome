@@ -17,9 +17,8 @@
 2. [UX](#ux)
 
 3. [Features](#features)
-    [Wireframe Mock-ups] (#wireframe)
 
-4. [Future Goals] (#future)
+4. [Future_Goals] (#future)
 
 5. [Technology Used](#technology-used)
 
@@ -162,22 +161,21 @@ well as icons representing each room. Icons are used consistently throughout sit
 in content as well as layout.
 
 
-#### Wireframe Mock-Ups: <a name="wireframe"></a>
-
+#### Wireframe Mock-Ups:
 After reviewing the User Stories and evaluating the Features, the following
 mockups were designed for the 3 primary screen sizes using Balsamiq software 
 (https://basamiq.com). The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
-[Mobile](..smarthome/master/README-assets/smart_home_mobile.pdf)
+[Mobile](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_mobile.pdf)
 </div>
 
 <div style="text-align:center;">
-[Tablet](..smarthome/master/README-assets/smart_home_iPad.pdf)
+[Tablet](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_iPad.pdf)
 </div>
 
 <div style="text-align:center;">
-[Desktop](..smarthome/master/README-assets/smart_home_desktop.pdf)
+[Desktop](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_desktop.pdf)
 </div>
 
 ##### Wireframe Mock-Up Revisions
@@ -308,7 +306,6 @@ API.
 ---
 
 ## Technology Used <a name="technology-used"></a>
-
 * HTML & CSS programming languages
 * [Bootstrap] (https://getbootstrap.com/) - used to help make the website designed for 
 mobile-first and responsive to all screen sizes
@@ -336,14 +333,12 @@ code and format/beautify all code
 ---
 
 ## Testing <a name="testing"></a>
-
 Testing can be found in a separate file - [TESTING.md] (TESTING.md)
 
 [Back to Top](#Table-of-Contents)
 ---
 
 ## Deployment <a name="deployment"></a>
-
 To deploy this page to GitHub Pages from its [GitHub repository]
 (https://sherylg343.github.io/smarthome/), follow the process described below.
 
@@ -360,7 +355,6 @@ to view the deployed website in your browser.
 
 
 ### How to Run this Project Locally
-
 To run the project locally, make a clone of it from GitHub:
 
 1. Working from the GitHub repository page, find the green button on right labeled 
