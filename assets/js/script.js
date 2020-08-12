@@ -4,7 +4,12 @@ $(document).ready(function () {
 	//default off position of sliders
 	$(".slider").prop('disabled', true);
 	//default off position of dropdown menus
-	$('select').prop('disabled', 'disabled');
+    $('select').prop('disabled', 'disabled');
+    //enable all scheduling inputs (after all disabled above)
+    $("#room-select").prop('disabled', false);
+    $("#device-select").prop('disabled', false);
+    $("#hvac-mode4").prop('disabled', false);
+    $("#direction3").prop('disabled', false);
 	//default off position for target temp
 	$("#target1, #target2, #target3, #target4").prop('disabled', true);
 	$("#target1, #target2, #target3, #target4").val("");
@@ -12,52 +17,46 @@ $(document).ready(function () {
 	$('.dropdown').click(function () {
 		$(".dropdown-menu").toggleClass('show');
 	});
-});
 
-
-function getRandomIntInclusive(low, high) {
-	const min = Math.ceil(low);
-	const max = Math.floor(high);
-	const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
-	console.log(actualValue);
-	$(".actual").each(function () {
-		$(this).val(actualValue);
-		$("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
-	});
-}
+    function getRandomIntInclusive(low, high) {
+	    const min = Math.ceil(low);
+	    const max = Math.floor(high);
+	    const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
+	    console.log(actualValue);
+	    $(".actual").each(function () {
+		    $(this).val(actualValue);
+		    $("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
+	    });
+    }
 
 //Footer with Date, Time and Weather
 //code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
 //and Javascript30.com, Day 2 - Clock, by Wes Bos
 //and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
-const footerDate = document.getElementById("footerdate");
-const footerTime = document.getElementById("footertime");
+    const footerDate = document.getElementById("footerdate");
+    const footerTime = document.getElementById("footertime");
 
-function checkDate() {
-	const now = new Date();
+    function checkDate() {
+	    const now = new Date();
+	    const month = (now.getMonth() + 1);
+	    const day = now.getDate();
+	    const year = now.getFullYear();
+	    const hour = now.getHours();
+	    const mins = now.getMinutes();
 
-	console.log(now);
+	    const timeSuffix = hour <= 12 ? "AM" : "PM";
+	    const clockHour = (hour % 12) || 12;
+	    const digitalMins = (mins < 10) ? "0" + mins : mins;
 
-	const month = (now.getMonth() + 1);
-	const day = now.getDate();
-	const year = now.getFullYear();
-	const hour = now.getHours();
-	const mins = now.getMinutes();
+	    const today = `${month}/${day}/${year}`;
+	    const time = `${clockHour}:${digitalMins} ${timeSuffix}`;
 
-	const timeSuffix = hour <= 12 ? "AM" : "PM";
-	const clockHour = (hour % 12) || 12;
-	const digitalMins = (mins < 10) ? "0" + mins : mins;
+	    footerDate.innerHTML = today;
+	    footerTime.innerHTML = time;
+    }
 
-	const today = `${month}/${day}/${year}`;
-	const time = `${clockHour}:${digitalMins} ${timeSuffix}`;
-
-	footerDate.innerHTML = today;
-	footerTime.innerHTML = time;
-}
-
-setInterval(checkDate, 60000);
-
-checkDate();
+    setInterval(checkDate, 60000);
+    checkDate();
 
 //Weather in Footer
 //code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
@@ -65,69 +64,68 @@ checkDate();
 //and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 
 //check if gelocation API exists
-function checkLoc() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
-	} else {
-		alert('geolocation not available');
-	}
-}
+    function checkLoc() {
+	    if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
+	    } else {
+		    alert('geolocation not available');
+	    }
+    }
 
 //getCurrentPosition: successful return
-function getPosSuccess(position) {
-	var geoLat = position.coords.latitude.toFixed(2);
-	var geoLng = position.coords.longitude.toFixed(2);
-	console.log(geoLat, geoLng);
-	getWeatherByLL(geoLat, geoLng);
-}
+    function getPosSuccess(position) {
+	    var geoLat = position.coords.latitude.toFixed(2);
+	    var geoLng = position.coords.longitude.toFixed(2);
+	    console.log(geoLat, geoLng);
+	    getWeatherByLL(geoLat, geoLng);
+    }
 
 //getCurrentPosition: error returned
-function getPosErr(err) {
-	switch (err.code) {
-		case err.PERMISSION_DENIED:
-			alert("User denied the request for Geolocation.");
-			break;
-		case err.POSITION_UNAVAILABLE:
-			alert("Location information is unavailable.");
-			break;
-		case err.TIMEOUT:
-			alert("The request to get user location timed out.");
-			break;
-		default:
-			alert("An unknown error occurred.");
-	}
-}
+    function getPosErr(err) {
+	    switch (err.code) {
+		    case err.PERMISSION_DENIED:
+			    alert("User denied the request for Geolocation.");
+			    break;
+		    case err.POSITION_UNAVAILABLE:
+			    alert("Location information is unavailable.");
+			    break;
+		    case err.TIMEOUT:
+			    alert("The request to get user location timed out.");
+			    break;
+		    default:
+			    alert("An unknown error occurred.");
+	    }
+    }
 
-function getWeatherByLL(geoLat, geoLng) {
-	//API Variables
-	const proxyURL = "https://cors-anywhere.herokuapp.com/";
-	const weatherAPI = "http://api.weatherunlocked.com/api/current/";
-	const weatherId = "app_id=9ad053bc&";
-	const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
-	//Concatenate API variables into a URLRequest
-	let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
-	console.log(URLRequest);
+    function getWeatherByLL(geoLat, geoLng) {
+//API Variables
+	    const proxyURL = "https://cors-anywhere.herokuapp.com/";
+	    const weatherAPI = "http://api.weatherunlocked.com/api/current/";
+	    const weatherId = "app_id=9ad053bc&";
+	    const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
+//Concatenate API variables into a URLRequest
+	    let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
 
-	$.ajax({
-		url: URLRequest,
-		type: "GET",
-		crossDomain: true,
-		dataType: "json",
-		success: function (parsedResponse, statusText, jqXhr) {
+	    $.ajax({
+		    url: URLRequest,
+		    type: "GET",
+		    crossDomain: true,
+		    dataType: "json",
+		    success: function (parsedResponse, statusText, jqXhr) {
 
 			let currentTemp = parsedResponse.temp_f.toFixed(0);
 			document.getElementById("temp").innerHTML = currentTemp;
 			let currentIcon = parsedResponse.wx_icon;
 			document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
-		},
-		error: function (error) {
-			console.log(error);
-		}
-	});
-}
-setInterval(checkLoc, 1800000);
-checkLoc();
-
+		    },
+		    error: function (error) {
+			    console.log(error);
+		    }
+	    });
+    }
+    setInterval(checkLoc, 1800000);
+    checkLoc();
+});
 
 $(".temp input[type=text]").on('change input click', function () {
 	if (($(this).val() < 50) || $(this).val() > 85) {
@@ -140,13 +138,10 @@ $(".temp input[type=text]").on('change input click', function () {
 //on-off switches
 $('input[type="checkbox"]').click(function () {
 	const powerId = $(this).attr('id');
-	console.log(powerId);
-	//will return true or false value
 	const powerIdValue = $(this).is(':checked');
 	if ($(this).hasClass("wh-power")) {
 		housePower(powerId, powerIdValue);
 	} else if (powerId == "myonoffswitch15") {
-		console.log("scheduler switch");
 		schedulerToggle(powerIdValue);
 	} else {
 		let img = $(this).parent().parent().parent().next().find("img");
@@ -170,7 +165,6 @@ $('input[type="checkbox"]').click(function () {
 				$(sliderInput).prop('disabled', true);
 				$(sliderInput).addClass("opaque");
 				$(sliderInputLabel).addClass("opaque");
-				console.log("false light and fan");
 			} else if ($(this).hasClass("fan-power")) {
 				document.documentElement.style.setProperty(`--${sliderName}`, 0 + "s");
 				$(img).css({
@@ -178,7 +172,6 @@ $('input[type="checkbox"]').click(function () {
 				});
 				$(sliderInput).prop('disabled', true);
 				$(sliderInput).addClass("opaque");
-				// s$(sliderInputLabel).addClass("opaque");
 				$(direction).addClass("opaque");
 				$(direction).prop('disabled', 'disabled');
 				$(directionLabel).addClass("opaque");
@@ -194,7 +187,6 @@ $('input[type="checkbox"]').click(function () {
 				$(hcTarget).addClass("opaque");
 				$(hcTargetLabel).addClass("opaque");
 				$(hcTargetBtns).addClass("opaque");
-				console.log("false hc");
 			}
 		} else if ($(this).prop("checked") === true) {
 			if ($(this).hasClass("light-power")) {
@@ -205,7 +197,6 @@ $('input[type="checkbox"]').click(function () {
 				$(sliderInput).removeClass("opaque");
 				$(sliderInputLabel).removeClass("opaque");
 				sliderUpdate(sliderInput);
-				console.log("true light");
 			} else if ($(this).hasClass("hc-power")) {
 				$(hcMode).prop('disabled', false);
 				$(hcTarget).prop('disabled', false);
@@ -215,7 +206,6 @@ $('input[type="checkbox"]').click(function () {
 				$(hcTarget).removeClass("opaque");
 				$(hcTargetLabel).removeClass("opaque");
 				$(hcTargetBtns).removeClass("opaque");
-				console.log("true hc");
 			} else {
 				$(img).css({
 					"background-color": "var(--clr-white)"
@@ -230,7 +220,6 @@ $('input[type="checkbox"]').click(function () {
 				document.documentElement.style.setProperty(`--${sliderName}`, 0.5 + "s");
 				$(sliderInput).val(4);
 				speedControl(sliderInput);
-				console.log("true fan");
 			}
 		} else {
 			console.log("error");
@@ -246,14 +235,12 @@ function housePower(powerId, powerIdValue) {
 			let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
 			let whSliderInputLabel = $(this).parent().parent().parent().next().find("label");
 			let whSliderName = $(whSliderInput).attr('name');
-			console.log(powerIdValue);
 			if (powerIdValue === false) {
 				$(this).prop("checked", false);
 				$(whImg).css({
 					"background-color": "var(--clr-ltgray)"
 				});
 				$(whSliderInput).prop('disabled', true);
-				console.log("wh false light");
 				$(whSliderInputLabel).addClass("opaque");
 				$(whSliderInput).addClass("opaque");
 			} else if (powerIdValue === true) {
@@ -265,7 +252,6 @@ function housePower(powerId, powerIdValue) {
 				$(whSliderInputLabel).removeClass("opaque");
 				$(whSliderInput).removeClass("opaque");
 				sliderUpdate(whSliderInput);
-				console.log("wh true light");
 			} else {
 				console.log("wh lights each() error");
 			}
@@ -298,8 +284,6 @@ function housePower(powerId, powerIdValue) {
 				$("#hvac-mode5").prop('disabled', true);
 				$("#hvac-mode5").val("");
 				$(".wh-hvac-off").addClass("opaque");
-				console.log(whHcModeLabel);
-				console.log("wh false hc");
 			} else if (powerIdValue === true) {
 				$(this).prop("checked", true);
 				$(whHcMode).prop('disabled', false);
@@ -322,7 +306,6 @@ function housePower(powerId, powerIdValue) {
 				});
 				$("#hvac-mode5").change(function () {
 					const modeValue = $("#hvac-mode5").val();
-					console.log(modeValue);
 					$(".mode").each(function () {
 						$(this).val(modeValue);
 					});
@@ -353,7 +336,6 @@ function housePower(powerId, powerIdValue) {
 					$(whDirection).prop('disabled', 'disabled');
 					document.documentElement.style.setProperty(`--${whSliderName}`, 0 + "s");
 					$(whSliderInput).val(0);
-					console.log("wh false fan");
 				} else if (powerIdValue === true) {
 					$(this).prop("checked", true);
 					$(whImg).css({
@@ -368,7 +350,6 @@ function housePower(powerId, powerIdValue) {
 					document.documentElement.style.setProperty(`--${whSliderName}`, 0.5 + "s");
 					$(whSliderInput).val(4);
 					speedControl(whSliderInput);
-					console.log("wh true fan");
 				} else {
 					console.log("wh fan each() error");
 				}
@@ -478,7 +459,6 @@ function schedulerDisplay() {
 				$("#light-overhead").addClass("d-none");
 				$("#light-lamp").addClass("d-none");
 				$("#light-outside").addClass("d-none");
-				console.log("whole-house");
 				break;
 
 			case "kitchen":
@@ -486,20 +466,17 @@ function schedulerDisplay() {
 				$("#light-lamp").addClass("d-none");
 				$("#light-outside").addClass("d-none");
 				$("#ceiling-fan").addClass("d-none");
-				console.log("kitchen");
 				break;
 
 			case "great-room":
 				$("#lighting").addClass("d-none");
 				$("#light-lamp").addClass("d-none");
 				$("#light-outside").addClass("d-none");
-				console.log("great-room");
 				break;
 
 			case "master-bedroom":
 				$("#lighting").addClass("d-none");
 				$("#light-outside").addClass("d-none");
-				console.log("master-br");
 				break;
 
 			case "garage":
@@ -507,7 +484,6 @@ function schedulerDisplay() {
 				$("#light-lamp").addClass("d-none");
 				$("#ceiling-fan").addClass("d-none");
 				$("#heating-cooling").addClass("d-none");
-				console.log("garage");
 				break;
 
 			case "":
@@ -525,11 +501,9 @@ function schedulerToggle(powerIdValue) {
 	if (powerIdValue === true) {
 		if ($("#device-select").val() == "lighting") {
 			$(".bright").removeClass("d-none");
-			console.log("scheduler wh lighting");
 		}
 		if ($("#device-select").val() == "light-overhead") {
 			$(".bright").removeClass("d-none");
-			console.log("scheduler overhead");
 		}
 		if ($("#device-select").val() == "light-lamp") {
 			$(".bright").removeClass("d-none");
@@ -611,31 +585,22 @@ $("#scheduled-items").submit(function (event) {
 				return;
 		}
 	});
-	console.log(eventItems);
 	let hc = eventItems.some(elem => elem.value === 'heating-cooling');
-	console.log(hc);
 	const lights = eventItems.some(item => (item.value === "lighting") || (item.value === "light-overhead") || (item.value === "light-lamp") || (item.value === "light-outside"));
-	console.log(lights);
 	if (hc === true) {
-		console.log("hc true");
 		const index1 = eventItems.findIndex(item => item.name === 'Brightness');
 		eventItems[index1].value = "";
-		console.log("bright1");
 		const index2 = eventItems.findIndex(item => item.name === 'Fan Speed');
 		eventItems[index2].value = "";
-		console.log("speed1");
 	} else if (lights === true) {
 		const index3 = eventItems.findIndex(item => item.name === 'Fan Speed');
 		eventItems[index3].value = "";
-		console.log('bright2')
 	} else {
 		const index4 = eventItems.findIndex(item => item.name === 'Brightness');
 		eventItems[index4].value = "";
-		console.log("speed2");
 	}
 
 	valueOnlyItems = eventItems.filter(eventItem => eventItem.value != "");
-	console.log(valueOnlyItems);
 
 	populateList(valueOnlyItems);
 	localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
@@ -658,8 +623,6 @@ $("#scheduled-items").submit(function (event) {
 	$(".heat-cool").addClass("d-none");
 	$(".bright").addClass("d-none");
 	$(".cfan").addClass("d-none");
-	console.log("completed reset");
-
 });
 
 
@@ -682,3 +645,4 @@ document.querySelectorAll('#control-form input:not([type="submit"])').forEach(el
 		localStorage.setItem(e.target.name, e.target.value);
 	});
 });
+
