@@ -15,6 +15,10 @@
 ### Ongoing Testing
 * Throughout development of the website, Google Chrome Developer Tools were used to
 track changes and troubleshoot problems. The console proved invaluable in troubleshooting javascript code.
+* A Favicon was added resulting in a "manifest" error due to one of the script files. I researched
+and found this is common and it's not doing any damage so I left it.
+* While developing code for the weather API a "cors" error was appearing. After research and
+consulting with a CI tutor, I added a proxy to the API URL and that resolved the issue.
 * Two Javascript validators were used: [CodeBeautify](https://codebeautify.org/) was used throughout the process
 and [JSHint](https://jshint.com/) was used at the end when I found out it accomodated jQuery syntax.
 * At the end of the development process, [W3C CSS Validation](https://jigsaw.w3.org/css-validator/)

@@ -7,7 +7,7 @@
 # Amenity, Smart House Manager Demo Site
 <div style="text-align: center">
 
-[Click here to view website in GitHub Pages] (https://sherylg343.github.io/smarthome/)
+[Click here to view website in GitHub Pages](https://sherylg343.github.io/smarthome/)
 </div>
 
 ## Table of Contents <a name="table-of-contents"></a> 
@@ -18,15 +18,15 @@
 
 3. [Features](#features)
 
-4. [Future_Goals] (#future)
+4. [Future_Goals](#future)
 
 5. [Technology Used](#technology-used)
 
 6. [Testing](#testing) - text in another document [TESTING](TESTING.md)
 
-7. [Deployment] (#deployment)
+7. [Deployment](#deployment)
 
-8. [Credits] (#credits)
+8. [Credits](#credits)
 
 9. [Disclaimer](#disclaimer)
 
@@ -307,40 +307,41 @@ API.
 
 ## Technology Used <a name="technology-used"></a>
 * HTML & CSS programming languages
-* [Bootstrap] (https://getbootstrap.com/) - used to help make the website designed for 
+* [Bootstrap](https://getbootstrap.com/) - used to help make the website designed for 
 mobile-first and responsive to all screen sizes
-* [Bootstrap-popper] (https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js) - used for navbar 
+* [Bootstrap-popper](https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js) - used for navbar 
 dropdown menu
-* [Bootstrap-tempusdominus-js-plugin] (https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js) - 
+* [Bootstrap-tempusdominus-js-plugin](https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js) - 
 used for date/time picker in scheduler
-* [Bootstrap-tempusdominus-css-plugin] (https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css) -
+* [Bootstrap-tempusdominus-css-plugin](https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css) -
 used for date-time picker in scheduler
-* [GoogleFonts] (https://fonts.google.com/) - Noto Sans JP and Hind Siliguri Font Styles
+* [GoogleFonts](https://fonts.google.com/) - Noto Sans JP and Hind Siliguri Font Styles
 * [tinyjpg] (https://tinyjpg.com/) - used to reduce image file sizes
-* [FontAwesome] (https://fontawesome.com/) - Design icons for Services 1 page and social 
+* [FontAwesome](https://fontawesome.com/) - Design icons for Services 1 page and social 
 media icons
-* [jQuery] (https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js) 
-* [javascript] used with jquery for functionality of website
-* [GIT] (https://git-scm.com/) - Version Control
-* [GITHUB] (https://github.com) - to host the repositories for this project and the 
+* [jQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js) 
+* Javascript - used with jquery for functionality of website
+* [GIT](https://git-scm.com/) - Version Control
+* [GITHUB](https://github.com) - to host the repositories for this project and the 
 live website preview
-* [WeatherUnlocked] (https://developer.weatherunlocked.com/) - API used to provide temperature and weather icon
-* [BeautifyTools] (http://beautifytools.com/javascript-validator.php) - used to validate HTML, CSS and JQuery/javascript
+* [WeatherUnlocked](https://developer.weatherunlocked.com/) - API used to provide temperature and weather icon
+* [BeautifyTools](http://beautifytools.com/javascript-validator.php) - used to validate Javascript
 code and format/beautify all code
-* [Nu html checker] (https://validator.w3.org/)
+* [Nu_html_checker] (https://validator.w3.org/) - html validator
+* [JSHint](https://jshint.com/) - Javascript validator that recognizes jQuery
+
 
 [Back to Top](#Table-of-Contents)
 ---
 
 ## Testing <a name="testing"></a>
-Testing can be found in a separate file - [TESTING.md] (TESTING.md)
+Testing can be found in a separate file - [TESTING.md](TESTING.md)
 
 [Back to Top](#Table-of-Contents)
 ---
 
 ## Deployment <a name="deployment"></a>
-To deploy this page to GitHub Pages from its [GitHub repository]
-(https://sherylg343.github.io/smarthome/), follow the process described below.
+To deploy this page to GitHub Pages from its [GitHub repository](https://sherylg343.github.io/smarthome/), follow the process described below.
 
 1. Identify the menu items below the name of the repository and move to the far right and 
 click on **Settings**.
@@ -375,44 +376,43 @@ cloned directory.
 
 ### Images
 Icons were free and found on the following sites:
-* [FontAwesome] (https://fontawesome.com/) 
-* [cleanpng] (https://www.cleanpng.com)
-* [toppng] (https://toppng.com)
-* [pngtree] (https://pngtree.com)
-* [favpng] (https://favpng.com)
-* [uihere] (https://uihere.com)
-* [pngkey] (https://pngkey.com)
-* [clipartkey] (https://clipartkey.com)
+* [FontAwesome](https://fontawesome.com/) 
+* [cleanpng](https://www.cleanpng.com)
+* [toppng](https://toppng.com)
+* [pngtree](https://pngtree.com)
+* [favpng](https://favpng.com)
+* [uihere](https://uihere.com)
+* [pngkey](https://pngkey.com)
+* [clipartkey](https://clipartkey.com)
 
 Also, a favicon was added using the company logo and the following website:
-[Favicon] (https://favicon.io/favicon-converter/)
+[Favicon](https://favicon.io/favicon-converter/)
 
 ### Content
 All copy was written by developer.
 
 ### Code
-* The On/Off Switch Code was taken from [proto.io] (https://proto.io/freebies/onoff/)
-* The Target Temperature up and down buttons code was based on [Add Button Number Incrementers 
-from *css-tricks, by Chris Coyier, 3/29/13] (https://css-tricks.com/number-increment-buttons/)
+* The On/Off Switch Code was taken from [proto.io](https://proto.io/freebies/onoff/)
+* The Target Temperature up and down buttons code was based on "Add Button Number Incrementers" 
+from *css-tricks, by Chris Coyier, 3/29/13 (https://css-tricks.com/number-increment-buttons/)
 and was then modified.
-* Code to modify the slider controls was taken from [w3schools.com] 
-(https://www.w3schools.com/howto/howto_js_rangeslider.asp)
+* Code to modify the slider controls was taken from [w3schools.com](https://www.w3schools.com/howto/howto_js_rangeslider.asp)
 * Code used to access geolocation to utilize the weather API was obtained from
-[Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-published on 1/15/19 by Spatial Times] (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
-and [Google Maps Platform] (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
+"Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+and [Google_Maps_Platform](https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 * Code for the time and date was obtained from three sources and modified:
-[How to Get Current Date & Time in Javascript, by Sofija Simic, posted 10/22/19] (www.phoenixnap.com)
-[Wes Bos, Day 2 - Clock] (Javascript30.com)
-[How to convert 24hours format to 12 hours in Javascript, by Javascript Jeep, 6/29/19 from Frontend Weekly] (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
-* Calculation of random temperature for Actual Temp. field came from [MDN web docs] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+"How to Get Current Date & Time in Javascript," by Sofija Simic, posted 10/22/19 (www.phoenixnap.com),
+Wes Bos, Day 2 - Clock, (Javascript30.com), and
+"How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 from Frontend Weekly] (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
+* Calculation of random temperature for Actual Temp. field came from [MDN_web_docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 * Rotation of fan icon was based on the following sources:
 //rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
-[flavio on 1/13/19] (https://flaviocopes.com/rotate-image/)
-[An alternative to if/else and switch in JavaScript by Fabien Huet] (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
+flavio on 1/13/19 (https://flaviocopes.com/rotate-image/), and
+"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
 * Use of local storage was based on following two sources:
-[#15 Local Storage, by Wes Bos] (https://javascript30.com)
-[Basj on stackOverflow] (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
+#15 Local Storage, by Wes Bos (https://javascript30.com)
+Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
 * Additional resources used for snippets of code are marked above the corresponding code in the css
 and js files
 
