@@ -10,11 +10,28 @@
 [Click here to view website in GitHub Pages] (https://sherylg343.github.io/smarthome/)
 </div>
 
-# Table of Contents
+## Table of Contents <a name="table-of-contents"></a> 
 
 1. [Project Purpose](#purpose)
+
 2. [UX](#ux)
 
+3. [Features](#features)
+    [Wireframe Mock-ups] (#wireframe)
+
+4. [Future Goals] (#future)
+
+5. [Technology Used](#technology-used)
+
+6. [Testing](#testing) - text in another document [TESTING](TESTING.md)
+
+7. [Deployment] (#deployment)
+
+8. [Credits] (#credits)
+
+9. [Disclaimer](#disclaimer)
+
+[Back to Top](#table-of-contents)
 
 
 ## Project Purpose <a name="purpose"></a> 
@@ -49,6 +66,7 @@ likely be used while working with a salesperson, either on the phone or in-perso
 instructional directions are not required on the website. However, it is expected that 
 the control elements will be intuitive to use.
 
+[Back to Top](#Table-of-Contents)
 ---
 
 ## UX <a name="ux"></a>
@@ -92,9 +110,10 @@ these products previously.
 * I am able to make changes to settings in real time or schedule the changes in the future.
 * I can easily access and make changes using my an app on my phone.
 
+[Back to Top](#Table-of-Contents)
 ---
 
-## Features
+## Features <a name="features"></a>
 
 ### Use of Five Planes of UX in Project Design
 #### Strategy Plane
@@ -143,7 +162,7 @@ well as icons representing each room. Icons are used consistently throughout sit
 in content as well as layout.
 
 
-#### Wireframe Mock-Ups:
+#### Wireframe Mock-Ups: <a name="wireframe"></a>
 
 After reviewing the User Stories and evaluating the Features, the following
 mockups were designed for the 3 primary screen sizes using Balsamiq software 
@@ -258,9 +277,10 @@ Controls: In addition to the features of controls discussed previously, a bootst
 for ease of use. Also, large up and down arrow buttons were included for the Target Temperature - as they are easier to
 see and use than the small ones that default with a number input field.
 
+[Back to Top](#Table-of-Contents)
 ---
 
-## Future Goals
+## Future Goals <a name="future-goals"></a>
 
 ### More Devices
 Add a variety of devices to demonstrate scope of product's capabilities, e.g. security system, tv, music and a washer. 
@@ -284,9 +304,10 @@ Offer option for Celsius rather than default to Farenheit
 Provide a pop-up box that offers zip code entry option if geolocation is not available on a device - for the weather
 API.
 
+[Back to Top](#Table-of-Contents)
 ---
 
-## Technology Used
+## Technology Used <a name="technology-used"></a>
 
 * HTML & CSS programming languages
 * [Bootstrap] (https://getbootstrap.com/) - used to help make the website designed for 
@@ -311,16 +332,17 @@ live website preview
 code and format/beautify all code
 * [Nu html checker] (https://validator.w3.org/)
 
+[Back to Top](#Table-of-Contents)
 ---
 
-## Testing
+## Testing <a name="testing"></a>
 
 Testing can be found in a separate file - [TESTING.md] (TESTING.md)
 
-
+[Back to Top](#Table-of-Contents)
 ---
 
-## Deployment
+## Deployment <a name="deployment"></a>
 
 To deploy this page to GitHub Pages from its [GitHub repository]
 (https://sherylg343.github.io/smarthome/), follow the process described below.
@@ -352,10 +374,10 @@ cloned directory.
 ```console git clone https://sherylg343.github.io/smarthome/```
 6. Press enter to finish creating the local clone.
 
-
+[Back to Top](#Table-of-Contents)
 ---
 
-## Credits
+## Credits <a name="credits"></a>
 
 ### Images
 Icons were free and found on the following sites:
@@ -413,6 +435,10 @@ enabled me to tackle this project.
 * Kevin Powell & Kyle Cook "How to Code a Better To-Do List" (https://youtu.be/IhmSidOJSeE) 
 (https://www.youtube.com/watch?reload=9&v=W7FaYfuwu70)
 
-## Disclaimer
+[Back to Top](#Table-of-Contents)
+---
+
+## Disclaimer <a name="disclaimer"></a>
 Please note the content and images on this website are for educational purposes only.
 
+[Back to Top](#Table-of-Contents)
