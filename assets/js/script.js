@@ -1,18 +1,45 @@
+const deviceSelect = $("#device-select");
+const roomSelect = $("#room-select");
+const sliderClass = $(".slider");
+const lightSlider = $(".slidecontainer1 input");
+const schedFanSpeed = $("#speed3");
+const schedFanDir = $("#direction3");
+const schedBright = $("#brightness7");
+const schedLighting = $("#lighting");
+const schedOvhd = $("#light-overhead");
+const schedOutside = $("#light-outside");
+const schedLamp = $("#light-lamp");
+const schedHc = $("#heating-cooling");
+const schedFan = $("#ceiling-fan");
+const schedWh = $("#whole-house");
+const schedKitchen = $("#kitchen");
+const schedGreatRm = $("#great-room");
+const schedMasterBr = $("#master-br");
+const schedGarage = $("#garage");
+const schedHcControls = $(".heat-cool");
+const schedLightControls = $(".bright");
+const schedFanControls = $(".cfan");
+const schedList = $("#sched-list");
+const fanDirection = $(".fan-direction");
+const target1 = $("#target1");
+const target2 = $("#target2");
+const target3 = $("#target3");
+const target4 = $("#target4");
 //Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random
 $(document).ready(function () {
 	getRandomIntInclusive(50, 85);
 	//default off position of sliders
-	$(".slider").prop('disabled', true);
+	$(lightSlider).prop('disabled', true);
 	//default off position of dropdown menus
     $('select').prop('disabled', 'disabled');
     //enable all scheduling inputs (after all disabled above)
-    $("#room-select").prop('disabled', false);
-    $("#device-select").prop('disabled', false);
+    $(roomSelect).prop('disabled', false);
+    $(deviceSelect).prop('disabled', false);
     $("#hvac-mode4").prop('disabled', false);
-    $("#direction3").prop('disabled', false);
+    $(schedFanDir).prop('disabled', false);
 	//default off position for target temp
-	$("#target1, #target2, #target3, #target4").prop('disabled', true);
-	$("#target1, #target2, #target3, #target4").val("");
+	$(target1, target2, target3, target4).prop('disabled', true);
+	$(target1, target2, target3, target4).val("");
 	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
 	$('.dropdown').click(function () {
 		$(".dropdown-menu").toggleClass('show');
@@ -74,8 +101,8 @@ $(document).ready(function () {
 
 //getCurrentPosition: successful return
     function getPosSuccess(position) {
-	    var geoLat = position.coords.latitude.toFixed(2);
-	    var geoLng = position.coords.longitude.toFixed(2);
+	    const geoLat = position.coords.latitude.toFixed(2);
+	    const geoLng = position.coords.longitude.toFixed(2);
 	    console.log(geoLat, geoLng);
 	    getWeatherByLL(geoLat, geoLng);
     }
@@ -196,7 +223,7 @@ $('input[type="checkbox"]').click(function () {
 				$(sliderInput).prop('disabled', false);
 				$(sliderInput).removeClass("opaque");
 				$(sliderInputLabel).removeClass("opaque");
-				sliderUpdate(sliderInput);
+				lightSliderUpdate(sliderInput);
 			} else if ($(this).hasClass("hc-power")) {
 				$(hcMode).prop('disabled', false);
 				$(hcTarget).prop('disabled', false);
@@ -251,7 +278,7 @@ function housePower(powerId, powerIdValue) {
 				$(whSliderInput).prop('disabled', false);
 				$(whSliderInputLabel).removeClass("opaque");
 				$(whSliderInput).removeClass("opaque");
-				sliderUpdate(whSliderInput);
+				lightSliderUpdate(whSliderInput);
 			} else {
 				console.log("wh lights each() error");
 			}
@@ -277,8 +304,8 @@ function housePower(powerId, powerIdValue) {
 				$(whHcTarget).addClass("opaque");
 				$(whHcTargetBtns).addClass("opaque");
 				$(whHcTarget).val("");
-				$("#target1").val("");
-				$("#target1").attr('disabled', 'disabled');
+				$(target1).val("");
+				$(target1).attr('disabled', 'disabled');
 				$("#btn1a, #btn1b").prop('disabled', 'disabled');
 				$('#hvac-mode5 option[value=""]').prop('selected', true);
 				$("#hvac-mode5").prop('disabled', true);
@@ -289,7 +316,7 @@ function housePower(powerId, powerIdValue) {
 				$(whHcMode).prop('disabled', false);
 				$("#hvac-mode5").prop('disabled', false);
 				$(whHcTarget).removeAttr('disabled');
-				$("#target1").removeAttr('disabled');
+				$(target1).removeAttr('disabled');
 				$(whHcTargetBtns).prop('disabled', false);
 				$("#btn1a, #btn1b").prop('disabled', false);
 				$(whHcModeLabel).removeClass("opaque");
@@ -298,8 +325,8 @@ function housePower(powerId, powerIdValue) {
 				$(whHcTarget).removeClass("opaque");
 				$(whHcTargetBtns).removeClass("opaque");
 				$(".wh-hvac-off").removeClass("opaque");
-				$("#target1").on('input', function () {
-					const tValue = $("#target1").val();
+				$(target1).on('input', function () {
+					const tValue = $(target1).val();
 					$(".target").each(function () {
 						$(this).val(tValue);
 					});
@@ -384,15 +411,15 @@ $(".tempbtn").click(function () {
 
 //progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
 //Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
-const slider = document.querySelectorAll('.slidecontainer1 input');
+const lightSlider2 = document.querySelectorAll('.slidecontainer1 input');
 
-function sliderUpdate() {
+function lightSliderUpdate() {
 	opacity = this.value / 10;
 	document.documentElement.style.setProperty(`--${this.name}`, opacity);
 }
 
-slider.forEach(input => input.addEventListener('change', sliderUpdate));
-slider.forEach(input => input.addEventListener('mousemove', sliderUpdate));
+lightSlider2.forEach(input => input.addEventListener('change', lightSliderUpdate));
+lightSlider2.forEach(input => input.addEventListener('mousemove', lightSliderUpdate));
 
 //rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
 //by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),and from 
@@ -415,13 +442,10 @@ speedSlide.forEach(input => input.addEventListener('change', speedControl));
 speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
 
 //fan direction
-$('.fan-direction').change(function () {
-	var the_id = $(this).attr('id');
-	console.log(the_id);
-	var direction = "#" + the_id + " option:selected";
-	console.log($(direction).val());
+$(fanDirection).change(function () {
+	const theId = $(this).attr('id');
+	const direction = "#" + theId + " option:selected";
 	const animDirection = ($(direction).val() === "clockwise") ? "normal" : "reverse";
-	console.log(animDirection);
 	document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
 
@@ -445,45 +469,45 @@ $(function () {
 let scheduler = document.getElementById("scheduler-form");
 
 function schedulerDisplay() {
-	$('#room-select').change(function () {
-		$("#speed3").prop('disabled', false);
-		$("#brightness7").prop('disabled', false);
-		$("#lighting").removeClass("d-none");
-		$("#light-overhead").removeClass("d-none");
-		$("#light-outside").removeClass("d-none");
-		$("#light-lamp").removeClass("d-none");
-		$("#heating-cooling").removeClass("d-none");
-		$("#ceiling-fan").removeClass("d-none");
+	$(roomSelect).change(function () {
+		$(schedFanSpeed).prop('disabled', false);
+		$(schedBright).prop('disabled', false);
+		$(schedLighting).removeClass("d-none");
+		$(schedOvhd).removeClass("d-none");
+		$(schedOutside).removeClass("d-none");
+		$(schedLamp).removeClass("d-none");
+		$(schedHc).removeClass("d-none");
+		$(schedFan).removeClass("d-none");
 		switch ($(this).val()) {
 			case "whole-house":
-				$("#light-overhead").addClass("d-none");
-				$("#light-lamp").addClass("d-none");
-				$("#light-outside").addClass("d-none");
+				$(schedOvhd).addClass("d-none");
+				$(schedLamp).addClass("d-none");
+				$(schedOutside).addClass("d-none");
 				break;
 
 			case "kitchen":
-				$("#lighting").addClass("d-none");
-				$("#light-lamp").addClass("d-none");
-				$("#light-outside").addClass("d-none");
-				$("#ceiling-fan").addClass("d-none");
+				$(schedLighting).addClass("d-none");
+				$(schedLamp).addClass("d-none");
+				$(schedOutside).addClass("d-none");
+				$(schedFan).addClass("d-none");
 				break;
 
 			case "great-room":
-				$("#lighting").addClass("d-none");
-				$("#light-lamp").addClass("d-none");
-				$("#light-outside").addClass("d-none");
+				$(schedLighting).addClass("d-none");
+				$(schedLamp).addClass("d-none");
+				$(schedOutside).addClass("d-none");
 				break;
 
 			case "master-bedroom":
-				$("#lighting").addClass("d-none");
-				$("#light-outside").addClass("d-none");
+				$(schedLighting).addClass("d-none");
+				$(schedOutside).addClass("d-none");
 				break;
 
 			case "garage":
-				$("#lighting").addClass("d-none");
-				$("#light-lamp").addClass("d-none");
-				$("#ceiling-fan").addClass("d-none");
-				$("#heating-cooling").addClass("d-none");
+				$(schedLighting).addClass("d-none");
+				$(schedLamp).addClass("d-none");
+				$(schedFan).addClass("d-none");
+				$(schedHc).addClass("d-none");
 				break;
 
 			case "":
@@ -499,32 +523,32 @@ scheduler.addEventListener("click", schedulerDisplay);
 //above - when select device will remove d-none, but leaves off
 function schedulerToggle(powerIdValue) {
 	if (powerIdValue === true) {
-		if ($("#device-select").val() == "lighting") {
-			$(".bright").removeClass("d-none");
+		if ($(deviceSelect).val() == "lighting") {
+			$(schedLightControls).removeClass("d-none");
 		}
-		if ($("#device-select").val() == "light-overhead") {
-			$(".bright").removeClass("d-none");
+		if ($(deviceSelect).val() == "light-overhead") {
+			$(schedLightControls).removeClass("d-none");
 		}
-		if ($("#device-select").val() == "light-lamp") {
-			$(".bright").removeClass("d-none");
-			$("#kitchen").addClass("d-none");
-			$("#great-room").addClass("d-none");
-			$("#garage").addClass("d-none");
+		if ($(deviceSelect).val() == "light-lamp") {
+			$(schedLightControls).removeClass("d-none");
+			$(schedKitchen).addClass("d-none");
+			$(schedGreatRm).addClass("d-none");
+			$(schedGarage).addClass("d-none");
 		}
-		if ($("#device-select").val() == "light-outside") {
-			$(".bright").removeClass("d-none");
-			$("#kitchen").addClass("d-none");
-			$("#great-room").addClass("d-none");
-			$("#master-br").addClass("d-none");
+		if ($(deviceSelect).val() == "light-outside") {
+			$(schedLightControls).removeClass("d-none");
+			$(schedKitchen).addClass("d-none");
+			$(schedGreatRm).addClass("d-none");
+			$(schedMasterBr).addClass("d-none");
 		}
-		if ($("#device-select").val() == "heating-cooling") {
-			$(".heat-cool").removeClass("d-none");
-			$("#garage").addClass("d-none");
+		if ($(deviceSelect).val() == "heating-cooling") {
+			$(schedHcControls).removeClass("d-none");
+			$(schedGarage).addClass("d-none");
 		}
-		if ($("#device-select").val() == "ceiling-fan") {
-			$(".cfan").removeClass("d-none");
-			$("#kitchen").addClass("d-none");
-			$("#garage").addClass("d-none");
+		if ($(deviceSelect).val() == "ceiling-fan") {
+			$(schedFanControls).removeClass("d-none");
+			$(schedKitchen).addClass("d-none");
+			$(schedGarage).addClass("d-none");
 		} else {
 			return;
 		}
@@ -552,7 +576,6 @@ $("#scheduled-items").submit(function (event) {
 		switch (this.name) {
 			case "start-date":
 				this.name = "Start Date/Time";
-				console.log(this.name);
 				break;
 			case "end-date":
 				this.name = "End Date/Time";
@@ -605,36 +628,36 @@ $("#scheduled-items").submit(function (event) {
 	populateList(valueOnlyItems);
 	localStorage.setItem("valueOnlyItems", JSON.stringify(valueOnlyItems));
 	this.reset();
-	$("#speed3").prop('disabled', false);
-	$("#speed3").removeClass("d-none");
-	$("#direction3").removeClass("d-none");
-	$("#brightness7").prop('disabled', false);
-	$("#lighting").removeClass("d-none");
-	$("#light-overhead").removeClass("d-none");
-	$("#light-outside").removeClass("d-none");
-	$("#light-lamp").removeClass("d-none");
-	$("#heating-cooling").removeClass("d-none");
-	$("#ceiling-fan").removeClass("d-none");
-	$("#whole-house").removeClass("d-none");
-	$("#kitchen").removeClass("d-none");
-	$("#great-room").removeClass("d-none");
-	$("#master-br").removeClass("d-none");
-	$("#garage").removeClass("d-none");
-	$(".heat-cool").addClass("d-none");
-	$(".bright").addClass("d-none");
-	$(".cfan").addClass("d-none");
+	$(schedFanSpeed).prop('disabled', false);
+	$(schedFanSpeed).removeClass("d-none");
+	$(schedFanDir).removeClass("d-none");
+	$(schedBright).prop('disabled', false);
+	$(schedLighting).removeClass("d-none");
+	$(schedOvhd).removeClass("d-none");
+	$(schedOutside).removeClass("d-none");
+	$(schedLamp).removeClass("d-none");
+	$(schedHc).removeClass("d-none");
+	$(schedFan).removeClass("d-none");
+	$(schedWh).removeClass("d-none");
+	$(schedKitchen).removeClass("d-none");
+	$(schedGreatRm).removeClass("d-none");
+	$(schedMasterBr).removeClass("d-none");
+	$(schedGarage).removeClass("d-none");
+	$(schedHcControls).addClass("d-none");
+	$(schedLightControls).addClass("d-none");
+	$(schedFanControls).addClass("d-none");
 });
 
 
 function populateList(valueOnlyItems) {
 	$.each(valueOnlyItems, function (i, valueOnlyItem) {
-		$("#sched-list").append(`
+		$(schedList).append(`
             <li>
                 ${valueOnlyItem.name}: ${valueOnlyItem.value}
             </li>
             `);
 	}).join('');
-	$('#sched-list').append('<hr>');
+	$(schedList).append('<hr>');
 }
 
 
@@ -645,4 +668,9 @@ document.querySelectorAll('#control-form input:not([type="submit"])').forEach(el
 		localStorage.setItem(e.target.name, e.target.value);
 	});
 });
+
+
+
+
+
 
