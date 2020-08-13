@@ -56,6 +56,8 @@ $(document).ready(function () {
 	    });
     }
 
+    swal("Amenity requests your geolocation to provide local weather data. Click yes to allow access.");
+
 //Footer with Date, Time and Weather
 //code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
 //and Javascript30.com, Day 2 - Clock, by Wes Bos
@@ -143,7 +145,7 @@ $(document).ready(function () {
 			let currentTemp = parsedResponse.temp_f.toFixed(0);
 			document.getElementById("temp").innerHTML = currentTemp;
 			let currentIcon = parsedResponse.wx_icon;
-			document.getElementById("icon").innerHTML = `<img src="assets/weather_icons/${currentIcon}" alt="Weather Icon">`;
+			document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
 		    },
 		    error: function (error) {
 			    console.log(error);

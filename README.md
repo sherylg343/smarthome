@@ -1,13 +1,16 @@
 <h3 style="text-align: center">
     <a href=" https://sherylg343.github.io/smarthome/" target="_blank">
-        <img src="assets/images/amenity3_logo.png" alt="Amentiy">
+        <img src="assets/images/amenity3-logo.png" alt="Amentiy">
     </a>
 </h3>
 
-# Amenity, Smart House Manager Demo Site
+<h1 style="text-align: center">
+Amenity, Smart House Manager Demo Site
+</h1>
+
 <div style="text-align: center">
 
-[Click here to view website in GitHub Pages](https://sherylg343.github.io/smarthome/)
+[View website in GitHub Pages](https://sherylg343.github.io/smarthome/)
 </div>
 
 ## Table of Contents <a name="table-of-contents"></a> 
@@ -65,7 +68,10 @@ likely be used while working with a salesperson, either on the phone or in-perso
 instructional directions are not required on the website. However, it is expected that 
 the control elements will be intuitive to use.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
 
 ## UX <a name="ux"></a>
@@ -109,8 +115,12 @@ these products previously.
 * I am able to make changes to settings in real time or schedule the changes in the future.
 * I can easily access and make changes using my an app on my phone.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Features <a name="features"></a>
 
@@ -167,15 +177,18 @@ mockups were designed for the 3 primary screen sizes using [Balsamiq software](h
 The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
-[Mobile](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_mobile.pdf)
+
+[Mobile](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-mobile.pdf)
 </div>
 
 <div style="text-align:center;">
-[Tablet](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_iPad.pdf)
+
+[Tablet](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-iPad.pdf)
 </div>
 
 <div style="text-align:center;">
-[Desktop](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_desktop.pdf)
+
+[Desktop](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-desktop.pdf)
 </div>
 
 ##### Wireframe Mock-Up Revisions
@@ -275,8 +288,12 @@ Controls: In addition to the features of controls discussed previously, a bootst
 for ease of use. Also, large up and down arrow buttons were included for the Target Temperature - as they are easier to
 see and use than the small ones that default with a number input field.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Future Goals <a name="future-goals"></a>
 
@@ -302,8 +319,12 @@ Offer option for Celsius rather than default to Farenheit
 Provide a pop-up box that offers zip code entry option if geolocation is not available on a device - for the weather
 API.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Technology Used <a name="technology-used"></a>
 * HTML & CSS programming languages
@@ -331,14 +352,22 @@ code and format/beautify all code
 * [JSHint](https://jshint.com/) - Javascript validator that recognizes jQuery
 
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Testing <a name="testing"></a>
 Testing can be found in a separate file - [TESTING.md](TESTING.md)
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Deployment <a name="deployment"></a>
 To deploy this page to GitHub Pages from its [GitHub repository](https://sherylg343.github.io/smarthome/), follow the process described below.
@@ -369,8 +398,12 @@ cloned directory.
 ```console git clone https://sherylg343.github.io/smarthome/```
 6. Press enter to finish creating the local clone.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Credits <a name="credits"></a>
 
@@ -402,7 +435,7 @@ and was then modified.
 published on 1/15/19 by [Spatial Times](https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
 and [Google_Maps_Platform](https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 * Code for the time and date was obtained from three sources and modified:
-"How to Get Current Date & Time in Javascript," by Sofija Simic, posted 10/22/19 (www.phoenixnap.com),
+"How to Get Current Date & Time in Javascript," posted 10/22/19 by [Sofija Simic](www.phoenixnap.com),
 Wes Bos, Day 2 - Clock of [Javascript30.com](Javascript30.com), and
 "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 from [Frontend Weekly](https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
 * Calculation of random temperature for Actual Temp. field came from [MDN_web_docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
@@ -430,10 +463,17 @@ enabled me to tackle this project.
 * Kevin Powell [Creating a Better todo app - the HTML and CSS](https://youtu.be/IhmSidOJSeE) and Kyle Cook of Web Dev Simplified
 [How to Code a Better To-Do List, Tutorial](https://www.youtube.com/watch?reload=9&v=W7FaYfuwu70)
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
 ---
+
 
 ## Disclaimer <a name="disclaimer"></a>
 Please note the content and images on this website are for educational purposes only.
 
+<p>
+
 [Back to Top](#Table-of-Contents)
+</p>
