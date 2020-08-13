@@ -7,7 +7,7 @@
 # Amenity, Smart House Manager Demo Site
 <div style="text-align: center">
 
-[Click here to view website in GitHub Pages] (https://sherylg343.github.io/smarthome/)
+[Click here to view website in GitHub Pages](https://sherylg343.github.io/smarthome/)
 </div>
 
 ## Testing

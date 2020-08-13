@@ -117,7 +117,7 @@ these products previously.
 ### Use of Five Planes of UX in Project Design
 #### Strategy Plane
 An evaluation was conducted to determine which customer problems the Demo was being used to resolve. These 
-customer needs are listed and reviewed in the [Strategy Trade-Off Analysis] (...smarthome/master/README-assets/Amenity_strategy_trade_off.pdf).
+customer needs are listed and reviewed in the [Strategy Trade-Off Analysis](...smarthome/master/README-assets/Amenity-strategy-trade-off.pdf).
 All of the "Must Adddress" issues were addressed in this first phase of the Demo website.
 
 #### Scope Plane
@@ -163,8 +163,8 @@ in content as well as layout.
 
 #### Wireframe Mock-Ups:
 After reviewing the User Stories and evaluating the Features, the following
-mockups were designed for the 3 primary screen sizes using Balsamiq software 
-(https://basamiq.com). The website was created using a mobile-first design philosophy.
+mockups were designed for the 3 primary screen sizes using [Balsamiq software](https://basamiq.com). 
+The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
 [Mobile](https://sherylg343.github.io/smarthome/master/README-assets/smart_home_mobile.pdf)
@@ -394,25 +394,25 @@ All copy was written by developer.
 ### Code
 * The On/Off Switch Code was taken from [proto.io](https://proto.io/freebies/onoff/)
 * The Target Temperature up and down buttons code was based on "Add Button Number Incrementers" 
-from *css-tricks, by Chris Coyier, 3/29/13 (https://css-tricks.com/number-increment-buttons/)
+by Chris Coyier (3/29/13) from [*css-tricks](https://css-tricks.com/number-increment-buttons/)
 and was then modified.
 * Code to modify the slider controls was taken from [w3schools.com](https://www.w3schools.com/howto/howto_js_rangeslider.asp)
 * Code used to access geolocation to utilize the weather API was obtained from
 "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+published on 1/15/19 by [Spatial Times](https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
 and [Google_Maps_Platform](https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
 * Code for the time and date was obtained from three sources and modified:
 "How to Get Current Date & Time in Javascript," by Sofija Simic, posted 10/22/19 (www.phoenixnap.com),
-Wes Bos, Day 2 - Clock, (Javascript30.com), and
-"How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 from Frontend Weekly] (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
+Wes Bos, Day 2 - Clock of [Javascript30.com](Javascript30.com), and
+"How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 from [Frontend Weekly](https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
 * Calculation of random temperature for Actual Temp. field came from [MDN_web_docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 * Rotation of fan icon was based on the following sources:
-//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
-flavio on 1/13/19 (https://flaviocopes.com/rotate-image/), and
-"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
+//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," published on 1/13/19
+[flavio](https://flaviocopes.com/rotate-image/), and
+"An alternative to if/else and switch in JavaScript" by [Fabien Huet](https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
 * Use of local storage was based on following two sources:
-#15 Local Storage, by Wes Bos (https://javascript30.com)
-Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
+#15 Local Storage, by Wes Bos in [Javascript30.com](https://javascript30.com)
+Basj on [stackOverflow](https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
 * Additional resources used for snippets of code are marked above the corresponding code in the css
 and js files
 
@@ -424,10 +424,11 @@ throughout the development phase, with special appreciation extended towards:
 * Brian Mancharia - mentor; Brian provided extraordinary guidance and insight that
 enabled me to tackle this project.
 * Code Institute Tutors: Michael, Samantha, Scott, Kevin, Stephen, Miklos & Anna
-* Slack leaders and alumni: MPia_lead, Eventyret_mentor, robinz_alumni
-* Wes Bos - Javascript30.com
-* Kevin Powell & Kyle Cook "How to Code a Better To-Do List" (https://youtu.be/IhmSidOJSeE) 
-(https://www.youtube.com/watch?reload=9&v=W7FaYfuwu70)
+* Slack leaders and alumni: MPia_lead and robinz_alumni
+*  Eventyret_mentor for his helpful "peer review" prior to submission
+* [Wes Bos, Javascript30.com curriculum](Javascript30.com)
+* Kevin Powell [Creating a Better todo app - the HTML and CSS](https://youtu.be/IhmSidOJSeE) and Kyle Cook of Web Dev Simplified
+[How to Code a Better To-Do List, Tutorial](https://www.youtube.com/watch?reload=9&v=W7FaYfuwu70)
 
 [Back to Top](#Table-of-Contents)
 ---
