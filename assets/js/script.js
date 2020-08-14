@@ -22,161 +22,181 @@ const schedLightControls = $(".bright");
 const schedFanControls = $(".cfan");
 const schedList = $("#sched-list");
 const fanDirection = $(".fan-direction");
-const target1 = $("#target1");
-const target2 = $("#target2");
-const target3 = $("#target3");
-const target4 = $("#target4");
-const tempScaleValue = tempScale.val();
+const targetCelAlert = $(".temp-alert-c");
+const targetFarAlert = $(".temp-alert-f");
+const tempInputs = $(".temp input[type=text]");
 
 //Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random
-$(document).ready(function () { 
+$(document).ready(function () {
 	//default off position of sliders
 	$(lightSlider).prop('disabled', true);
 	//default off position of dropdown menus
-    $('select').prop('disabled', 'disabled');
-    //enable all scheduling inputs (after all disabled above)
-    $(tempScale).prop('disabled', false);
-    $(roomSelect).prop('disabled', false);
-    $(deviceSelect).prop('disabled', false);
-    $("#hvac-mode4").prop('disabled', false);
-    $(schedFanDir).prop('disabled', false);
+	$('select').prop('disabled', 'disabled');
+	//enable all scheduling inputs (after all disabled above)
+	$(tempScale).prop('disabled', false);
+	$(roomSelect).prop('disabled', false);
+	$(deviceSelect).prop('disabled', false);
+	$("#hvac-mode4").prop('disabled', false);
+	$(schedFanDir).prop('disabled', false);
 	//default off position for target temp
-	$(target1, target2, target3, target4).prop('disabled', true);
-	$(target1, target2, target3, target4).val("");
+	$("#target1, #target2, #target3, #target4").prop('disabled', true);
+	$("#target1, #target2, #target3, #target4").val("");
 	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
 	$('.dropdown').click(function () {
-	$(".dropdown-menu").toggleClass('show');
-});
+		$(".dropdown-menu").toggleClass('show');
+	});
 
-    $(tempScale).change(function() {
-        if(tempScale.val() === "celsius") {
-            getRandomIntInclusive(10, 29);
-        } else if (tempScale.val() === "farenheit") {
-            getRandomIntInclusive(50, 85); 
-        } else {
-            getRandomIntInclusive(50, 85); 
-        }
-    });
+	$(tempScale).change(function () {
+		if (tempScale.val() === "celsius") {
+			getRandomIntInclusive(10, 29);
+		} else if (tempScale.val() === "farenheit") {
+			getRandomIntInclusive(50, 85);
+		} else {
+			$('#temp-scale option[value="farenheit"]').prop('selected', true);
+			getRandomIntInclusive(50, 85);
+		}
+        $(tempInputs).each(function () {
+//PROBLEM BELOW - IF CHANGE SCALE SELECTOR NEEDS TO RUN CHECK TARGET AGAIN
+            if($(this).val() !== "") {
+            checkTarget();
+            }
+        });
+	});
 
-    function getRandomIntInclusive(low, high) {
-	    const min = Math.ceil(low);
-	    const max = Math.floor(high);
-	    const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
-	    console.log(actualValue);
-	    $(".actual").each(function () {
-		    $(this).val(actualValue);
-		    $("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
-	    });
-    }
-
-    swal("Amenity requests your geolocation to provide local weather data. Click yes to allow access.");
-
-//Footer with Date, Time and Weather
-//code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
-//and Javascript30.com, Day 2 - Clock, by Wes Bos
-//and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
-    const footerDate = document.getElementById("footerdate");
-    const footerTime = document.getElementById("footertime");
-
-    function checkDate() {
-	    const now = new Date();
-	    const month = (now.getMonth() + 1);
-	    const day = now.getDate();
-	    const year = now.getFullYear();
-	    const hour = now.getHours();
-	    const mins = now.getMinutes();
-
-	    const timeSuffix = hour <= 12 ? "AM" : "PM";
-	    const clockHour = (hour % 12) || 12;
-	    const digitalMins = (mins < 10) ? "0" + mins : mins;
-
-	    const today = `${month}/${day}/${year}`;
-	    const time = `${clockHour}:${digitalMins} ${timeSuffix}`;
-
-	    footerDate.innerHTML = today;
-	    footerTime.innerHTML = time;
-    }
-
-    setInterval(checkDate, 60000);
-    checkDate();
-
-//Weather in Footer
-//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
-//and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
-
-//check if gelocation API exists
-    function checkLoc() {
-	    if (navigator.geolocation) {
-		    navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
-	    } else {
-		    alert('geolocation not available');
-	    }
-    }
-
-//getCurrentPosition: successful return
-    function getPosSuccess(position) {
-	    const geoLat = position.coords.latitude.toFixed(2);
-	    const geoLng = position.coords.longitude.toFixed(2);
-	    console.log(geoLat, geoLng);
-	    getWeatherByLL(geoLat, geoLng);
-    }
-
-//getCurrentPosition: error returned
-    function getPosErr(err) {
-	    switch (err.code) {
-		    case err.PERMISSION_DENIED:
-			    alert("User denied the request for Geolocation.");
-			    break;
-		    case err.POSITION_UNAVAILABLE:
-			    alert("Location information is unavailable.");
-			    break;
-		    case err.TIMEOUT:
-			    alert("The request to get user location timed out.");
-			    break;
-		    default:
-			    alert("An unknown error occurred.");
-	    }
-    }
-
-    function getWeatherByLL(geoLat, geoLng) {
-//API Variables
-	    const proxyURL = "https://cors-anywhere.herokuapp.com/";
-	    const weatherAPI = "http://api.weatherunlocked.com/api/current/";
-	    const weatherId = "app_id=9ad053bc&";
-	    const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
-//Concatenate API variables into a URLRequest
-	    let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
-
-	    $.ajax({
-		    url: URLRequest,
-		    type: "GET",
-		    crossDomain: true,
-		    dataType: "json",
-		    success: function (parsedResponse, statusText, jqXhr) {
-
-			let currentTemp = parsedResponse.temp_f.toFixed(0);
-			document.getElementById("temp").innerHTML = currentTemp;
-			let currentIcon = parsedResponse.wx_icon;
-			document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
-		    },
-		    error: function (error) {
-			    console.log(error);
-		    }
-	    });
-    }
-    setInterval(checkLoc, 1800000);
-    checkLoc();
-});
-
-$(".temp input[type=text]").on('change input click', function () {
-	if (($(this).val() < 50) || $(this).val() > 85) {
-		$(".temp-alert-f").removeClass("d-none");
-	} else {
-		$(".temp-alert-f").addClass("d-none");
+	function getRandomIntInclusive(low, high) {
+		const min = Math.ceil(low);
+		const max = Math.floor(high);
+		const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
+		console.log(actualValue);
+		$(".actual").each(function () {
+			$(this).val(actualValue);
+			$("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
+		});
 	}
-});
 
+	swal("Amenity requests your geolocation to provide local weather data. Click yes to allow access.");
+
+	//Footer with Date, Time and Weather
+	//code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
+	//and Javascript30.com, Day 2 - Clock, by Wes Bos
+	//and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
+	const footerDate = document.getElementById("footerdate");
+	const footerTime = document.getElementById("footertime");
+
+	function checkDate() {
+		const now = new Date();
+		const month = (now.getMonth() + 1);
+		const day = now.getDate();
+		const year = now.getFullYear();
+		const hour = now.getHours();
+		const mins = now.getMinutes();
+
+		const timeSuffix = hour <= 12 ? "AM" : "PM";
+		const clockHour = (hour % 12) || 12;
+		const digitalMins = (mins < 10) ? "0" + mins : mins;
+
+		const today = `${month}/${day}/${year}`;
+		const time = `${clockHour}:${digitalMins} ${timeSuffix}`;
+
+		footerDate.innerHTML = today;
+		footerTime.innerHTML = time;
+	}
+
+	setInterval(checkDate, 60000);
+	checkDate();
+
+	//Weather in Footer
+	//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+	//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+	//and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
+
+	//check if gelocation API exists
+	function checkLoc() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
+		} else {
+			alert('geolocation not available');
+		}
+	}
+
+	//getCurrentPosition: successful return
+	function getPosSuccess(position) {
+		const geoLat = position.coords.latitude.toFixed(2);
+		const geoLng = position.coords.longitude.toFixed(2);
+		console.log(geoLat, geoLng);
+		getWeatherByLL(geoLat, geoLng);
+	}
+
+	//getCurrentPosition: error returned
+	function getPosErr(err) {
+		switch (err.code) {
+			case err.PERMISSION_DENIED:
+				alert("User denied the request for Geolocation.");
+				break;
+			case err.POSITION_UNAVAILABLE:
+				alert("Location information is unavailable.");
+				break;
+			case err.TIMEOUT:
+				alert("The request to get user location timed out.");
+				break;
+			default:
+				alert("An unknown error occurred.");
+		}
+	}
+
+	function getWeatherByLL(geoLat, geoLng) {
+		//API Variables
+		const proxyURL = "https://cors-anywhere.herokuapp.com/";
+		const weatherAPI = "http://api.weatherunlocked.com/api/current/";
+		const weatherId = "app_id=9ad053bc&";
+		const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
+		//Concatenate API variables into a URLRequest
+		let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
+
+		$.ajax({
+			url: URLRequest,
+			type: "GET",
+			crossDomain: true,
+			dataType: "json",
+			success: function (parsedResponse, statusText, jqXhr) {
+
+				let currentTemp = parsedResponse.temp_f.toFixed(0);
+				document.getElementById("temp").innerHTML = currentTemp;
+				let currentIcon = parsedResponse.wx_icon;
+				document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	}
+	setInterval(checkLoc, 1800000);
+	checkLoc();
+
+    $(".temp input[type=text]").on("change input click", function checkTarget() {
+	    if (tempScale.val() === "celsius") {
+		    if (($(this).val() < 10) || ($(this).val() > 29)) {
+			    $(targetCelAlert).removeClass("d-none");
+		    } else {
+			    $(targetCelAlert).addClass("d-none");
+		    }
+	    } else if (tempScale.val() === "farenheit") {
+		    if (($(this).val() < 50) || ($(this).val() > 85)) {
+			    $(targetFarAlert).removeClass("d-none");
+		    } else {
+			    $(targetFarAlert).addClass("d-none");
+		    }
+	    } else {
+		    $('#temp-scale option[value="farenheit"]').prop('selected', true);
+		    getRandomIntInclusive(50, 85);
+		    if (($(this).val() < 50) || ($(this).val() > 85)) {
+			    $(targetFarAlert).removeClass("d-none");
+		    } else {
+			    $(targetFarAlert).addClass("d-none");
+		    }
+	    }
+    });
+});
 //on-off switches
 $('input[type="checkbox"]').click(function () {
 	const powerId = $(this).attr('id');
@@ -683,7 +703,6 @@ document.querySelectorAll('#control-form input:not([type="submit"])').forEach(el
 		localStorage.setItem(e.target.name, e.target.value);
 	});
 });
-
 
 
 
