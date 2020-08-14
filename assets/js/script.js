@@ -1,3 +1,4 @@
+const tempScale = $("#temp-scale");
 const deviceSelect = $("#device-select");
 const roomSelect = $("#room-select");
 const sliderClass = $(".slider");
@@ -25,14 +26,16 @@ const target1 = $("#target1");
 const target2 = $("#target2");
 const target3 = $("#target3");
 const target4 = $("#target4");
+const tempScaleValue = tempScale.val();
+
 //Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random
-$(document).ready(function () {
-	getRandomIntInclusive(50, 85);
+$(document).ready(function () { 
 	//default off position of sliders
 	$(lightSlider).prop('disabled', true);
 	//default off position of dropdown menus
     $('select').prop('disabled', 'disabled');
     //enable all scheduling inputs (after all disabled above)
+    $(tempScale).prop('disabled', false);
     $(roomSelect).prop('disabled', false);
     $(deviceSelect).prop('disabled', false);
     $("#hvac-mode4").prop('disabled', false);
@@ -42,8 +45,18 @@ $(document).ready(function () {
 	$(target1, target2, target3, target4).val("");
 	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
 	$('.dropdown').click(function () {
-		$(".dropdown-menu").toggleClass('show');
-	});
+	$(".dropdown-menu").toggleClass('show');
+});
+
+    $(tempScale).change(function() {
+        if(tempScale.val() === "celsius") {
+            getRandomIntInclusive(10, 29);
+        } else if (tempScale.val() === "farenheit") {
+            getRandomIntInclusive(50, 85); 
+        } else {
+            getRandomIntInclusive(50, 85); 
+        }
+    });
 
     function getRandomIntInclusive(low, high) {
 	    const min = Math.ceil(low);
@@ -158,9 +171,9 @@ $(document).ready(function () {
 
 $(".temp input[type=text]").on('change input click', function () {
 	if (($(this).val() < 50) || $(this).val() > 85) {
-		$(".temp-alert").removeClass("d-none");
+		$(".temp-alert-f").removeClass("d-none");
 	} else {
-		$(".temp-alert").addClass("d-none");
+		$(".temp-alert-f").addClass("d-none");
 	}
 });
 
