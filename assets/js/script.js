@@ -26,19 +26,19 @@ const targetCelAlert = $(".temp-alert-c");
 const targetFarAlert = $(".temp-alert-f");
 const tempInputs = $(".temp input[type=text]");
 
-//Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random
+/** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random */
 $(document).ready(function () {
 	//default off position of sliders
 	$(lightSlider).prop('disabled', true);
 	//default off position of dropdown menus
 	$('select').prop('disabled', 'disabled');
-	//enable all scheduling inputs (after all disabled above)
+/** enable all scheduling inputs (after all disabled above) */
 	$(tempScale).prop('disabled', false);
 	$(roomSelect).prop('disabled', false);
 	$(deviceSelect).prop('disabled', false);
 	$("#hvac-mode4").prop('disabled', false);
-	$(schedFanDir).prop('disabled', false);
-	//default off position for target temp
+    $(schedFanDir).prop('disabled', false);
+/** default off position for target temp */
 	$("#target1, #target2, #target3, #target4").prop('disabled', true);
 	$("#target1, #target2, #target3, #target4").val("");
 	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
@@ -76,10 +76,9 @@ $(document).ready(function () {
 
 	swal("Amenity requests your geolocation to provide local weather data. Click yes to allow access.");
 
-	//Footer with Date, Time and Weather
-	//code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
-	//and Javascript30.com, Day 2 - Clock, by Wes Bos
-	//and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.)
+/** Footer with Date, Time and Weather code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
+and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 
+(https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.) */
 	const footerDate = document.getElementById("footerdate");
 	const footerTime = document.getElementById("footertime");
 
@@ -105,12 +104,12 @@ $(document).ready(function () {
 	setInterval(checkDate, 60000);
 	checkDate();
 
-	//Weather in Footer
-	//code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-	//published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
-	//and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation)
+/** Weather in Footer */
+/** code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
+published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
+and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation) */
 
-	//check if gelocation API exists
+	/** check if gelocation API exists */
 	function checkLoc() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
@@ -119,7 +118,7 @@ $(document).ready(function () {
 		}
 	}
 
-	//getCurrentPosition: successful return
+	/** getCurrentPosition: successful return */
 	function getPosSuccess(position) {
 		const geoLat = position.coords.latitude.toFixed(2);
 		const geoLng = position.coords.longitude.toFixed(2);
@@ -127,7 +126,7 @@ $(document).ready(function () {
 		getWeatherByLL(geoLat, geoLng);
 	}
 
-	//getCurrentPosition: error returned
+	/** getCurrentPosition: error returned */
 	function getPosErr(err) {
 		switch (err.code) {
 			case err.PERMISSION_DENIED:
@@ -145,12 +144,11 @@ $(document).ready(function () {
 	}
 
 	function getWeatherByLL(geoLat, geoLng) {
-		//API Variables
+		/** API Variables */
 		const proxyURL = "https://cors-anywhere.herokuapp.com/";
 		const weatherAPI = "http://api.weatherunlocked.com/api/current/";
 		const weatherId = "app_id=9ad053bc&";
 		const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
-		//Concatenate API variables into a URLRequest
 		let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
 
 		$.ajax({
@@ -197,7 +195,8 @@ $(document).ready(function () {
 	    }
     });
 });
-//on-off switches
+
+/** on-off switches */
 $('input[type="checkbox"]').click(function () {
 	const powerId = $(this).attr('id');
 	const powerIdValue = $(this).is(':checked');
@@ -422,8 +421,8 @@ function housePower(powerId, powerIdValue) {
 	}
 }
 
-//code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
-//Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
+/** code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
+Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
 $(".tempbtn").click(function () {
 	const targetButton = $(this);
 	const currentInput = $(targetButton).parent().find("input");
@@ -444,8 +443,8 @@ $(".tempbtn").click(function () {
 });
 
 
-//progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
-//Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com)
+/** progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
+Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
 const lightSlider2 = document.querySelectorAll('.slidecontainer1 input');
 
 function lightSliderUpdate() {
@@ -456,9 +455,9 @@ function lightSliderUpdate() {
 lightSlider2.forEach(input => input.addEventListener('change', lightSliderUpdate));
 lightSlider2.forEach(input => input.addEventListener('mousemove', lightSliderUpdate));
 
-//rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
-//by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),and from 
-//"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/)
+/** rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
+by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),and from 
+"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/) */
 const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
 function speedControl() {
@@ -476,7 +475,7 @@ function speedControl() {
 speedSlide.forEach(input => input.addEventListener('change', speedControl));
 speedSlide.forEach(input => input.addEventListener('mousemove', speedControl));
 
-//fan direction
+/** fan direction */
 $(fanDirection).change(function () {
 	const theId = $(this).attr('id');
 	const direction = "#" + theId + " option:selected";
@@ -484,8 +483,8 @@ $(fanDirection).change(function () {
 	document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
 
-//jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
-//and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/)
+/** jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
+and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/) */
 $(function () {
 	$('#datetimepicker1').datetimepicker();
 	$('#datetimepicker2').datetimepicker({
@@ -499,8 +498,8 @@ $(function () {
 	});
 });
 
-//Scheduler 
-////activate appropriate selections
+/** Scheduler */
+/** activate appropriate device selections */
 let scheduler = document.getElementById("scheduler-form");
 
 function schedulerDisplay() {
@@ -554,8 +553,8 @@ function schedulerDisplay() {
 scheduler.addEventListener("change", schedulerDisplay);
 scheduler.addEventListener("click", schedulerDisplay);
 
-//change conditions to add && device-select == "" to turn on controls
-//above - when select device will remove d-none, but leaves off
+/** if power on, specify controls to appear based on device selected */
+/** also reset room menu in case make changes */
 function schedulerToggle(powerIdValue) {
 	if (powerIdValue === true) {
 		if ($(deviceSelect).val() == "lighting") {
@@ -566,31 +565,32 @@ function schedulerToggle(powerIdValue) {
 		}
 		if ($(deviceSelect).val() == "light-lamp") {
 			$(schedLightControls).removeClass("d-none");
-			$(schedKitchen).addClass("d-none");
-			$(schedGreatRm).addClass("d-none");
-			$(schedGarage).addClass("d-none");
+		//	$(schedKitchen).addClass("d-none");
+		//	$(schedGreatRm).addClass("d-none");
+		//	$(schedGarage).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "light-outside") {
 			$(schedLightControls).removeClass("d-none");
-			$(schedKitchen).addClass("d-none");
-			$(schedGreatRm).addClass("d-none");
-			$(schedMasterBr).addClass("d-none");
+		//	$(schedKitchen).addClass("d-none");
+		//	$(schedGreatRm).addClass("d-none");
+		//	$(schedMasterBr).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "heating-cooling") {
 			$(schedHcControls).removeClass("d-none");
-			$(schedGarage).addClass("d-none");
+		//	$(schedGarage).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "ceiling-fan") {
 			$(schedFanControls).removeClass("d-none");
-			$(schedKitchen).addClass("d-none");
-			$(schedGarage).addClass("d-none");
+		//	$(schedKitchen).addClass("d-none");
+		//	$(schedGarage).addClass("d-none");
 		} else {
 			return;
 		}
 	}
 }
 
-//parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com)
+/** Collect input data to form schedule */
+/** parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com) */
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
 
@@ -598,7 +598,7 @@ $("#scheduled-items").submit(function (event) {
 	event.preventDefault();
 	eventItems = $(this).serializeArray();
 	console.log(eventItems);
-	//code from Adam Merrifield, 6/21/14, stackOverflow (https://stackoverflow.com/questions/24338177/jquery-serializearray-is-not-getting-the-value-of-the-checked-checkbox)
+	/** code from Adam Merrifield, 6/21/14, stackOverflow (https://stackoverflow.com/questions/24338177/jquery-serializearray-is-not-getting-the-value-of-the-checked-checkbox) */
 	$('#scheduled-items input[type="checkbox"]:not(:checked)').each(function () {
 		if ($.inArray(this.name, eventItems) === -1) {
 			eventItems.push({
@@ -695,8 +695,8 @@ function populateList(valueOnlyItems) {
 	$(schedList).append('<hr>');
 }
 
-
-//from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload)
+/** Store all real time control settings when submit schedule form so they return */
+/** from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload) */
 document.querySelectorAll('#control-form input:not([type="submit"])').forEach(elt => {
 	elt.value = localStorage.getItem(elt.name);
 	elt.addEventListener("change", e => {
