@@ -458,7 +458,7 @@ Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com) *
 $(".tempbtn").click(function () {
 	const targetButton = $(this);
 	const currentInput = $(targetButton).parent().find("input");
-	var oldValue = currentInput.val();
+	let oldValue = currentInput.val();
 
 	if ($(targetButton).hasClass("inc")) {
 		let newValue = parseFloat(oldValue) + 1;
@@ -597,24 +597,15 @@ function schedulerToggle(powerIdValue) {
 		}
 		if ($(deviceSelect).val() == "light-lamp") {
 			$(schedLightControls).removeClass("d-none");
-		//	$(schedKitchen).addClass("d-none");
-		//	$(schedGreatRm).addClass("d-none");
-		//	$(schedGarage).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "light-outside") {
 			$(schedLightControls).removeClass("d-none");
-		//	$(schedKitchen).addClass("d-none");
-		//	$(schedGreatRm).addClass("d-none");
-		//	$(schedMasterBr).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "heating-cooling") {
 			$(schedHcControls).removeClass("d-none");
-		//	$(schedGarage).addClass("d-none");
 		}
 		if ($(deviceSelect).val() == "ceiling-fan") {
 			$(schedFanControls).removeClass("d-none");
-		//	$(schedKitchen).addClass("d-none");
-		//	$(schedGarage).addClass("d-none");
 		} else {
 			return;
 		}

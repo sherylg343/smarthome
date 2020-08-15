@@ -293,6 +293,51 @@ Additional Scheduling Tests: Tests 13 - 16 are repeated for all House/Room and D
 the appropriate controls appear and correct results print out under Scheduled Events. All of these test iterations
 were conducted and passed. Note, schedules were made with the power button in "off" position, and these passed also.
 
+#### Part Five: Temperature Scale Control
+Test #: 18
+Action Taken: Click Whole House Heating Cooling System power button "on" and
+add a Target Temp. value of 68.
+"Before" State: Off position, Actual Temp is 50 and Target Temp fields are opaque
+ and empty. Footer temperature is 82 degrees.
+"After" State: Target temp field no longer opaque and now filled with value of 68.
+Also scroll down website and see that Target Temp value of 68 flowed into other rooms.
+    Subtest: Click the Temperature Scale selector and change value to "Celsius"
+    Result: Actual Temp values are all recalculated to Celsius value of 10 and 
+    all rooms show this value; Target Temp values are all recalculated to 20
+    degrees Celsius and remain the same in all rooms; the weather temp 
+    in the footer now show 28 degrees.
 
-### Final Issues and Resolutions
-The only issues remaining are relative to browser compatibility as mentioned above.
+    Subtest: Change the Kitchen Target Temp to 24 degrees (Celsius is still
+    Temperature Scale). And then change Temperature Scale to Farenheit.
+    Result: Kitchen Target Temp is now 75 and all other Target Temp fields
+    continue to show original value of 68.
+
+### Final Issues Resolved
+Below is a list of the final punch list of issues that were resolved prior to
+submitting the project.
+1. Testing and revising the new temperature scale control with its impact on 
+actual and target temperature fields as well as the current weather temperature.
+2. Adding webkit css code so that the ceiling fan icon rotates in the Safari 
+browser, though the speed and direction still do not change.
+3. Tested Scheduler to determine if code could be eliminated from scheduleToggler
+function - rendered unnecessary when House/Room selection was moved ahead of
+the Device selection in the Scheduler.
+4. Formatted comments in javascript file to meet JSDocs specs.
+5. Revised all files so code is no wider than approximately 80 characters.
+6. Revised javascript/jquery code to add more variables as references rather than
+use class and id's (per [Eventyret_mentor](https://code-institute-room.slack.com/
+team/U4MVA9YQP)).
+
+### Remaining Issues and Resolutions
+1. Browser compatibility issues remain as described above.
+2. During peer review, [Eventyret_mentor](https://code-institute-room.slack.com/
+team/U4MVA9YQP) suggested that I use classes and ID's to replace the lengthy selectors
+such as: let hcTarget = $(this).parent().parent().parent().next().next().next()
+.find("input[type=text"); I discussed this with my mentor and determined that
+using a combination of classes for both rooms and devices I could accomplish this
+if I also added data-attributes to the on/off switches as they activate the
+adjacent controls. While I recognize that this method would stream-line the
+javascript/jquery code and make it easier to read, I elected not to make the 
+changes at this time due to the impending deadline and estimated time required
+to rewrite the code.
+

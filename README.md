@@ -288,6 +288,35 @@ Controls: In addition to the features of controls discussed previously, a bootst
 for ease of use. Also, large up and down arrow buttons were included for the Target Temperature - as they are easier to
 see and use than the small ones that default with a number input field.
 
+## Added after Peer Review 
+[Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP) conducted a 
+peer review of my project and encouraged me to add a couple of features.
+1. "Big one for me, you are requesting my location but not explaining ANYTHING 
+what it is used for, this as a user can feel intrusive. Also there is nothing 
+handling it, so by pressing NO because i dont know why I should click yes, it 
+will say every time i load that it’s blocked. Asking me again would be great, 
+if you also gave a reason why you wanted the location."
+* I reviewed the API for Permissions and while it is doable, I selected a simpler
+solution: a SweetAlert. I learned of SweetAlert from [Eventyret_mentor](https://
+code-institute-room.slack.com/team/U4MVA9YQP) as well.
+* The SweetAlert appears the first time the website is loaded (as does the 
+geolocation request) and informs the user that geolocation is being requested 
+to provide local weather data. With this knowledge, the user can make an inform-
+ed choice regarding the sharing of geolocation data.
+
+2. "As a “Celcius” user, it would be great to have things converted by clicking 
+on the F Because else its just some spinning icons and nothing makes sense for me."
+* This was on my list of future goals but given his suggestion, I decided to
+add it now.
+* A Temperature Scale selector was added to the top of the website that 
+controls all temperatures on the page, including the weather in the footer.
+* When the selector is changed, all temperatures (actual and target) are recalc
+ulated to reflect the new temperature scale.
+* Additionally, the geolocation function is re-run and now includes a loop to 
+determine whether to pull the celsius or farenheit temperature.
+* Because the product is intended to be sold primarily in the U.S., Farenheit
+is the default setting.
+
 <p>
 
 [Back to Top](#Table-of-Contents)
@@ -311,9 +340,6 @@ A more advanced, user-friendly version is a planned update. A selector that spin
 
 ### Automatic Numeric keypad for mobile
 This would prevent error and ease inputs for temperature.
-
-### Control setting for Temperature unit
-Offer option for Celsius rather than default to Farenheit
 
 ### Zip Code Entry for Weather
 Provide a pop-up box that offers zip code entry option if geolocation is not available on a device - for the weather
