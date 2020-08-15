@@ -181,13 +181,13 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
             if (tempScale.val() === "celsius") {
                 console.log("celcius");
                 currentTemp = parsedResponse.temp_c.toFixed(0);
-                document.getElementById("temp").innerHTML = `${currentTemp}°C`;
+                document.getElementById("temp").innerHTML = `${currentTemp}°`;
             }
             
             let currentIcon = parsedResponse.wx_icon;
             
-				document.getElementById("temp").innerHTML = `${currentTemp}°F`;
-				document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
+			document.getElementById("temp").innerHTML = `${currentTemp}°`;
+			document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
 			},
 			error: function (error) {
 				console.log(error);
