@@ -27,7 +27,9 @@ const targetFarAlert = $(".temp-alert-f");
 const target1 = ("#target1");
 /** pure javascript worked more easily for checkTarget function using 
 this variable */
-const tempInputs = document.querySelectorAll(".temp input[type=text]");
+const allTargetInputs = document.querySelectorAll(".temp-target input[type=text]");
+const allControlTargetInputs = document.querySelectorAll(".temp-target1 input[type=text]");
+const tempInputs = $(".temp input[type=text]");
 
 /** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / 
 JavaScript / Reference / Global_Objects / Math / random */
@@ -51,7 +53,7 @@ $(document).ready(function () {
 		$(".dropdown-menu").toggleClass('show');
 	});
 
-	function getRandomIntInclusive(low, high) {
+    function getRandomIntInclusive(low, high) {
 		const min = Math.ceil(low);
 		const max = Math.floor(high);
 		const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -59,27 +61,38 @@ $(document).ready(function () {
 			$(this).val(actualValue);
 			$("#actual-wh, #actual-kitchen, #actual-gr, #actual-master")
                 .prop('disabled', true);
-		});
-	}
-
+        });
+    }
     getRandomIntInclusive(50, 85);
 
-    $(tempScale).change(function () {
+  $(tempScale).change(function () {
+        let oldTemp;
 		if (tempScale.val() === "celsius") {
             getRandomIntInclusive(10, 29);
             checkLoc()
+            $(allControlTargetInputs).each(function() {
+                oldTemp = this.value;
+	            if (oldTemp == "") {
+                    return;
+                } else {
+		        let newTemp = ((parseFloat(oldTemp) -32)* 5/9).toFixed(0);
+		        $(this).val(newTemp);  
+                }
+            });
 		} else {
             getRandomIntInclusive(50, 85);
             checkLoc()
+            $(allControlTargetInputs).each(function() {
+                oldTemp = this.value;
+	            if (oldTemp == "") {
+                    return;
+                } else {
+		        let newTemp = (parseFloat(oldTemp) * 9/5 +32).toFixed(0);
+		        $(this).val(newTemp);  
+                }
+            });
 		}
-        $(tempInputs).each(function() {
-            if($(this).val("")) {
-                return;
-            } else {
-               checkTarget(); 
-            }
-        })
-	});
+    }); 
 
 /** Footer with Date, Time and Weather code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
 and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 
@@ -166,6 +179,7 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
             let currentTemp = parsedResponse.temp_f.toFixed(0);
 
             if (tempScale.val() === "celsius") {
+                console.log("celcius");
                 currentTemp = parsedResponse.temp_c.toFixed(0);
                 document.getElementById("temp").innerHTML = `${currentTemp}°C`;
             }
@@ -212,9 +226,9 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 	    }
     }
 
-tempInputs.forEach(input => input.addEventListener("change", checkTarget));
-tempInputs.forEach(input => input.addEventListener("input", checkTarget));
-tempInputs.forEach(input => input.addEventListener("click", checkTarget));
+allTargetInputs.forEach(input => input.addEventListener("change", checkTarget));
+allTargetInputs.forEach(input => input.addEventListener("input", checkTarget));
+allTargetInputs.forEach(input => input.addEventListener("click", checkTarget));
 
 });
 
