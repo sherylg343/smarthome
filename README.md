@@ -350,6 +350,7 @@ live website preview
 code and format/beautify all code
 * [Nu_html_checker] (https://validator.w3.org/) - html validator
 * [JSHint](https://jshint.com/) - Javascript validator that recognizes jQuery
+* [JSDoc](https://jsdoc.app/) - for comments in javascript file
 
 
 <p>

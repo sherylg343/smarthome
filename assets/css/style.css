@@ -47,6 +47,7 @@
  #inline-list {
      padding: 0px;
 }
+
 /*----------------- Text -----------------*/
  h1, h3, h4, h5 {
      font-family: var(--ff-head);
@@ -198,15 +199,21 @@
 }
  #fan-icon1 {
      animation-duration: var(--fanspeed1);
+     -webkit-animation-duration: var(--fanspeed1);
      animation-direction: var(--direction1);
+     -webkit-animation-direction: var(--direction1);
 }
  #fan-icon2 {
      animation-duration: var(--fanspeed2);
+     -webkit-animation-duration: var(--fanspeed2);
      animation-direction: var(--direction2);
+     -webkit-animation-direction: var(--direction2);
 }
  #fan-icon3 {
      animation-duration: var(--fanspeed3);
+     -webkit-animation-duration: var(--fanspeed3);
      animation-direction: var(--direction3);
+     -webkit-animation-direction: var(--direction3);
      background-color: var(--clr-white);
 }
  @keyframes rotate {
@@ -217,12 +224,26 @@
          transform: rotate(359deg);
     }
 }
+
+@-webkit-keyframes rotate {
+     from {
+         transform: rotate(0deg);
+    }
+     to {
+         transform: rotate(359deg);
+    }
+}
+
+
  .clockwise {
      animation-direction: normal;
+     -webkit-animation-direction: normal;
 }
  .counterclockwise {
      animation-direction: reverse;
+     -webkit-animation-direction: normal;
 }
+
 /* temp button icons*/
  #control-box i, #scheduler i {
      font-size: 30px;

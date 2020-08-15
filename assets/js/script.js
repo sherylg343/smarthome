@@ -24,9 +24,13 @@ const schedList = $("#sched-list");
 const fanDirection = $(".fan-direction");
 const targetCelAlert = $(".temp-alert-c");
 const targetFarAlert = $(".temp-alert-f");
-const tempInputs = $(".temp input[type=text]");
+const target1 = ("#target1");
+/** pure javascript worked more easily for checkTarget function using 
+this variable */
+const tempInputs = document.querySelectorAll(".temp input[type=text]");
 
-/** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / JavaScript / Reference / Global_Objects / Math / random */
+/** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / 
+JavaScript / Reference / Global_Objects / Math / random */
 $(document).ready(function () {
 	//default off position of sliders
 	$(lightSlider).prop('disabled', true);
@@ -41,40 +45,41 @@ $(document).ready(function () {
 /** default off position for target temp */
 	$("#target1, #target2, #target3, #target4").prop('disabled', true);
 	$("#target1, #target2, #target3, #target4").val("");
-	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b").prop('disabled', true);
+	$("#btn1a, #btn1b, #btn2a, #btn2b, #btn3a, #btn3b, #btn4a, #btn4b")
+        .prop('disabled', true);
 	$('.dropdown').click(function () {
 		$(".dropdown-menu").toggleClass('show');
-	});
-
-	$(tempScale).change(function () {
-		if (tempScale.val() === "celsius") {
-			getRandomIntInclusive(10, 29);
-		} else if (tempScale.val() === "farenheit") {
-			getRandomIntInclusive(50, 85);
-		} else {
-			$('#temp-scale option[value="farenheit"]').prop('selected', true);
-			getRandomIntInclusive(50, 85);
-		}
-        $(tempInputs).each(function () {
-//PROBLEM BELOW - IF CHANGE SCALE SELECTOR NEEDS TO RUN CHECK TARGET AGAIN
-            if($(this).val() !== "") {
-            checkTarget();
-            }
-        });
 	});
 
 	function getRandomIntInclusive(low, high) {
 		const min = Math.ceil(low);
 		const max = Math.floor(high);
 		const actualValue = Math.floor(Math.random() * (max - min + 1)) + min;
-		console.log(actualValue);
 		$(".actual").each(function () {
 			$(this).val(actualValue);
-			$("#actual-wh, #actual-kitchen, #actual-gr, #actual-master").prop('disabled', true);
+			$("#actual-wh, #actual-kitchen, #actual-gr, #actual-master")
+                .prop('disabled', true);
 		});
 	}
 
-	swal("Amenity requests your geolocation to provide local weather data. Click yes to allow access.");
+    getRandomIntInclusive(50, 85);
+
+    $(tempScale).change(function () {
+		if (tempScale.val() === "celsius") {
+            getRandomIntInclusive(10, 29);
+            checkLoc()
+		} else {
+            getRandomIntInclusive(50, 85);
+            checkLoc()
+		}
+        $(tempInputs).each(function() {
+            if($(this).val("")) {
+                return;
+            } else {
+               checkTarget(); 
+            }
+        })
+	});
 
 /** Footer with Date, Time and Weather code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
 and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 
@@ -122,7 +127,6 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 	function getPosSuccess(position) {
 		const geoLat = position.coords.latitude.toFixed(2);
 		const geoLng = position.coords.longitude.toFixed(2);
-		console.log(geoLat, geoLng);
 		getWeatherByLL(geoLat, geoLng);
 	}
 
@@ -150,17 +154,25 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 		const weatherId = "app_id=9ad053bc&";
 		const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
 		let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
-
+        
+        
 		$.ajax({
 			url: URLRequest,
 			type: "GET",
 			crossDomain: true,
 			dataType: "json",
 			success: function (parsedResponse, statusText, jqXhr) {
+            
+            let currentTemp = parsedResponse.temp_f.toFixed(0);
 
-				let currentTemp = parsedResponse.temp_f.toFixed(0);
-				document.getElementById("temp").innerHTML = currentTemp;
-				let currentIcon = parsedResponse.wx_icon;
+            if (tempScale.val() === "celsius") {
+                currentTemp = parsedResponse.temp_c.toFixed(0);
+                document.getElementById("temp").innerHTML = `${currentTemp}°C`;
+            }
+            
+            let currentIcon = parsedResponse.wx_icon;
+            
+				document.getElementById("temp").innerHTML = `${currentTemp}°F`;
 				document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
 			},
 			error: function (error) {
@@ -169,9 +181,14 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 		});
 	}
 	setInterval(checkLoc, 1800000);
-	checkLoc();
-
-    $(".temp input[type=text]").on("change input click", function checkTarget() {
+    checkLoc();
+    
+    /** tkone on stackOverflow 4/9/12 */
+    if('geolocation' in window) {
+        swal("Amenity requests your geolocation to provide local weather data. Click Allow Location Access to view weather data.");
+    }
+    
+    function checkTarget(){
 	    if (tempScale.val() === "celsius") {
 		    if (($(this).val() < 10) || ($(this).val() > 29)) {
 			    $(targetCelAlert).removeClass("d-none");
@@ -193,7 +210,12 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 			    $(targetFarAlert).addClass("d-none");
 		    }
 	    }
-    });
+    }
+
+tempInputs.forEach(input => input.addEventListener("change", checkTarget));
+tempInputs.forEach(input => input.addEventListener("input", checkTarget));
+tempInputs.forEach(input => input.addEventListener("click", checkTarget));
+
 });
 
 /** on-off switches */

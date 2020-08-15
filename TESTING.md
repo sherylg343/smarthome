@@ -36,9 +36,8 @@ and [Nu Html Checker](https://validator.w3.org/) were used.
 It was also tested on a variety of devices - iPhone 5, 8 and 10, 2014 and 2018 iPads,
 and Mac laptop and desktop. The following issues were identified:
 Safari: does not recognize reverse as an animation direction, so the fan icon will
-not rotate counterclockwise. Animation speeds are designated by percentage in Safari,
-rather than by seconds. So, fan speed could not be modified by controls either.
-Also, Safari was showing Actual Temp. opaque on all devices, at all times. The footer
+not rotate counterclockwise. Additionally, Safari is not recognizing changes in fan speed
+and Safari was showing Actual Temp. opaque on all devices, at all times. The footer
 was not "sticky" in the desktop version of Safari as well.
 
 Firefox in a desktop browser performed without any problems as did Chrome.
