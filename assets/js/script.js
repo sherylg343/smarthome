@@ -28,7 +28,6 @@ const target1 = ("#target1");
 /** pure javascript worked more easily for checkTarget function using 
 this variable */
 const allTargetInputs = document.querySelectorAll(".temp-target input[type=text]");
-const allControlTargetInputs = document.querySelectorAll(".temp-target1 input[type=text]");
 const tempInputs = $(".temp input[type=text]");
 
 /** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / 
@@ -65,12 +64,11 @@ $(document).ready(function () {
     }
     getRandomIntInclusive(50, 85);
 
-  $(tempScale).change(function () {
+    $(tempScale).change(function () {
         let oldTemp;
 		if (tempScale.val() === "celsius") {
-            getRandomIntInclusive(10, 29);
             checkLoc()
-            $(allControlTargetInputs).each(function() {
+            $(tempInputs).each(function() {
                 oldTemp = this.value;
 	            if (oldTemp == "") {
                     return;
@@ -80,9 +78,8 @@ $(document).ready(function () {
                 }
             });
 		} else {
-            getRandomIntInclusive(50, 85);
             checkLoc()
-            $(allControlTargetInputs).each(function() {
+            $(tempInputs).each(function() {
                 oldTemp = this.value;
 	            if (oldTemp == "") {
                     return;
