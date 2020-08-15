@@ -179,7 +179,6 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
             let currentTemp = parsedResponse.temp_f.toFixed(0);
 
             if (tempScale.val() === "celsius") {
-                console.log("celcius");
                 currentTemp = parsedResponse.temp_c.toFixed(0);
                 document.getElementById("temp").innerHTML = `${currentTemp}°`;
             }
