@@ -91,9 +91,15 @@ $(document).ready(function () {
 		}
     }); 
 
-/** Footer with Date, Time and Weather code assistance from www.phoenixnap.com, "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/22/19
-and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly, "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep, 6/29/19 
-(https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20format%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,change%20the%20time%20as%2012.) */
+/** Footer with Date, Time and Weather code assistance from www.phoenixnap.com, 
+ * "How to Get Current Date & Time in Javascript", by Sofija Simic, posted 10/
+ * 22/19 and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly,
+ * "How to convert 24hours format to 12 hours in Javascript," by Javascript Jeep,
+ * 6/29/19 (https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to
+ * -12-hours-in-javascript-ca19dfd7419d#:~:text=Convert%20the%2024%20hours%20form
+ * at%20time%20to%2012%20hours%20formatted%20time.&text=Now%20in%2Dorder%20to%20
+ * convert,12%20on%20the%20current%20time.&text=time%20%3D%2024%2C%20then%2024%25,
+ * change%20the%20time%20as%2012.) */
 	const footerDate = document.getElementById("footerdate");
 	const footerTime = document.getElementById("footertime");
 
@@ -120,9 +126,11 @@ and Javascript30.com, Day 2 - Clock, by Wes Bos and from Frontend Weekly, "How t
 	checkDate();
 
 /** Weather in Footer */
-/** code provided by "Create a JavaScript Weather App with Location Data Part 1", by Bryan McIntosh, 
-published on 1/15/19 by Spatial Times (https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/)
-and Google Maps Platform (https://developers.google.com/maps/documentation/javascript/examples/map-geolocation) */
+/** code provided by "Create a JavaScript Weather App with Location Data Part 1", 
+ * by Bryan McIntosh, published on 1/15/19 by Spatial Times (https://www.
+ * spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-
+ * Part-1/) and Google Maps Platform (https://developers.google.com/maps/documen
+ * tation/javascript/examples/map-geolocation) */
 
 	/** check if gelocation API exists */
 	function checkLoc() {
@@ -163,7 +171,8 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
 		const weatherAPI = "http://api.weatherunlocked.com/api/current/";
 		const weatherId = "app_id=9ad053bc&";
 		const weatherKey = "app_key=b52a697539693cdc84826de1e371658c";
-		let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + String(geoLng) + "?" + weatherId + weatherKey;
+        let URLRequest = proxyURL + weatherAPI + String(geoLat) + "," + 
+            String(geoLng) + "?" + weatherId + weatherKey;
         
         
 		$.ajax({
@@ -183,7 +192,8 @@ and Google Maps Platform (https://developers.google.com/maps/documentation/javas
             let currentIcon = parsedResponse.wx_icon;
             
 			document.getElementById("temp").innerHTML = `${currentTemp}°`;
-			document.getElementById("icon").innerHTML = `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
+            document.getElementById("icon").innerHTML = 
+                `<img src="assets/weather-icons/${currentIcon}" alt="Weather Icon">`;
 			},
 			error: function (error) {
 				console.log(error);
@@ -238,18 +248,26 @@ $('input[type="checkbox"]').click(function () {
 		schedulerToggle(powerIdValue);
 	} else {
 		let img = $(this).parent().parent().parent().next().find("img");
-		let sliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
-		let sliderInputLabel = $(this).parent().parent().parent().next().find("label");
+        let sliderInput = $(this).parent().parent().parent().next()
+            .find("input[type=range]");
+        let sliderInputLabel = $(this).parent().parent().parent().next()
+            .find("label");
 		let sliderId = $(sliderInput).attr('id');
 		let sliderName = $(sliderInput).attr('name');
 		let hcMode = $(this).parent().parent().parent().next().find("select");
-		let hcModeLabel = $(this).parent().parent().parent().next().find("label");
+        let hcModeLabel = $(this).parent().parent().parent().next()
+            .find("label");
 		let hcModeId = $(hcMode).attr('id');
-		let hcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
-		let hcTargetLabel = $(this).parent().parent().parent().next().next().next().find("label");
-		let hcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
-		let direction = $(this).parent().parent().parent().next().next().find("select");
-		let directionLabel = $(this).parent().parent().parent().next().next().find("label");
+        let hcTarget = $(this).parent().parent().parent().next().next().next()
+            .find("input[type=text");
+        let hcTargetLabel = $(this).parent().parent().parent().next().next()
+            .next().find("label");
+        let hcTargetBtns = $(this).parent().parent().parent().next().next()
+            .next().find("button");
+        let direction = $(this).parent().parent().parent().next().next()
+            .find("select");
+        let directionLabel = $(this).parent().parent().parent().next().next()
+            .find("label");
 		if ($(this).prop("checked") === false) {
 			if ($(this).hasClass("light-power")) {
 				$(img).css({
@@ -259,7 +277,8 @@ $('input[type="checkbox"]').click(function () {
 				$(sliderInput).addClass("opaque");
 				$(sliderInputLabel).addClass("opaque");
 			} else if ($(this).hasClass("fan-power")) {
-				document.documentElement.style.setProperty(`--${sliderName}`, 0 + "s");
+                document.documentElement.style
+                    .setProperty(`--${sliderName}`, 0 + "s");
 				$(img).css({
 					"background-color": "var(--clr-ltgray)"
 				});
@@ -310,7 +329,8 @@ $('input[type="checkbox"]').click(function () {
 				$(direction).removeClass("opaque");
 				$(directionLabel).removeClass("opaque");
 				$(direction).prop('disabled', false);
-				document.documentElement.style.setProperty(`--${sliderName}`, 0.5 + "s");
+                document.documentElement.style
+                    .setProperty(`--${sliderName}`, 0.5 + "s");
 				$(sliderInput).val(4);
 				speedControl(sliderInput);
 			}
@@ -325,8 +345,10 @@ function housePower(powerId, powerIdValue) {
 	if (powerId == 'myonoffswitch1') {
 		$(".light-power").each(function () {
 			let whImg = $(this).parent().parent().parent().next().find("img");
-			let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
-			let whSliderInputLabel = $(this).parent().parent().parent().next().find("label");
+            let whSliderInput = $(this).parent().parent().parent()
+                .next().find("input[type=range]");
+            let whSliderInputLabel = $(this).parent().parent().parent()
+                .next().find("label");
 			let whSliderName = $(whSliderInput).attr('name');
 			if (powerIdValue === false) {
 				$(this).prop("checked", false);
@@ -351,12 +373,17 @@ function housePower(powerId, powerIdValue) {
 		});
 	} else if (powerId == 'myonoffswitch2') {
 		$(".hc-power").each(function () {
-			let whHcModeLabel = $(this).parent().parent().parent().next().find("label");
-			let whHcMode = $(this).parent().parent().parent().next().find("select");
+            let whHcModeLabel = $(this).parent().parent().parent().next()
+                .find("label");
+            let whHcMode = $(this).parent().parent().parent().next()
+                .find("select");
 			let whHcModeId = $(whHcMode).attr('id');
-			let whHcTargetLabel = $(this).parent().parent().parent().next().next().next().find("label");
-			let whHcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text");
-			let whHcTargetBtns = $(this).parent().parent().parent().next().next().next().find("button");
+            let whHcTargetLabel = $(this).parent().parent().parent().next()
+                .next().next().find("label");
+            let whHcTarget = $(this).parent().parent().parent().next().next()
+                .next().find("input[type=text");
+            let whHcTargetBtns = $(this).parent().parent().parent().next()
+                .next().next().find("button");
 			if (powerIdValue === false) {
 				$(this).prop("checked", false);
 				$(whHcMode).prop('disabled', true);
@@ -411,10 +438,14 @@ function housePower(powerId, powerIdValue) {
 		if (powerId == 'myonoffswitch3') {
 			$(".fan-power").each(function () {
 				let whImg = $(this).parent().parent().parent().next().find("img");
-				let whSliderInput = $(this).parent().parent().parent().next().find("input[type=range]");
-				let whSliderInputLabel = $(this).parent().parent().parent().next().find("label");
-				let whDirection = $(this).parent().parent().parent().next().next().find("select");
-				let whDirectionLabel = $(this).parent().parent().parent().next().next().find("label");
+                let whSliderInput = $(this).parent().parent().parent()
+                    .next().find("input[type=range]");
+                let whSliderInputLabel = $(this).parent().parent().parent()
+                    .next().find("label");
+                let whDirection = $(this).parent().parent().parent().next()
+                    .next().find("select");
+                let whDirectionLabel = $(this).parent().parent().parent()
+                    .next().next().find("label");
 				let whSliderName = $(whSliderInput).attr('name');
 				if (powerIdValue === false) {
 					$(this).prop("checked", false);
@@ -427,7 +458,8 @@ function housePower(powerId, powerIdValue) {
 					$(whDirection).addClass("opaque");
 					$(whDirectionLabel).addClass("opaque");
 					$(whDirection).prop('disabled', 'disabled');
-					document.documentElement.style.setProperty(`--${whSliderName}`, 0 + "s");
+                    document.documentElement.style
+                        .setProperty(`--${whSliderName}`, 0 + "s");
 					$(whSliderInput).val(0);
 				} else if (powerIdValue === true) {
 					$(this).prop("checked", true);
@@ -440,7 +472,8 @@ function housePower(powerId, powerIdValue) {
 					$(whDirection).removeClass("opaque");
 					$(whDirectionLabel).removeClass("opaque");
 					$(whDirection).prop('disabled', false);
-					document.documentElement.style.setProperty(`--${whSliderName}`, 0.5 + "s");
+                    document.documentElement.style
+                        .setProperty(`--${whSliderName}`, 0.5 + "s");
 					$(whSliderInput).val(4);
 					speedControl(whSliderInput);
 				} else {
@@ -453,8 +486,9 @@ function housePower(powerId, powerIdValue) {
 	}
 }
 
-/** code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) and
-Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
+/** code from "Add Button Number Incrementers" from *css-tricks, by Chris Coyier,
+ *  3/29/13, (https://css-tricks.com/number-increment-buttons/) and 
+ *  Javascript30.com,#11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
 $(".tempbtn").click(function () {
 	const targetButton = $(this);
 	const currentInput = $(targetButton).parent().find("input");
@@ -475,8 +509,9 @@ $(".tempbtn").click(function () {
 });
 
 
-/** progress bar code based on w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp) and
-Javascript30.com, #3 Playing with CSS Variables and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
+/** progress bar code based on w3schools.com (https://www.w3schools.com/howto/
+ * howto_js_rangeslider.asp) and Javascript30.com, #3 Playing with CSS Variables 
+ * and JS and #11 HTML5 Video Player, by Wes Bos (https://javascript30.com) */
 const lightSlider2 = document.querySelectorAll('.slidecontainer1 input');
 
 function lightSliderUpdate() {
@@ -487,9 +522,11 @@ function lightSliderUpdate() {
 lightSlider2.forEach(input => input.addEventListener('change', lightSliderUpdate));
 lightSlider2.forEach(input => input.addEventListener('mousemove', lightSliderUpdate));
 
-/** rotation of fan icon based on speed setting - code based on "How to continuously rotate an image using CSS," 
-by flavio on 1/13/19 (https://flaviocopes.com/rotate-image/),and from 
-"An alternative to if/else and switch in JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-if-else-and-switch-in-javascript/) */
+/** rotation of fan icon based on speed setting - code based on "How to 
+ * continuously rotate an image using CSS," by flavio on 1/13/19 (https://flavioc
+ * opes.com/rotate-image/),and from "An alternative to if/else and switch in 
+ * JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-
+ * if-else-and-switch-in-javascript/) */
 const speedSlide = document.querySelectorAll('.slidecontainer2 input');
 
 function speedControl() {
@@ -515,8 +552,10 @@ $(fanDirection).change(function () {
 	document.documentElement.style.setProperty(`--${this.name}`, animDirection);
 });
 
-/** jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)
-and tempusdominus documentation (https://tempusdominus.github.io/bootstrap-4/Usage/) */
+/** jquery timepicker for Scheduler, code from Nirav Joshi, 12/4/19 posted on 
+ * stackoverflow (https://stackoverflow.com/questions/59169315/datetimepicker-
+ * not-working-with-bootstrap-4) and tempusdominus documentation (https://tempus
+ * dominus.github.io/bootstrap-4/Usage/) */
 $(function () {
 	$('#datetimepicker1').datetimepicker();
 	$('#datetimepicker2').datetimepicker({
@@ -613,7 +652,8 @@ function schedulerToggle(powerIdValue) {
 }
 
 /** Collect input data to form schedule */
-/** parts of following code based on Javascript30.com, #15 Local Storage, by Wes Bos (https://javascript30.com) */
+/** parts of following code based on Javascript30.com, #15 Local Storage, 
+ * by Wes Bos (https://javascript30.com) */
 let eventItems = {};
 let valueOnlyItems = JSON.parse(localStorage.getItem("valueOnlyItems")) || {};
 
@@ -621,7 +661,9 @@ $("#scheduled-items").submit(function (event) {
 	event.preventDefault();
 	eventItems = $(this).serializeArray();
 	console.log(eventItems);
-	/** code from Adam Merrifield, 6/21/14, stackOverflow (https://stackoverflow.com/questions/24338177/jquery-serializearray-is-not-getting-the-value-of-the-checked-checkbox) */
+	/** code from Adam Merrifield, 6/21/14, stackOverflow (https://stackover
+     * flow.com/questions/24338177/jquery-serializearray-is-not-getting-the-
+     * value-of-the-checked-checkbox) */
 	$('#scheduled-items input[type="checkbox"]:not(:checked)').each(function () {
 		if ($.inArray(this.name, eventItems) === -1) {
 			eventItems.push({
@@ -718,8 +760,10 @@ function populateList(valueOnlyItems) {
 	$(schedList).append('<hr>');
 }
 
-/** Store all real time control settings when submit schedule form so they return */
-/** from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload) */
+/** Store all real time control settings when submit schedule form so they 
+ * return */
+/** from Basj on stackOverflow (https://stackoverflow.com/questions/61085148/
+ * auto-save-all-inputs-value-to-localstorage-and-restore-them-on-page-reload) */
 document.querySelectorAll('#control-form input:not([type="submit"])').forEach(elt => {
 	elt.value = localStorage.getItem(elt.name);
 	elt.addEventListener("change", e => {
