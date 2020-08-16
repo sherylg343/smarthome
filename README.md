@@ -137,8 +137,8 @@ the future.
 #### Strategy Plane
 An evaluation was conducted to determine which customer problems the Demo was being 
 used to resolve. These customer needs are listed and reviewed in the 
-[Strategy Trade-Off Analysis](...smarthome/master/README-assets/Amenity-strategy-trade-off.pdf).
-All of the "Must Address" issues were addressed in this first phase of the Demo website.
+[Strategy Trade-Off Analysis](README-assets/Amenity-strategy-trade-off.pdf).
+
 
 #### Scope Plane
 Below is a summary of the analysis done for this Demo site during the Scope Plane.
@@ -191,22 +191,22 @@ in content as well as layout.
 #### Wireframe Mock-Ups:
 After reviewing the User Stories and evaluating the Features, the following
 mockups were designed for the 3 primary screen sizes using 
-[Balsamiq software](https://basamiq.com). 
+[Balsamiq software](https://balsamiq.com/). 
 The website was created using a mobile-first design philosophy.
 
 <div style="text-align:center;">
 
-[Mobile](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-mobile.pdf)
+[Mobile](README-assets/smart-home-mobile.pdf)
 </div>
 
 <div style="text-align:center;">
 
-[Tablet](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-iPad.pdf)
+[Tablet](README-assets/smart-home-iPad.pdf)
 </div>
 
 <div style="text-align:center;">
 
-[Desktop](https://sherylg343.github.io/smarthome/master/README-assets/smart-home-desktop.pdf)
+[Desktop](README-assets/smart-home-desktop.pdf)
 </div>
 
 ##### Wireframe Mock-Up Revisions
