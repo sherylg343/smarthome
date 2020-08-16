@@ -1,13 +1,13 @@
 <h3 style="text-align: center">
     <a href=" https://sherylg343.github.io/smarthome/" target="_blank">
-        <img src="assets/images/amenity3_logo.png" alt="Amentiy">
+        <img src="assets/images/amenity3-logo.png" alt="Amentiy">
     </a>
 </h3>
 
 # Amenity, Smart House Manager Demo Site
 <div style="text-align: center">
 
-[Click here to view website in GitHub Pages](https://sherylg343.github.io/smarthome/)
+[View website in GitHub Pages](https://sherylg343.github.io/smarthome/)
 </div>
 
 ## Testing
@@ -29,7 +29,7 @@ the end when I found out it accommodated jQuery syntax.
 [W3C CSS Validation](https://jigsaw.w3.org/css-validator/)
 and [Nu Html Checker](https://validator.w3.org/) were used. 
  - CSS: The validation did not recognize the CSS variables being used so there were numerous 
- errors listed. As the variables are integral to the website design and operation and were
+ errors listed. As the variables are integral to the website design and operation, and were
  found documented by [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_
  CSS_custom_properties), they were not changed.
  It did catch an error in which animation-direction was stated as "forward" rather than "normal." 
@@ -55,17 +55,21 @@ device selections in the Scheduler.
 
 ### Functionality Testing
 Due to the nature of the website, the bulk of the testing was functional. The 
-following depicts the final round of functional tests conducted in Google 
+following describes the final round of functional tests conducted in Google 
 Chrome using a MacBook Pro.
 
 #### Part One: Navigation 
-Test #: 1
-Action Taken: Click on "Control Panel" in Nav bar
-"Before" State: Control Panel link in indigo-colored text
-"After" State: "Control Panel" text turns green, dropdown menu appears, "Kitchen" 
-    turns green when selected, dropdown menu disappears, and screen scrolls so 
-    "Kitchen" control box is right beneath the Nav bar.
-Test Result: Successful
+**Test #: 1**
+<p>*Action Taken:* Click on "Control Panel" in Nav bar
+<br>
+*"Before" State:* Control Panel link in indigo-colored text
+<br>
+*"After" State:* "Control Panel" text turns green, dropdown menu appears, "Kitchen" 
+turns green when selected, dropdown menu disappears, and screen scrolls so 
+"Kitchen" control box is right beneath the Nav bar.
+    <br>
+*Test Result:* Successful
+</p>
 
 Test #: 2
 Action Taken: Click on "Control Panel" in Nav bar
