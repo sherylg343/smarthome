@@ -30,10 +30,9 @@ the end when I found out it accommodated jQuery syntax.
 and [Nu Html Checker](https://validator.w3.org/) were used. 
  - CSS: The validation did not recognize the CSS variables being used so there were numerous 
  errors listed. As the variables are integral to the website design and operation, and were
- found documented by [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_
- CSS_custom_properties), they were not changed.
- It did catch an error in which animation-direction was stated as "forward" rather than "normal." 
- That error was corrected. 
+ found documented by [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), 
+ they were not changed. It did catch an error in which animation-direction was stated 
+ as "forward" rather than "normal."  That error was corrected. 
  - HTML: Test response: "The document is valid and conforms to best practices and standards. 
  Good job!"
 
@@ -46,9 +45,9 @@ will not rotate counterclockwise. Additionally, Safari is not recognizing change
 in fan speed and Safari was showing Actual Temp. opaque on all devices, at all
 times. The footer was not "sticky" in the desktop version of Safari as well.
 
-Firefox in a desktop browser performed without any problems as did Chrome.
+* Firefox in a desktop browser performed without any problems as did Chrome.
 
-There were some issues with Apple devices as well. The 2014 iPad showed no 
+* There were some issues with Apple devices as well. The 2014 iPad showed no 
 functionality in the website. It did not respond to changes in inputs. The newer 
 iPad did not have the same issues, it worked well except it was not filtering 
 device selections in the Scheduler.
@@ -57,159 +56,264 @@ device selections in the Scheduler.
 Due to the nature of the website, the bulk of the testing was functional. The 
 following describes the final round of functional tests conducted in Google 
 Chrome using a MacBook Pro.
+<br>
 
 #### Part One: Navigation 
+
 **Test #: 1**
-<p>*Action Taken:* Click on "Control Panel" in Nav bar
+<p>
+Action Taken: Click on "Control Panel" in Nav bar
 <br>
-*"Before" State:* Control Panel link in indigo-colored text
+"Before" State: Control Panel link in indigo-colored text
 <br>
-*"After" State:* "Control Panel" text turns green, dropdown menu appears, "Kitchen" 
+"After" State: "Control Panel" text turns green, dropdown menu appears, "Kitchen" 
 turns green when selected, dropdown menu disappears, and screen scrolls so 
 "Kitchen" control box is right beneath the Nav bar.
     <br>
-*Test Result:* Successful
+Test Result: Successful
 </p>
 
-Test #: 2
+**Test #: 2**
+<p>
 Action Taken: Click on "Control Panel" in Nav bar
+<br>
 "Before" State: "Control Panel" link in indigo-colored text
+<br>
 "After" State: "Control Panel" text turns green, dropdown menu appears, "Great 
     Room" turns green when selected, dropdown menu disappears, and screen scrolls so 
     "Great Room" control box is right beneath the Nav bar.
+<br>
 Test Result: Successful
+</p>
 
-Test #: 3
+**Test #: 3**
+<p>
 Action Taken: Click on "Control Panel" in Nav bar
+<br>
 "Before" State: "Control Panel" link in indigo-colored text
+<br>
 "After" State: "Control Panel" text turns green, dropdown menu appears, 
     "Master Bedroom" turns green when selected, dropdown menu disappears, and screen 
     scrolls so "Master Bedroom" control box is right beneath the Nav bar.
+<br>
 Test Result: Successful
+</p>
 
-Test #: 4
+**Test #: 4**
+<p>
 Action Taken: Click on "Control Panel" in Nav bar
+<br>
 "Before" State: "Control Panel" link in indigo-colored text
+<br>
 "After" State: Control Panel text turns green, dropdown menu appears, "Garage" 
-    turns green when selected, dropdown menu disappears, and screen scrolls so "Garage" 
-    control box is right beneath the Nav bar.
+turns green when selected, dropdown menu disappears, and screen scrolls so "Garage" 
+control box is right beneath the Nav bar.
+<br>
 Test Result: Successful
+</p>
 
-Test #: 5
+**Test #: 5**
+<p>
 Action Taken: Click on "Scheduler" in Nav bar
+<br>
 "Before" State: "Scheduler" link in indigo-colored text
+<br>
 "After" State: "Scheduler" text turns green, and screen scrolls so "Scheduler" 
-    section is right beneath the Nav bar.
+section is right beneath the Nav bar.
+<br>
 Test Result: Successful
+</p>
+<br>
 
 #### Part Two: Whole House controls
-Test #: 6
+
+**Test #: 6**
+<p>
 Action Taken: Click on on/off switch next to "Lighting" in "Whole House" control 
-    box
+box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color, 
-    scrolling down will see that all Lighting on/off switches turned "on", light 
-    bulb icons turned yellow.
-    
-    Subtest: 
-        Action Taken: Slide "Brightness" range bars in each room to see if 
-            yellow color in bulb varies in intensity as adjust bar.
-        Kitchen: pass
-        Great Room: pass
-        Master Bedroom: pass
-        Garage: pass
+scrolling down will see that all Lighting on/off switches turned "on", light 
+bulb icons turned yellow.
+</p>
+
+ <p> 
+Subtest: 
+<br>
+Action Taken: Slide "Brightness" range bars in each room to see if 
+yellow color in bulb varies in intensity as adjust bar.
+<br>
+Kitchen: pass
+<br>
+Great Room: pass
+<br>
+Master Bedroom: pass
+<br>
+Garage: pass
+<br>
+<br>
 Test Result: Successful - "whole House" data flowed to all rooms
 
-Test #: 7
+**Test #: 7**
+<p>
 Action Taken: Click on on/off switch next to "Heating Cooling System" in 
-    "Whole House" control box
+"Whole House" control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color, 
-    "Mode" and "Target Temp." are no longer faded out. 
-    Subtest: 
-        Action Taken: Select "Manual Cooling" as "Mode" and input "70" for 
-            "Target Temp." in "Whole House" control box.
-        "After State": While inputting temperature number see Error message 
-            stating that value entered must be greater than 50 and less than 85. 
-            Once enter "70" error message disappears.
-        Kitchen: "Mode" and "Target Temp." controls are not faded, Mode states 
-            "Manual Cooling," and "Target Temp." states "70"
-        Great Room: "Mode" and "Target Temp." controls are not faded, Mode 
-            states "Manual Cooling," and "Target Temp." states "70"
-        Master Bedroom: "Mode" and "Target Temp." controls are not faded, 
-            Mode states "Manual Cooling," and "Target Temp." states "70"
-        Garage: "Mode" and "Target Temp." controls are not faded, Mode states 
-            "Manual Cooling," and "Target Temp." states "70"
-Test Results: Successful - "whole House" data flowed to all rooms
+"Mode" and "Target Temp." are no longer faded out. 
+</p>
 
-Test #: 8
+<p>
+Subtest:
+<br> 
+Action Taken: Select "Manual Cooling" as "Mode" and input "70" for 
+"Target Temp." in "Whole House" control box.
+<br>
+"After State": While inputting temperature number see Error message 
+stating that value entered must be greater than 50 and less than 85. 
+Once enter "70" error message disappears.
+<br>
+Kitchen: "Mode" and "Target Temp." controls are not faded, Mode states 
+"Manual Cooling," and "Target Temp." states "70"
+<br>
+Great Room: "Mode" and "Target Temp." controls are not faded, Mode 
+states "Manual Cooling," and "Target Temp." states "70"
+<br>
+Master Bedroom: "Mode" and "Target Temp." controls are not faded, 
+Mode states "Manual Cooling," and "Target Temp." states "70"
+<br>
+Garage: "Mode" and "Target Temp." controls are not faded, Mode states 
+"Manual Cooling," and "Target Temp." states "70"
+<br>
+<br>
+Test Results: Successful - "whole House" data flowed to all rooms
+</p>
+
+**Test #: 8**
+<p>
 Action Taken: Click on on/off switch next to "Ceiling Fans" in "Whole House" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
-
-    Subtest: 
-        Kitchen: Not applicable
-        Great Room: 
-            "Before" state: fan icon is white, spinning.
-            Action: move range control for speed
-            "After" state: rotation of fan icon speeds up and slows down as 
-                range control is moved
-            --
-            "Before" state: fan icon is white, spinning.
-            Action: select "counterclockwise" for "Fan Direction"
-            "After" state: rotation of fan icon changes and moves in 
-                counterclockwise direction
-        Master Bedroom: 
-            "Before" state: fan icon is white, spinning.
-            Action: move range control for speed
-            "After" state: rotation of fan icon speeds up and slows down as range 
-                control is moved
-            --
-            "Before" state: fan icon is white, spinning.
-            Action: select "counterclockwise" for "Fan Direction"
-            "After" state: rotation of fan icon changes and moves in 
-                counterclockwise direction
-        Garage: Not applicable
+</p>
+    
+<p>
+Subtest: 
+<br>
+Kitchen: Not applicable
+<br>
+Great Room: 
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: move range control for speed
+<br>
+"After" state: rotation of fan icon speeds up and slows down as 
+range control is moved
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: select "counterclockwise" for "Fan Direction"
+<br>
+"After" state: rotation of fan icon changes and moves in 
+counterclockwise direction
+<br>
+Master Bedroom: 
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: move range control for speed
+<br>
+"After" state: rotation of fan icon speeds up and slows down as range 
+control is moved
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: select "counterclockwise" for "Fan Direction"
+<br>
+"After" state: rotation of fan icon changes and moves in 
+counterclockwise direction
+<br>
+Garage: Not applicable
+<br>
+<br>
 Test Results: Successful - "whole House" data flowed to all rooms
-
+<br>
+<br>
 #### Part Three: Individual Room Controls
-Test #: 9
+
+**Test #: 9**
+
+<p>
 Action Taken: Click on on/off switch next to "Light-overhead" in "Kitchen" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 10
+**Test #: 10**
+<p>
 Action Taken: Click on on/off switch next to "Heating Cooling System" in "Kitchen" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color, 
-    "Mode" and "Target Temp." are no longer faded out. 
-    Subtest: 
-        Action Taken: Select "Fully Auto" as "Mode" and input "55" for "Target 
-            Temp." in "Kitchen" control box.
-        "After State": While inputting temperature number see Error message 
-            stating that value entered must be  greater than 50 and less than 85. 
-            Once enter "55" error message disappears.
+"Mode" and "Target Temp." are no longer faded out. 
+</p>
+<p>
+Subtest: 
+<br>
+Action Taken: Select "Fully Auto" as "Mode" and input "55" for "Target 
+Temp." in "Kitchen" control box.
+<br>
+"After State": While inputting temperature number see Error message 
+stating that value entered must be  greater than 50 and less than 85. 
+Once enter "55" error message disappears.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 11
+**Test #: 11**
+<p>
 Action Taken: Click on on/off switch next to "Light-overhead" in "Great Room" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 10
+**Test #: 12**
+<p>
 Action Taken: Click on on/off switch next to "Heating Cooling System" in "Great 
-    Room" control box
+Room" control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color, 
     "Mode" and "Target Temp." are no longer faded out. 
     Subtest: 
@@ -218,161 +322,275 @@ Action Taken: Click on on/off switch next to "Heating Cooling System" in "Great
         "After State": While inputting temperature number see Error message 
             stating that value entered must be greater than 50 and less than 85. 
             Once enter "80" error message disappears.
+<br>
 Test Results: Successful
+</p>
 
-Test #: 11
+**Test #: 13**
+<p>
 Action Taken: Click on on/off switch next to "Ceiling Fans" in "Great Room" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
-    Subtest: 
-        "Before" state: fan icon is white, spinning.
-        Action: move range control for speed
-        "After" state: rotation of fan icon speeds up and slows down as range 
-            control is moved
-        --
-        "Before" state: fan icon is white, spinning.
-        Action: select "counterclockwise" for "Fan Direction"
-        "After" state: rotation of fan icon changes and moves in counterclockwise 
-            direction  
+</p>
+<p>
+Subtest: 
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: move range control for speed
+<br>
+"After" state: rotation of fan icon speeds up and slows down as range 
+control is moved
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: select "counterclockwise" for "Fan Direction"
+<br>
+"After" state: rotation of fan icon changes and moves in counterclockwise 
+direction  
+<br>
+<br>
 Test Results: Successful 
+</p>
 
-Test #: 12
+**Test #: 14**
+<p>
 Action Taken: Click on on/off switch next to "Light-overhead" in "Master Bedroom" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 13
+**Test #: 15**
+<p>
 Action Taken: Click on on/off switch next to "Light-lamp" in "Master Bedroom" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 14
+**Test #: 16**
+<p>
 Action Taken: Click on on/off switch next to "Heating Cooling System" in "Master 
-    Bedroom" control box
+Bedroom" control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color, "Mode" 
-    and "Target Temp." are no longer faded out. 
-    Subtest: 
-        Action Taken: Select "Fully Auto" as "Mode" and input "75" for "Target Temp." 
-            in "Master Bedroom" control box.
-        "After State": While inputting temperature number see Error message stating 
-            that value entered must be greater than 50 and less than 85. Once enter 
-            "80" error message disappears.
+and "Target Temp." are no longer faded out.
+</p> 
+<p>
+Subtest:
+<br>
+Action Taken: Select "Fully Auto" as "Mode" and input "75" for "Target Temp." 
+in "Master Bedroom" control box.
+<br>
+"After State": While inputting temperature number see Error message stating 
+that value entered must be greater than 50 and less than 85. Once enter 
+"80" error message disappears.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 15
+**Test #: 17**
+<p></p>
 Action Taken: Click on on/off switch next to "Ceiling Fans" in "Master Bedroom" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
-    Subtest: 
-        "Before" state: fan icon is white, spinning.
-        Action: move range control for speed
-        "After" state: rotation of fan icon speeds up and slows down as range 
-            control is moved
-        --
-        "Before" state: fan icon is white, spinning.
-        Action: select "counterclockwise" for "Fan Direction"
-        "After" state: rotation of fan icon changes and moves in 
-            counterclockwise direction  
+</p>
+<p>
+Subtest: 
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: move range control for speed
+<br>
+"After" state: rotation of fan icon speeds up and slows down as range 
+control is moved
+<br>
+"Before" state: fan icon is white, spinning.
+<br>
+Action: select "counterclockwise" for "Fan Direction"
+<br>
+"After" state: rotation of fan icon changes and moves in 
+counterclockwise direction  
+<br>
+<br>
 Test Results: Successful 
+</p>
 
-Test #: 16
+**Test #: 18**
+<p>
 Action Taken: Click on on/off switch next to "Light-overhead" in "Garage 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
 
-Test #: 13
+**Test #: 19**
+<p>
 Action Taken: Click on on/off switch next to "Light-outside" in "Garage" 
-    control box
+control box
+<br>
 "Before" State: off switch is white
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color 
+</p>
+<p>
 Subtest: Slide "Brightness" range bars in each room to see if yellow color in 
-    bulb varies in intensity as adjust bar.
+bulb varies in intensity as adjust bar.
+<br>
+<br>
 Test Results: Successful
+</p>
+<br>
 
 #### Part Four: Scheduler Controls
-Test #: 13
+
+**Test #: 20**
+<p>
 Action Taken: Click start and end date/times
+<br>
 "Before" State: blank inputs
+<br>
 "After" State: selected date and time appear in white input field
+<br>
 Test Result: Successful
+</p>
 
-Test #: 14
+**Test #: 21**
+<p>
 Action Taken: Click on "House/Room" dropdown menu and select "Whole House"
+<br>
 "Before" State: empty input field
+<br>
 "After" State: input field states "Whole House"
+<br>
 Test Result: Successful
+</p>
 
-Test #: 15
+**Test #: 22**
+<p>
 Action Taken: Click on "Device" dropdown menu and select "Lighting"
+<br>
 "Before" State: empty input field
+<br>
 "After" State: input field states "Lighting"
-    Subtest: check out options provided in Device dropdown menu - were they only 
-        the relevant devices for the "house/room" specified?
-    Result: "Lighting", "Heating Cooling System" and "Ceiling Fan" were available 
-        for selection
-
-    Subtest: after selecting Device, go back and select a different choice in 
-        "House/Room" menu. Does the "Device" dropdown menu adjust accordingly for 
-        the new selection?
+</p>
+<p>
+Subtest: check out options provided in Device dropdown menu - were they only 
+the relevant devices for the "house/room" specified?
+<br>
+Result: "Lighting", "Heating Cooling System" and "Ceiling Fan" were available 
+for selection
+</p>
+<p>
+Subtest: after selecting Device, go back and select a different choice in 
+"House/Room" menu. Does the "Device" dropdown menu adjust accordingly for 
+the new selection?
+<br>
+<br>
 Test Results: All Successful
+</p>
 
-Test #: 16
+**Test #: 23**
+<p>
 Action Taken: Click on off button
+<br>
 "Before" State: white off button
+<br>
 "After" State: on/off switch clicked turns on and changes to indigo color and 
-    "Lights" appears below switch as does light bulb icon in bright yellow and 
-    Brightness range selector
+"Lights" appears below switch as does light bulb icon in bright yellow and 
+Brightness range selector
+<br>
 Test Results: All Successful
+</P>
 
-Test #: 17
+**Test #: 24**
+<p>
 Action Taken: Click on "Finish Scheduling Event" button
+<br>
 "Before" State: indigo-colored button and controls show states selected
+<br>
 "After" State: "Finish Scheduling Event" button turns green, "lights" controls 
-    disappear, on/off button turn to white off position, input fields become blank, 
-    and below Scheduled Event header the selections made are summarized. 
-    Start Date/Time, 
-End Date/Time, Room, Device, Power, Brightness
+disappear, on/off button turn to white off position, input fields become blank, 
+and below Scheduled Event header the selections made are summarized. 
+Start Date/Time, End Date/Time, Room, Device, Power, Brightness
+<br>
 Test Results: All Successful
-
+</p>
+<p>
 Additional Scheduling Tests: Tests 13 - 16 are repeated for all House/Room and 
 Device combinations to ensure that the appropriate controls appear and correct 
 results print out under Scheduled Events. All of these test iterations
 were conducted and passed. Note, schedules were made with the power button in 
 "off" position, and these passed also.
+</p>
+<br>
 
 #### Part Five: Temperature Scale Control
-Test #: 18
+
+**Test #: 25**
+<p>
 Action Taken: Click Whole House Heating Cooling System power button "on" and
 add a Target Temp. value of 68.
+<br>
 "Before" State: Off position, Actual Temp is 50 and Target Temp fields are opaque
- and empty. Footer temperature is 82 degrees.
+and empty. Footer temperature is 82 degrees.
+<br>
 "After" State: Target temp field no longer opaque and now filled with value of 68.
 Also scroll down website and see that Target Temp value of 68 flowed into other rooms.
-    Subtest: Click the Temperature Scale selector and change value to "Celsius"
-    Result: Actual Temp values are all recalculated to Celsius value of 10 and 
-    all rooms show this value; Target Temp values are all recalculated to 20
-    degrees Celsius and remain the same in all rooms; the weather temp 
-    in the footer now show 28 degrees.
+</p>
+<p>
+Subtest: Click the Temperature Scale selector and change value to "Celsius"
+<br>
+Result: Actual Temp values are all recalculated to Celsius value of 10 and 
+all rooms show this value; Target Temp values are all recalculated to 20
+degrees Celsius and remain the same in all rooms; the weather temp 
+in the footer now show 28 degrees.
+</p>
+<p>
+Subtest: Change the Kitchen Target Temp to 24 degrees (Celsius is still
+Temperature Scale). And then change Temperature Scale to Fahrenheit.
+<br>
+Result: Kitchen Target Temp is now 75 and all other Target Temp fields
+continue to show original value of 68.
+</p>
 
-    Subtest: Change the Kitchen Target Temp to 24 degrees (Celsius is still
-    Temperature Scale). And then change Temperature Scale to Fahrenheit.
-    Result: Kitchen Target Temp is now 75 and all other Target Temp fields
-    continue to show original value of 68.
 
 ### Final Issues Resolved
 Below is a list of the final punch list of issues that were resolved prior to
@@ -387,12 +605,11 @@ the Device selection in the Scheduler.
 4. Formatted comments in JavaScript file to meet JSDocs specs.
 5. Revised all files so code is no wider than approximately 80 characters.
 6. Revised JavaScript/jQuery code to add more variables as references rather than
-use class and id's (per [Eventyret_mentor]
-(https://code-institute-room.slack.com/team/U4MVA9YQP)).
+use class and id's (per [Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP)).
 7. HTML Validator showed error for select option without a value. I had 8 of these
-error. On [stackOverflow]
-(https://stackoverflow.com/questions/22237658/html5-validation-error-with-select-required-attribute) I found solution that meets validator requirements yet 
-enables me to keep a blankoption: "&nbsp;".
+error. On [stackOverflow](https://stackoverflow.com/questions/22237658/html5-validation-error-with-select-required-attribute) 
+I found solution that meets validator requirements yet enables me to keep a 
+blankoption: "&nbsp;".
 8. Also, my mentor told me about the best practice for code width to be 
 approximately 80 characters wide. I went back through and revised code to meet 
 that guideline with exception of URL's - which won't work if broken by 
@@ -401,9 +618,8 @@ line break.
 
 ### Remaining Issues and Resolutions
 1. Browser compatibility issues remain as described above.
-2. During peer review, [Eventyret_mentor]
-https://code-institute-room.slack.com/team/U4MVA9YQP) suggested that I use classes 
-and ID's to replace the lengthy selectors such as: 
+2. During peer review, [Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP) 
+suggested that I use classes and ID's to replace the lengthy selectors such as: 
 let hcTarget = $(this).parent().parent().parent().next().next().next().find("input[type=text"); 
 I discussed this with my mentor and determined that using a combination of classes 
 for both rooms and devices, I could accomplish this if I also added data-attributes 

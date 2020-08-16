@@ -340,8 +340,8 @@ handling it, so by pressing NO because i dont know why I should click yes, it
 will say every time i load that it’s blocked. Asking me again would be great, 
 if you also gave a reason why you wanted the location."
 * I reviewed the API for Permissions and while it is doable, I selected a simpler
-solution: a SweetAlert. I learned of SweetAlert from [Eventyret_mentor](https://
-code-institute-room.slack.com/team/U4MVA9YQP) as well.
+solution: a SweetAlert. I learned of SweetAlert from 
+[Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP) as well.
 * The SweetAlert appears the first time the website is loaded (as does the 
 geolocation request) and informs the user that geolocation is being requested 
 to provide local weather data. With this knowledge, the user can make an inform-
@@ -409,7 +409,7 @@ used for date/time picker in scheduler
 used for date-time picker in scheduler
 * [GoogleFonts](https://fonts.google.com/) - Noto Sans JP and Hind Siliguri 
 Font Styles
-* [tinyjpg] (https://tinyjpg.com/) - used to reduce image file sizes
+* [tinyjpg](https://tinyjpg.com/) - used to reduce image file sizes
 * [FontAwesome](https://fontawesome.com/) - Design icons for Services 1 page and 
 social media icons
 * [jQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js) 
