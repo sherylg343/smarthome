@@ -215,14 +215,14 @@ $(document).ready(function () {
 		    } else {
 			    $(targetCelAlert).addClass("d-none");
 		    }
-	    } else if (tempScale.val() === "farenheit") {
+	    } else if (tempScale.val() === "fahrenheit") {
 		    if (($(this).val() < 50) || ($(this).val() > 85)) {
 			    $(targetFarAlert).removeClass("d-none");
 		    } else {
 			    $(targetFarAlert).addClass("d-none");
 		    }
 	    } else {
-		    $('#temp-scale option[value="farenheit"]').prop('selected', true);
+		    $('#temp-scale option[value="fahrenheit"]').prop('selected', true);
 		    getRandomIntInclusive(50, 85);
 		    if (($(this).val() < 50) || ($(this).val() > 85)) {
 			    $(targetFarAlert).removeClass("d-none");

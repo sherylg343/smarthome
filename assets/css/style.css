@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Hind+Siliguri:300,400,500,600,700');
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Hind+Siliguri:300,400,500,600,700';
 
 :root {
     --clr-blue: #9DBCD4;
@@ -35,7 +35,6 @@
 * {
     box-sizing: border-box;
 }
-
 /*------------- Background/Colors ---------*/
  body {
      background: linear-gradient(to left, #83a4d4, #b6fbff);
@@ -47,7 +46,6 @@
  #inline-list {
      padding: 0px;
 }
-
 /*----------------- Text -----------------*/
  h1, h3, h4, h5 {
      font-family: var(--ff-head);
@@ -149,7 +147,8 @@
      background-color: var(--clr-teal);
      border-radius: 20%;
 }
- #light-icon1, #light-icon2, #light-icon3, #light-icon4, #light-icon5, #light-icon6 {
+ #light-icon1, #light-icon2, #light-icon3, #light-icon4, #light-icon5, 
+    #light-icon6 {
      display: block;
      margin-left: 33%;
      width: 2.5rem;
@@ -389,7 +388,8 @@
  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
      right: 0px;
 }
-/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
+/*--(+/-) Code based on "Add Button Number Incrementers" from *css-tricks, by 
+Chris Coyier, 3/29/13, (https://css-tricks.com/number-increment-buttons/) --*/
  .temp form div{
      overflow: hidden;
      margin: 0 0 5px;
@@ -398,11 +398,16 @@
      display: block;
      float: left;
 }
-/*code from Samantha at Code Institute and Fareed Alnamrouti, posted on stackOverflow on Jan 7 '13 at 23:35 (https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete)*/
+
+/*code corrects text input turning white during autofill
+from Samantha at Code Institute and Fareed Alnamrouti, posted on 
+stackOverflow on Jan 7 '13 at 23:35 (https://stackoverflow.com/questions/2781549/
+removing-input-background-colour-for-chrome-autocomplete)*/
  input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
      -webkit-box-shadow: 0 0 0 30px var(--clr-teal) inset !important;
 }
-/*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_rangeslider.asp)--*/
+/*--code from w3schools.com (https://www.w3schools.com/howto/howto_js_
+rangeslider.asp)--*/
  .slider {
      -webkit-appearance: none;
      width: 80%;
@@ -435,7 +440,8 @@
      float: left;
      margin-left: 1rem;
 }
-/*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
+/*--code from stackoverflow.com, Yudiz_Webdesign, 12/4/19 (https://stackoverflow.com/
+questions/59169315/datetimepicker-not-working-with-bootstrap-4)--*/
  .input-group-append {
      cursor: pointer;
 }
