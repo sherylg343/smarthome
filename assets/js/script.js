@@ -205,22 +205,17 @@ $(document).ready(function () {
     
     $(allTargetInputs).on("change input click", function() {
         const room = this.dataset.room
-        console.log(room);
         if (tempScale.val() === "celsius") {
             if (($(this).val() < 10) || ($(this).val() > 29)) {
                 $(`.temp-alert-c.${room}`).removeClass("d-none");
-                console.log("Cel wrong");
             } else {
                 $(`.temp-alert-c.${room}`).addClass("d-none");
-                console.log("Cel right");
             }
         } else if (tempScale.val() === "fahrenheit") {
             if (($(this).val() < 50) || ($(this).val() > 85)) {
                 $(`.temp-alert-f.${room}`).removeClass("d-none");
-                console.log("Fahr wrong");
             } else {
                 $(`.temp-alert-f.${room}`).addClass("d-none");
-                console.log("Fahr right");
             }
         } else {
             return;
