@@ -340,18 +340,21 @@ handling it, so by pressing NO because i dont know why I should click yes, it
 will say every time i load that it’s blocked. Asking me again would be great, 
 if you also gave a reason why you wanted the location."
 * I reviewed the API for Permissions and while it is doable, I selected a simpler
-solution: a SweetAlert. I learned of SweetAlert from 
-[Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP) as well.
-* The SweetAlert appears the first time the website is loaded (as does the 
-geolocation request) and informs the user that geolocation is being requested 
-to provide local weather data. With this knowledge, the user can make an inform-
-ed choice regarding the sharing of geolocation data.
+solution: a SweetAlert to inform the user that his/her geolocation is being requested 
+to provide local weather data. I learned of SweetAlert from 
+[Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP).
+* I tried a code that was supposed to load SweetAlert only when the geolocation 
+request was present, however, it did not work. Therefore, the SweetAlert shows  
+each time the website is loaded. A new "Future Goal" is to find a way to limit
+the SweetAlert. Since the website is a Demo,it is likely to be visited only once, 
+so the SweetAlert should not be a significant inconvenience for the user until 
+the issue can be addressed further.
 
 2. "As a “Celcius” user, it would be great to have things converted by clicking 
 on the F Because else its just some spinning icons and nothing makes sense for me."
 * This was on my list of future goals but given his suggestion, I decided to
 add it now.
-* A Temperature Scale selector was added to the top of the website that 
+* A Temperature Scale selector was added to the top of the website that *
 controls all temperatures on the page, including the weather in the footer.
 * When the selector is changed, all temperatures (actual and target) are 
 recalculated to reflect the new temperature scale.
@@ -389,6 +392,11 @@ This would prevent error and ease inputs for temperature.
 ### Zip Code Entry for Weather
 Provide a pop-up box that offers zip code entry option if geolocation is not available 
 on a device - for the weather API.
+
+### Limit Appearance of SweetAlert Regarding Geolocation
+See note above from "Peer Review" section. It would be best to show the alert only
+when permission is being asked for geolocation, rather than it appearing everytime
+the website loads initially. This is an important modification for the next phase.
 
 <p>
 

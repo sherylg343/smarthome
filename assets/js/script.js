@@ -23,11 +23,9 @@ const schedFanControls = $(".cfan");
 const schedList = $("#sched-list");
 const fanDirection = $(".fan-direction");
 const targetCelAlert = $(".temp-alert-c");
-const targetFarAlert = $(".temp-alert-f");
+const targetFahrAlert = $(".temp-alert-f");
 const target1 = ("#target1");
-/** pure javascript worked more easily for checkTarget function using 
-this variable */
-const allTargetInputs = document.querySelectorAll(".temp-target input[type=text]");
+const allTargetInputs = $(".temp-target input[type=text]");
 const tempInputs = $(".temp input[type=text]");
 
 /** Reference: https:/ / developer.mozilla.org / en - US / docs / Web / 
@@ -203,38 +201,31 @@ $(document).ready(function () {
 	setInterval(checkLoc, 1800000);
     checkLoc();
     
-    /** tkone on stackOverflow 4/9/12 */
-    if('geolocation' in window) {
-        swal("Amenity requests your geolocation to provide local weather data. Click Allow Location Access to view weather data.");
-    }
+    swal("Amenity requests your geolocation to provide local weather data. Click Allow Location Access to view weather data.");
     
-    function checkTarget(){
-	    if (tempScale.val() === "celsius") {
-		    if (($(this).val() < 10) || ($(this).val() > 29)) {
-			    $(targetCelAlert).removeClass("d-none");
-		    } else {
-			    $(targetCelAlert).addClass("d-none");
-		    }
-	    } else if (tempScale.val() === "fahrenheit") {
-		    if (($(this).val() < 50) || ($(this).val() > 85)) {
-			    $(targetFarAlert).removeClass("d-none");
-		    } else {
-			    $(targetFarAlert).addClass("d-none");
-		    }
-	    } else {
-		    $('#temp-scale option[value="fahrenheit"]').prop('selected', true);
-		    getRandomIntInclusive(50, 85);
-		    if (($(this).val() < 50) || ($(this).val() > 85)) {
-			    $(targetFarAlert).removeClass("d-none");
-		    } else {
-			    $(targetFarAlert).addClass("d-none");
-		    }
-	    }
-    }
-
-allTargetInputs.forEach(input => input.addEventListener("change", checkTarget));
-allTargetInputs.forEach(input => input.addEventListener("input", checkTarget));
-allTargetInputs.forEach(input => input.addEventListener("click", checkTarget));
+    $(allTargetInputs).on("change input click", function() {
+        const room = this.dataset.room
+        console.log(room);
+        if (tempScale.val() === "celsius") {
+            if (($(this).val() < 10) || ($(this).val() > 29)) {
+                $(`.temp-alert-c.${room}`).removeClass("d-none");
+                console.log("Cel wrong");
+            } else {
+                $(`.temp-alert-c.${room}`).addClass("d-none");
+                console.log("Cel right");
+            }
+        } else if (tempScale.val() === "fahrenheit") {
+            if (($(this).val() < 50) || ($(this).val() > 85)) {
+                $(`.temp-alert-f.${room}`).removeClass("d-none");
+                console.log("Fahr wrong");
+            } else {
+                $(`.temp-alert-f.${room}`).addClass("d-none");
+                console.log("Fahr right");
+            }
+        } else {
+            return;
+        }
+    });
 
 });
 

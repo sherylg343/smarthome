@@ -602,19 +602,25 @@ browser, though the speed and direction still do not change.
 3. Tested Scheduler to determine if code could be eliminated from scheduleToggler
 function - rendered unnecessary when House/Room selection was moved ahead of
 the Device selection in the Scheduler.
-4. Formatted comments in JavaScript file to meet JSDocs specs.
-5. Revised all files so code is no wider than approximately 80 characters.
-6. Revised JavaScript/jQuery code to add more variables as references rather than
+4. I added an alert to the Target Temp fields and then needed one for Celsius as well.
+To accommodate this and to fix the issue of them appearing in all fields each time
+one was changed, I used the concept of classes and a data-attribute as suggested 
+by my mentor and [Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP),
+and it worked well with temperate literals. It is a good solution for #2 listed
+below in "Remaining Issues," but there was not time to implement it in the initial phase.
+5. Formatted comments in JavaScript file to meet JSDocs specs.
+6. Revised all files so code is no wider than approximately 80 characters.
+7. Revised JavaScript/jQuery code to add more variables as references rather than
 use class and id's (per [Eventyret_mentor](https://code-institute-room.slack.com/team/U4MVA9YQP)).
-7. HTML Validator showed error for select option without a value. I had 8 of these
+8. HTML Validator showed error for select option without a value. I had 8 of these
 error. On [stackOverflow](https://stackoverflow.com/questions/22237658/html5-validation-error-with-select-required-attribute) 
 I found solution that meets validator requirements yet enables me to keep a 
 blankoption: "&nbsp;".
-8. Also, my mentor told me about the best practice for code width to be 
+9. Also, my mentor told me about the best practice for code width to be 
 approximately 80 characters wide. I went back through and revised code to meet 
 that guideline with exception of URL's - which won't work if broken by 
 line break.
-9. Copy in the README and TESTING was copied into a Word to check and correct spelling.
+10. Copy in the README and TESTING was copied into a Word to check and correct spelling.
 
 ### Remaining Issues and Resolutions
 1. Browser compatibility issues remain as described above.
