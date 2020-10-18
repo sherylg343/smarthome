@@ -3,6 +3,7 @@ const deviceSelect = $("#device-select");
 const roomSelect = $("#room-select");
 const sliderClass = $(".slider");
 const lightSlider = $(".slidecontainer1 input");
+const fanSlider = $(".slidecontainer2 input");
 const schedFanSpeed = $("#speed3");
 const schedFanDir = $("#direction3");
 const schedBright = $("#brightness7");
@@ -32,7 +33,8 @@ const tempInputs = $(".temp input[type=text]");
 JavaScript / Reference / Global_Objects / Math / random */
 $(document).ready(function () {
 	//default off position of sliders
-	$(lightSlider).prop('disabled', true);
+    $(lightSlider).prop('disabled', true);
+    $(fanSlider).prop('disabled', true);
 	//default off position of dropdown menus
 	$('select').prop('disabled', 'disabled');
 /** enable all scheduling inputs (after all disabled above) */
@@ -513,7 +515,7 @@ lightSlider2.forEach(input => input.addEventListener('mousemove', lightSliderUpd
  * opes.com/rotate-image/),and from "An alternative to if/else and switch in 
  * JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-
  * if-else-and-switch-in-javascript/) */
-const speedSlide = document.querySelectorAll('.slidecontainer2 input');
+const speedSlide = document.querySelectorAll(fanSlider);
 
 function speedControl() {
 
