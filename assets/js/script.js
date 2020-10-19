@@ -515,7 +515,7 @@ lightSlider2.forEach(input => input.addEventListener('mousemove', lightSliderUpd
  * opes.com/rotate-image/),and from "An alternative to if/else and switch in 
  * JavaScript" by Fabien Huet (https://blog.wax-o.com/2015/05/an-alternative-to-
  * if-else-and-switch-in-javascript/) */
-const speedSlide = document.querySelectorAll(fanSlider);
+const speedSlide = document.querySelectorAll('slidecontainer2 input');
 
 function speedControl() {
 
